@@ -1,8 +1,13 @@
-import Image from "next/image";
-import Header from "@/app/components/Header"
+import Header from "@/app/components/Header";
+import ButtonSelections from "@/app/components/SelectionBar/ButtonSelections"
 
 export default function Home() {
   return (
-    <Header />
+    <>
+      <div className="flex justify-between ml-4 mr-4">
+        <Header />
+        <ButtonSelections />
+      </div>
+    </>
   );
 }

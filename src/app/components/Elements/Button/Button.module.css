@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Ailerons';
+    src: url('/fonts/Ailerons-TrialVersion.otf') format('opentype');
+    font-display: swap;
+}
+
+.button {
+    font-family: 'Ailerons', sans-serif;
+}
