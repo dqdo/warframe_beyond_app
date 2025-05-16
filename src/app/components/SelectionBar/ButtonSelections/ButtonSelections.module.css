@@ -1,0 +1,15 @@
+.archonIcon {
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.archonIconEnter {
+  opacity: 1S;
+  transform: scale(0.95);
+  filter: brightness(0.8);
+}
+
+.archonIconActive {
+  opacity: 1;
+  transform: scale(1);
+  filter: brightness(1);
+}
