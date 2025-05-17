@@ -13,8 +13,12 @@ const arcaneIcons = [
     '/images/arcanes/arcane_icon_activefull.png',
 ]
 
-export default function ButtonSelections() {
-    const [selectedButton, setSelectedButton] = useState<string | null>(null)
+type ButtonSelectionsProps = {
+    selectedButton: string | null
+    setSelectedButton: React.Dispatch<React.SetStateAction<string | null>>
+}
+
+export default function ButtonSelections({ selectedButton, setSelectedButton }: ButtonSelectionsProps) {
     const [arcaneIconIndex, setArcaneIconIndex] = useState(0)
     const [archonHover, setArchonHover] = useState(false)
     const [archonActive, setArchonActive] = useState(false)
@@ -22,22 +26,16 @@ export default function ButtonSelections() {
     const arcaneInterval = useRef<NodeJS.Timeout | null>(null)
 
     const toggleButton = useCallback((button: string) => {
-        const wasSelected = selectedButton === button
-
-        if (wasSelected) {
+        if (selectedButton === button) {
+            setArchonActive(false)
             setSelectedButton(null)
-            if (button === 'archon') {
-                setArchonActive(false)
-            }
         } else {
+            if (button === 'archon') setArchonActive(true)
+            else if (selectedButton === 'archon') setArchonActive(false)
             setSelectedButton(button)
-            if (button === 'archon') {
-                setArchonActive(true)
-            } else if (selectedButton === 'archon') {
-                setArchonActive(false)
-            }
         }
-    }, [selectedButton])
+    }, [selectedButton, setSelectedButton])
+
 
     useEffect(() => {
         if (arcaneInterval.current) {
@@ -57,7 +55,7 @@ export default function ButtonSelections() {
                 }
                 return next
             })
-        }, 100)
+        }, 70)
 
         return () => {
             if (arcaneInterval.current) {
@@ -78,20 +76,20 @@ export default function ButtonSelections() {
             <div className="flex items-center" onMouseEnter={() => setArchonHover(true)} onMouseLeave={() => setArchonHover(false)}>
                 <Button
                     text="Archon Shards"
-                    icon={<img src={archonImage} className={`w-11 h-11 ${styles.archonIcon} ${archonHover || archonActive ? styles.archonIconActive : styles.archonIconEnter}`}/>}
+                    icon={<img src={archonImage} className={`w-11 h-11 ${styles.archonIcon} ${archonHover || archonActive ? styles.archonIconActive : styles.archonIconEnter}`} />}
                     iconSize="w-11 h-11"
                     onClick={() => toggleButton('archon')}
                 />
             </div>
             <Button
                 text="Arcanes"
-                icon={<img src={arcaneIcons[arcaneIconIndex]} className="w-14 h-14 transition-opacity duration-200 ease-in-out"/>}
+                icon={<img src={arcaneIcons[arcaneIconIndex]} className="w-18 h-18 transition-opacity duration-200 ease-in-out" />}
                 iconSize="w-14 h-14"
                 onClick={() => toggleButton('arcanes')}
             />
             <Button
                 text="Mods"
-                icon={<AnyPolarityIcon className={`w-7 h-7 transition-transform duration-300 ${selectedButton === 'mods' ? 'text-green-500 rotate-180' : 'text-red-500'}`}/>}
+                icon={<AnyPolarityIcon className={`w-7 h-7 transition-transform duration-300 ${selectedButton === 'mods' ? 'text-green-500 rotate-180' : 'text-red-500'}`} />}
                 onClick={() => toggleButton('mods')}
             />
         </div>
