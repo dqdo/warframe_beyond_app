@@ -23,7 +23,7 @@ type DropdownProps = {
 const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
     default: {
         button: "w-30 text-xs h-8 justify-between rounded-md px-2 py-2 text-left shadow-sm flex items-center gap-2 bg-neutral-900 text-white border border-zinc-600 cursor-pointer",
-        list: "absolute z-1 mt-0.5 w-30 h-auto text-xs rounded-md overflow-auto bg-neutral-900 text-white border border-zinc-600",
+        list: "z-1 mt-0.5 w-30 h-auto text-xs rounded-md overflow-auto bg-neutral-900 text-white border border-zinc-600",
         item: "h-5 px-2 py-2 cursor-pointer flex items-center gap-2 hover:bg-black",
         header: "font-roboto text-center w-30 text-m",
     },
@@ -40,7 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
     };
 
     return (
-        <div className="relative inline-block">
+        <div>
             <div className={`${styles.header}`}>
                 {header}
             </div>
