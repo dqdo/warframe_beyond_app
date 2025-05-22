@@ -61,7 +61,11 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (ref.current && !ref.current.contains(event.target as Node)) {
-                onToggleOpen ? onToggleOpen(false) : setInternalOpen(false);
+                if (onToggleOpen) {
+                    onToggleOpen(false);
+                } else {
+                    setInternalOpen(false);
+                }
             }
         };
 
@@ -84,7 +88,7 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
             <button onClick={toggleOpen} className={`${styles.button}`}>
                 <div className="flex gap-1">
                     {selected?.icon}
-                    {selected?.label || label}
+                    {selected?.label ? selected.label : label}
                 </div>
                 {labelIcon}
             </button>
