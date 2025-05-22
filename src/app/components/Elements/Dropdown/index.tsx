@@ -70,7 +70,9 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
         }
 
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            if (isOpen) {
+                document.removeEventListener("mousedown", handleClickOutside);
+            }
         };
     }, [isOpen, onToggleOpen]);
 
