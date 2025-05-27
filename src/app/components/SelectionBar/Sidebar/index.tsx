@@ -1,4 +1,5 @@
 import { ModsDropdowns, ArcanesDropdowns, ArchonShardDropdowns } from "@/app/components/SelectionBar/Dropdowns";
+import SearchBar from "@/app/components/Elements/SearchBar";
 
 type SidebarProps = {
     type: string;
@@ -6,6 +7,19 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ type, isOpen }: SidebarProps) {
+    const getPlaceholder = () => {
+        switch (type) {
+            case "mods":
+                return "Search for Mods";
+            case "arcanes":
+                return "Search for Arcanes";
+            case "archon":
+                return "Search for Archon Shards";
+            default:
+                return "Search...";
+        }
+    };
+
     const dropdowns = () => {
         switch (type) {
             case "mods":
@@ -24,7 +38,10 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
         w-full sm:w-[80vw] md:w-[60vw] lg:w-[40vw] overflow-hidden
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
-            <div className="p-1 flex flex-col items-center overflow-y-auto">{dropdowns()}</div>
+            <div className="p-1 flex flex-col items-center overflow-y-auto">
+                <SearchBar onSearch={(q) => console.log(q)} placeholder={getPlaceholder()} />
+                {dropdowns()}
+            </div>
         </div>
 
     );
