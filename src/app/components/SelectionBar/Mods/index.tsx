@@ -1,28 +1,34 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchModNames } from '@/app/lib/api/fetchMods';
+import { fetchModsWithTextures, ModWithTexture } from '@/app/lib/api/fetchMods';
+import Image from 'next/image';
 
 export default function ModsViewer() {
-  const [modNames, setModNames] = useState<string[]>([]);
+  const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {
-    async function loadModNames() {
+    async function loadMods() {
       try {
-        const names = await fetchModNames();
-        setModNames(names);
+        const modList = await fetchModsWithTextures();
+        setMods(modList);
       } catch (err) {
         console.error('Failed to load mods', err);
       }
     }
-    loadModNames();
+    loadMods();
   }, []);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
-      {modNames.map((name, index) => (
-        <div key={index} className="border rounded p-2 text-center bg-grey shadow">
-          <h3 className="font-roboto text-sm">{name}</h3>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
+      {mods.map((mod, index) => (
+        <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
+          <div className="text-white text-sm mb-2 text-center">{mod.name}</div>
+          {mod.textureUrl ? (
+              <Image src={mod.textureUrl} alt={mod.name} width={128} height={128} className="w-full h-full" unoptimized/>
+          ) : (
+            <p className="text-gray-400 text-xs italic mt-4">No image</p>
+          )}
         </div>
       ))}
     </div>
