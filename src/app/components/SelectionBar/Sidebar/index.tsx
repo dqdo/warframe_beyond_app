@@ -1,6 +1,7 @@
-import { ModsDropdowns, ArcanesDropdowns, ArchonShardDropdowns } from "@/app/components/SelectionBar/Dropdowns";
+import { ModsDropdowns, ArcanesDropdowns, ArchonShardDropdowns } from "@/app/components/SelectionBar/Sidebar/Dropdowns";
 import SearchBar from "@/app/components/Elements/SearchBar";
-import ModsViewer from '@/app/components/SelectionBar/Mods';
+import ModsViewer from '@/app/components/SelectionBar/Sidebar/ModsViewer';
+import ArcanesViewer from "@/app/components/SelectionBar/Sidebar/ArcanesViewer";
 import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css'
 
 type SidebarProps = {
@@ -44,6 +45,7 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
                 <SearchBar onSearch={(q) => console.log(q)} placeholder={getPlaceholder()} />
                 {dropdowns()}
                 {type === "mods" && <ModsViewer/>}
+                {type === 'arcanes' && <ArcanesViewer/>}
             </div>
         </div>
 
