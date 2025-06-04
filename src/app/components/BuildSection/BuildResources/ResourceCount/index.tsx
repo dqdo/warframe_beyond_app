@@ -6,10 +6,10 @@ export function ResourceCount() {
         <>
             <div className="flex-col ml-5">
                 <div className="flex">
-                    {forma}:
+                    {endo}:
                 </div>
                 <div className="flex">
-                    {endo}:
+                    {forma}:
                 </div>
             </div>
         </>
