@@ -4,6 +4,8 @@ import Button from "@/app/components/Elements/Button"
 import { Modal } from "@/app/components/Elements/Modal"
 import { useState } from "react";
 import SearchBar from "@/app/components/Elements/SearchBar"
+import WarframesViewer from "@/app/components/BuildSection/WarframesViewer"
+import BuildSectionStyles from "@/app/components/BuildSection/BuildSection.module.css"
 
 export function BuildSection() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -18,8 +20,14 @@ export function BuildSection() {
             </div>
 
             <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-                <div className="items-center justify-center flex">
-                    <SearchBar onSearch={(q) => console.log(q)} variant="buildSelect" />
+                <div className="flex flex-col h-179">
+                    <div className="flex items-center justify-center">
+                        <SearchBar onSearch={(q) => console.log(q)} variant="buildSelect" />
+                    </div>
+                    <hr className="w-full border-white mt-1" />
+                    <div className={`overflow-auto ${BuildSectionStyles['scrollbar-custom']}`}>
+                        <WarframesViewer />
+                    </div>
                 </div>
             </Modal>
 

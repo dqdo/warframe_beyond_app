@@ -1,14 +1,22 @@
+export type UpgradeLevelStat = {
+    stats: string[];
+};
+
 export type UpgradesEntry = {
     uniqueName: string;
     name: string;
     polarity: string;
-    rarity: string;
+    rarity: 'COMMON' | 'UNCOMMON' | 'RARE' | 'LEGENDARY';
     codexSecret: boolean;
     baseDrain: number;
     fusionLimit: number;
+    excludeFromCodex: boolean;
+    isUtility: boolean;
     compatName: string;
     type: string;
     description: string[];
+    subtype?: string;
+    levelStats?: UpgradeLevelStat[];
 };
 
 type TextureEntry = {
@@ -41,7 +49,10 @@ export async function fetchModsWithTextures(): Promise<ModWithTexture[]> {
         manifest.map((entry) => [entry.uniqueName, entry.textureLocation])
     );
 
-    return upgrades.map((mod) => ({
+    const excludedPaths = ['/Randomized', '/Immortal', '/Grimoire', '/CrewShip']
+    const excludedNames = ['Unfused Artifact']
+
+    return upgrades.filter((mod) => !excludedPaths.some((path) => mod.uniqueName.includes(path)) && !excludedNames.includes(mod.name)).map((mod) => ({
         ...mod, textureUrl: textureMap.has(mod.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(mod.uniqueName)}` : null,
     }));
 }
