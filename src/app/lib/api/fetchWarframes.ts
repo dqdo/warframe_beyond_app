@@ -1,3 +1,5 @@
+import { DATA_HASHES } from '@/app/lib/constants/dataHashes';
+
 export type WarframeEntry = {
     uniqueName: string;
     name: string;
@@ -30,8 +32,8 @@ type TextureEntry = {
 export type WarframeWithTexture = WarframeEntry & { textureUrl: string | null };
 
 export async function fetchWarframesWithTextures(): Promise<WarframeWithTexture[]> {
-    const warframesHash = `ExportWarframes_en.json!00_eaq7vj6gHhKHmVbmVq2aAw`;
-    const manifestHash = `ExportManifest.json!00_w5hQItnM-1bKQNJUkXbcog`;
+    const warframesHash = DATA_HASHES.warframes.warframes;
+    const manifestHash = DATA_HASHES.manifest.manifest;
 
     const [warframesRes, manifestRes] = await Promise.all([
         fetch(`https://content.warframe.com/PublicExport/Manifest/${warframesHash}`),

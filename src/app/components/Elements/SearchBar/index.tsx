@@ -24,25 +24,23 @@ const variantStyles: Record<SearchBarStyleVariant, SearchBarStyle> = {
   },
 };
 
-export default function SearchBar({ onSearch, placeholder, variant = 'default', }: SearchBarProps) {
+export default function SearchBar({ onSearch, placeholder, variant = 'default',}: SearchBarProps) {
   const [query, setQuery] = useState('');
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      if (query.trim()) {
-        onSearch(query.trim());
-      }
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    onSearch(value);
   };
 
   const handleClear = () => {
     setQuery('');
+    onSearch('');
   };
 
   return (
     <div className={variantStyles[variant].wrapper}>
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleKeyDown} placeholder={placeholder ?? 'Search...'} className={variantStyles[variant].input} />
+      <input type="text" value={query} onChange={handleChange} placeholder={placeholder ?? 'Search...'} className={variantStyles[variant].input}/>
       {query && (
         <button onClick={handleClear} className="absolute right-2 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-white text-lg cursor-pointer">
           &times;

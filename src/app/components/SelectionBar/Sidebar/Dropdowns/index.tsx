@@ -20,29 +20,29 @@ const archonTypes = [
 ];
 
 const rarityOptions = [
-    { label: 'All', value: 'all' },
-    { label: 'Common', value: 'common', icon: <Image src="/images/arcanes/rarity/arcane_common.png" alt="common" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Uncommon', value: 'uncommon', icon: <Image src="/images/arcanes/rarity/arcane_uncommon.png" alt="uncommon" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Rare', value: 'rare', icon: <Image src="/images/arcanes/rarity/arcane_rare.png" alt="rare" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Legendary', value: 'legendary', icon: <Image src="/images/arcanes/rarity/arcane_legendary.png" alt="legendary" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'All', value: '' },
+    { label: 'Common', value: 'COMMON', icon: <Image src="/images/arcanes/rarity/arcane_common.png" alt="common" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Uncommon', value: 'UNCOMMON', icon: <Image src="/images/arcanes/rarity/arcane_uncommon.png" alt="uncommon" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Rare', value: 'RARE', icon: <Image src="/images/arcanes/rarity/arcane_rare.png" alt="rare" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Legendary', value: 'LEGENDARY', icon: <Image src="/images/arcanes/rarity/arcane_legendary.png" alt="legendary" width={12} height={12} className="h-3 w-3" /> },
 ];
 
 const polarityOptions = [
     { label: 'All', value: 'all' },
-    { label: 'Madurai', value: 'madurai', icon: <Image src="/images/mods/polarities/madurai_symbol.png" alt="madurai" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Vazarin', value: 'vazarin', icon: <Image src="/images/mods/polarities/vazarin_symbol.png" alt="vazarin" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Naramon', value: 'naramon', icon: <Image src="/images/mods/polarities/naramon_symbol.png" alt="naramon" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Zenurik', value: 'zenurik', icon: <Image src="/images/mods/polarities/zenurik_symbol.png" alt="zenurik" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Penjaga', value: 'penjaga', icon: <Image src="/images/mods/polarities/penjaga_symbol.png" alt="penjaga" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Unariu', value: 'unariu', icon: <Image src="/images/mods/polarities/unairu_symbol.png" alt="unariu" width={12} height={12} className="h-3 w-3" /> },
-    { label: 'Umbra', value: 'umbra', icon: <Image src="/images/mods/polarities/umbra_symbol.png" alt="umbra" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Madurai', value: 'AP_ATTACK', icon: <Image src="/images/mods/polarities/madurai_symbol.png" alt="madurai" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Vazarin', value: 'AP_DEFENSE', icon: <Image src="/images/mods/polarities/vazarin_symbol.png" alt="vazarin" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Naramon', value: 'AP_TACTIC', icon: <Image src="/images/mods/polarities/naramon_symbol.png" alt="naramon" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Zenurik', value: 'AP_POWER', icon: <Image src="/images/mods/polarities/zenurik_symbol.png" alt="zenurik" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Penjaga', value: 'AP_PRECEPT', icon: <Image src="/images/mods/polarities/penjaga_symbol.png" alt="penjaga" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Unariu', value: 'AP_WARD', icon: <Image src="/images/mods/polarities/unairu_symbol.png" alt="unariu" width={12} height={12} className="h-3 w-3" /> },
+    { label: 'Umbra', value: 'AP_UMBRA', icon: <Image src="/images/mods/polarities/umbra_symbol.png" alt="umbra" width={12} height={12} className="h-3 w-3" /> },
 ];
 
 const modTypeOptions = [
     { label: 'Mods', value: 'mods' },
-    { label: 'Aura', value: 'aura' },
+    { label: 'Aura', value: 'AURA' },
     { label: 'Exilus', value: 'exilus' },
-    { label: 'Stance', value: 'stance' },
+    { label: 'Stance', value: 'STANCE' },
 ];
 
 const gameModeOptions = [

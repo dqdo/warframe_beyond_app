@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ModsDropdowns, ArcanesDropdowns, ArchonShardDropdowns } from "@/app/components/SelectionBar/Sidebar/Dropdowns";
 import SearchBar from "@/app/components/Elements/SearchBar";
 import ModsViewer from '@/app/components/SelectionBar/Sidebar/ModsViewer';
@@ -10,6 +11,8 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ type, isOpen }: SidebarProps) {
+    const [query, setQuery] = useState('');
+
     const getPlaceholder = () => {
         switch (type) {
             case "mods":
@@ -35,6 +38,7 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
                 return null;
         }
     };
+
     return (
         <div
             className={`fixed right-0 h-[90vh] text-white bg-neutral-900 border-l border-b border-white border-t-0 border-r-0 transform transition-transform duration-400 ease-in-out
@@ -42,13 +46,11 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
             <div className="p-1 flex flex-col items-center">
-                <SearchBar onSearch={(q) => console.log(q)} placeholder={getPlaceholder()} />
+                <SearchBar onSearch={setQuery} placeholder={getPlaceholder()} />
                 {dropdowns()}
-                {type === "mods" && <ModsViewer/>}
-                {type === 'arcanes' && <ArcanesViewer/>}
+                {type === "mods" && <ModsViewer query={query} />}
+                {type === "arcanes" && <ArcanesViewer query={query} />}
             </div>
         </div>
-
     );
 }
-

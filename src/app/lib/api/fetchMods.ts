@@ -1,3 +1,5 @@
+import { DATA_HASHES } from '@/app/lib/constants/dataHashes';
+
 export type UpgradeLevelStat = {
     stats: string[];
 };
@@ -27,8 +29,8 @@ type TextureEntry = {
 export type ModWithTexture = UpgradesEntry & { textureUrl: string | null };
 
 export async function fetchModsWithTextures(): Promise<ModWithTexture[]> {
-    const upgradesHash = `ExportUpgrades_en.json!00_02E2DG0ASl+GrgiCwc+yAA`;
-    const manifestHash = `ExportManifest.json!00_w5hQItnM-1bKQNJUkXbcog`;
+    const upgradesHash = DATA_HASHES.mods.upgrades;
+    const manifestHash = DATA_HASHES.manifest.manifest;
 
     const [upgradesRes, manifestRes] = await Promise.all([
         fetch(`https://content.warframe.com/PublicExport/Manifest/${upgradesHash}`),

@@ -4,7 +4,11 @@ import { useEffect, useState } from 'react';
 import { fetchArcanesWithTextures, ArcaneWithTexture } from '@/app/lib/api/fetchArcanes';
 import Image from 'next/image';
 
-export default function ArcanesViewer() {
+type ArcanesViewerProps = {
+  query: string;
+};
+
+export default function ArcanesViewer({ query }: ArcanesViewerProps) {
   const [arcanes, setArcanes] = useState<ArcaneWithTexture[]>([]);
 
   useEffect(() => {
@@ -19,9 +23,13 @@ export default function ArcanesViewer() {
     loadArcanes();
   }, []);
 
+  const filteredArcanes = arcanes.filter((arcane) =>
+    arcane.name.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
-      {arcanes.map((arcane, index) => (
+      {filteredArcanes.map((arcane, index) => (
         <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
           <div className="text-white text-sm mb-2 text-center">{arcane.name}</div>
           {arcane.textureUrl ? (

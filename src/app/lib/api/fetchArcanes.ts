@@ -1,3 +1,5 @@
+import { DATA_HASHES } from '@/app/lib/constants/dataHashes';
+
 export type ArcaneLevelStat = {
     stats: string[];
 };
@@ -18,8 +20,8 @@ type TextureEntry = {
 export type ArcaneWithTexture = RelicArcaneEntry & { textureUrl: string | null };
 
 export async function fetchArcanesWithTextures(): Promise<ArcaneWithTexture[]> {
-    const RelicArcaneHash = `ExportRelicArcane_en.json!00_PAxs6AnN+kI-1Xa7SH+SYg`;
-    const manifestHash = `ExportManifest.json!00_w5hQItnM-1bKQNJUkXbcog`;
+    const RelicArcaneHash = DATA_HASHES.arcanes.relicArcane;
+    const manifestHash = DATA_HASHES.manifest.manifest;
 
     const [relicArcaneRes, manifestRes] = await Promise.all([
         fetch(`https://content.warframe.com/PublicExport/Manifest/${RelicArcaneHash}`),
