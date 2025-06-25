@@ -20,6 +20,7 @@ type DropdownProps = {
     styleVariant?: DropdownStyleVariant;
     isOpen?: boolean;
     onToggleOpen?: (open: boolean) => void;
+    onSelect?: (option: DropdownOption) => void;
 }
 
 const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
@@ -37,7 +38,7 @@ const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
     },
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, styleVariant = 'default', isOpen: externalIsOpen, onToggleOpen }) => {
+const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, styleVariant = 'default', isOpen: externalIsOpen, onToggleOpen, onSelect }) => {
     const [internalOpen, setInternalOpen] = useState(false);
     const [selected, setSelected] = useState<DropdownOption | null>(null);
     const styles = StyleVariant[styleVariant];
@@ -57,6 +58,9 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
 
     const handleSelect = (option: DropdownOption) => {
         setSelected(option);
+        if (onSelect) {
+            onSelect(option);
+        }
         if (onToggleOpen) {
             onToggleOpen(false);
         } else {

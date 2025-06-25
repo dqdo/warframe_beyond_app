@@ -6,9 +6,15 @@ import Image from 'next/image';
 
 type ModsViewerProps = {
   query: string;
+  filters?: {
+    polarity?: string | null;
+    rarity?: string | null;
+    type?: string | null;
+  };
 };
 
-export default function ModsViewer({ query }: ModsViewerProps) {
+
+export default function ModsViewer({ query, filters }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {
@@ -23,9 +29,14 @@ export default function ModsViewer({ query }: ModsViewerProps) {
     loadMods();
   }, []);
 
-  const filteredMods = mods.filter((mod) =>
-    mod.name.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredMods = mods.filter((mod) => {
+    const nameMatch = mod.name.toLowerCase().includes(query.toLowerCase());
+    const polarityMatch = !filters?.polarity || mod.polarity === filters.polarity;
+    const rarityMatch = !filters?.rarity || mod.rarity === filters.rarity;
+
+    return nameMatch && polarityMatch && rarityMatch;
+  });
+
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">

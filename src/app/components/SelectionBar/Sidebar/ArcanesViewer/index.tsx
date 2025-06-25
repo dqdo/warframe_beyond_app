@@ -6,9 +6,12 @@ import Image from 'next/image';
 
 type ArcanesViewerProps = {
   query: string;
+  filters?: {
+    rarity?: string | null;
+  };
 };
 
-export default function ArcanesViewer({ query }: ArcanesViewerProps) {
+export default function ArcanesViewer({ query, filters }: ArcanesViewerProps) {
   const [arcanes, setArcanes] = useState<ArcaneWithTexture[]>([]);
 
   useEffect(() => {
@@ -23,9 +26,11 @@ export default function ArcanesViewer({ query }: ArcanesViewerProps) {
     loadArcanes();
   }, []);
 
-  const filteredArcanes = arcanes.filter((arcane) =>
-    arcane.name.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredArcanes = arcanes.filter((arcane) => {
+    const nameMatch = arcane.name.toLowerCase().includes(query.toLowerCase());
+    const rarityMatch = !filters?.rarity || arcane.rarity === filters.rarity;
+    return nameMatch && rarityMatch;
+  });
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">

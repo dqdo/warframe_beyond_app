@@ -28,7 +28,7 @@ const rarityOptions = [
 ];
 
 const polarityOptions = [
-    { label: 'All', value: 'all' },
+    { label: 'All', value: '' },
     { label: 'Madurai', value: 'AP_ATTACK', icon: <Image src="/images/mods/polarities/madurai_symbol.png" alt="madurai" width={12} height={12} className="h-3 w-3" /> },
     { label: 'Vazarin', value: 'AP_DEFENSE', icon: <Image src="/images/mods/polarities/vazarin_symbol.png" alt="vazarin" width={12} height={12} className="h-3 w-3" /> },
     { label: 'Naramon', value: 'AP_TACTIC', icon: <Image src="/images/mods/polarities/naramon_symbol.png" alt="naramon" width={12} height={12} className="h-3 w-3" /> },
@@ -68,22 +68,31 @@ export function ArchonShardDropdowns() {
     );
 }
 
-export function ArcanesDropdowns() {
+type ArcanesDropdownsProps = {
+    onRarityChange?: (val: string | null) => void;
+};
+
+export function ArcanesDropdowns({ onRarityChange }: ArcanesDropdownsProps) {
     return (
         <div className="flex gap-3">
-            <Dropdown label="All" options={rarityOptions} header="Rarity" labelIcon={arrowIcon} />
+            <Dropdown label="All" options={rarityOptions} header="Rarity" labelIcon={arrowIcon} onSelect={(option) => onRarityChange?.(option.value)} />
         </div>
     );
 }
 
-export function ModsDropdowns() {
+type ModsDropdownsProps = {
+    onPolarityChange?: (val: string | null) => void;
+    onRarityChange?: (val: string | null) => void;
+};
+
+export function ModsDropdowns({ onPolarityChange, onRarityChange }: ModsDropdownsProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     return (
         <div className="flex gap-3">
-            <Dropdown label="All" options={polarityOptions} header="Polarity" labelIcon={arrowIcon} isOpen={openDropdown === 'polarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'polarity' : null)} />
+            <Dropdown label="All" options={polarityOptions} header="Polarity" labelIcon={arrowIcon} isOpen={openDropdown === 'polarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'polarity' : null)} onSelect={(option) => onPolarityChange?.(option.value)} />
             <Dropdown label="Mods" options={modTypeOptions} header="Type" labelIcon={arrowIcon} isOpen={openDropdown === 'type'} onToggleOpen={(open) => setOpenDropdown(open ? 'type' : null)} />
-            <Dropdown label="All" options={rarityOptions} header="Rarity" labelIcon={arrowIcon} isOpen={openDropdown === 'rarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'rarity' : null)} />
+            <Dropdown label="All" options={rarityOptions} header="Rarity" labelIcon={arrowIcon} isOpen={openDropdown === 'rarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'rarity' : null)} onSelect={(option) => onRarityChange?.(option.value)} />
             <Dropdown label="PVE" options={gameModeOptions} header="Game Mode" labelIcon={arrowIcon} isOpen={openDropdown === 'gameMode'} onToggleOpen={(open) => setOpenDropdown(open ? 'gameMode' : null)} />
             <Dropdown label="Name" options={sortOptions} header="Sort" labelIcon={arrowIcon} isOpen={openDropdown === 'sort'} onToggleOpen={(open) => setOpenDropdown(open ? 'sort' : null)} />
         </div>

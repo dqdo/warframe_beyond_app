@@ -12,6 +12,14 @@ type SidebarProps = {
 
 export default function Sidebar({ type, isOpen }: SidebarProps) {
     const [query, setQuery] = useState('');
+    const [filters, setFilters] = useState<{
+        polarity?: string | null;
+        rarity?: string | null;
+    }>({});
+
+    const updateFilter = (key: keyof typeof filters, value: string | null) => {
+        setFilters((prevFilters) => ({ ...prevFilters, [key]: value }));
+    };
 
     const getPlaceholder = () => {
         switch (type) {
@@ -29,9 +37,9 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
     const dropdowns = () => {
         switch (type) {
             case "mods":
-                return <ModsDropdowns />;
+                return <ModsDropdowns onPolarityChange={(val) => updateFilter("polarity", val)} onRarityChange={(val) => updateFilter("rarity", val)} />;
             case "arcanes":
-                return <ArcanesDropdowns />;
+                return <ArcanesDropdowns onRarityChange={(val) => updateFilter("rarity", val)} />;
             case "archon":
                 return <ArchonShardDropdowns />;
             default:
@@ -48,8 +56,8 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
             <div className="p-1 flex flex-col items-center">
                 <SearchBar onSearch={setQuery} placeholder={getPlaceholder()} />
                 {dropdowns()}
-                {type === "mods" && <ModsViewer query={query} />}
-                {type === "arcanes" && <ArcanesViewer query={query} />}
+                {type === "mods" && <ModsViewer query={query} filters={filters} />}
+                {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
             </div>
         </div>
     );
