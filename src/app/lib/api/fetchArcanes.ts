@@ -48,5 +48,5 @@ export async function fetchArcanesWithTextures(): Promise<ArcaneWithTexture[]> {
 
     return arcanes.map((arcane) => ({
         ...arcane, textureUrl: textureMap.has(arcane.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(arcane.uniqueName)}` : null,
-    }));
+    })).sort((a, b) => a.name.localeCompare(b.name));
 }

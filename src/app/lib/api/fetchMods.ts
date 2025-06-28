@@ -56,5 +56,5 @@ export async function fetchModsWithTextures(): Promise<ModWithTexture[]> {
 
     return upgrades.filter((mod) => !excludedPaths.some((path) => mod.uniqueName.includes(path)) && !excludedNames.includes(mod.name)).map((mod) => ({
         ...mod, textureUrl: textureMap.has(mod.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(mod.uniqueName)}` : null,
-    }));
+    })).sort((a, b) => a.name.localeCompare(b.name));
 }

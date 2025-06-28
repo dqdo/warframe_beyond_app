@@ -39,22 +39,22 @@ const polarityOptions = [
 ];
 
 const modTypeOptions = [
-    { label: 'Mods', value: 'mods' },
+    { label: 'Mods', value: '' },
     { label: 'Aura', value: 'AURA' },
-    { label: 'Exilus', value: 'exilus' },
+    { label: 'Exilus', value: 'UTILITY' },
     { label: 'Stance', value: 'STANCE' },
 ];
 
-const gameModeOptions = [
-    { label: 'PVE', value: 'pve' },
-    { label: 'Conclave', value: 'conclave' },
-];
+// const gameModeOptions = [
+//     { label: 'PVE', value: 'pve' },
+//     { label: 'Conclave', value: 'conclave' },
+// ];
 
-const sortOptions = [
-    { label: 'Name', value: 'name' },
-    { label: 'Drain', value: 'drain' },
-    { label: 'Max Rank', value: 'rank' },
-];
+// const sortOptions = [
+//     { label: 'Name', value: 'name' },
+//     { label: 'Drain', value: 'drain' },
+//     { label: 'Max Rank', value: 'rank' },
+// ];
 
 export function ArchonShardDropdowns() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -83,18 +83,19 @@ export function ArcanesDropdowns({ onRarityChange }: ArcanesDropdownsProps) {
 type ModsDropdownsProps = {
     onPolarityChange?: (val: string | null) => void;
     onRarityChange?: (val: string | null) => void;
+    onTypeChange?: (val: string | null) => void;
 };
 
-export function ModsDropdowns({ onPolarityChange, onRarityChange }: ModsDropdownsProps) {
+export function ModsDropdowns({ onPolarityChange, onRarityChange, onTypeChange }: ModsDropdownsProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     return (
         <div className="flex gap-3">
             <Dropdown label="All" options={polarityOptions} header="Polarity" labelIcon={arrowIcon} isOpen={openDropdown === 'polarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'polarity' : null)} onSelect={(option) => onPolarityChange?.(option.value)} />
-            <Dropdown label="Mods" options={modTypeOptions} header="Type" labelIcon={arrowIcon} isOpen={openDropdown === 'type'} onToggleOpen={(open) => setOpenDropdown(open ? 'type' : null)} />
+            <Dropdown label="Mods" options={modTypeOptions} header="Type" labelIcon={arrowIcon} isOpen={openDropdown === 'type'} onToggleOpen={(open) => setOpenDropdown(open ? 'type' : null)} onSelect={(option) => onTypeChange?.(option.value)} />
             <Dropdown label="All" options={rarityOptions} header="Rarity" labelIcon={arrowIcon} isOpen={openDropdown === 'rarity'} onToggleOpen={(open) => setOpenDropdown(open ? 'rarity' : null)} onSelect={(option) => onRarityChange?.(option.value)} />
-            <Dropdown label="PVE" options={gameModeOptions} header="Game Mode" labelIcon={arrowIcon} isOpen={openDropdown === 'gameMode'} onToggleOpen={(open) => setOpenDropdown(open ? 'gameMode' : null)} />
-            <Dropdown label="Name" options={sortOptions} header="Sort" labelIcon={arrowIcon} isOpen={openDropdown === 'sort'} onToggleOpen={(open) => setOpenDropdown(open ? 'sort' : null)} />
+            {/* <Dropdown label="PVE" options={gameModeOptions} header="Game Mode" labelIcon={arrowIcon} isOpen={openDropdown === 'gameMode'} onToggleOpen={(open) => setOpenDropdown(open ? 'gameMode' : null)} /> */}
+            {/* <Dropdown label="Name" options={sortOptions} header="Sort" labelIcon={arrowIcon} isOpen={openDropdown === 'sort'} onToggleOpen={(open) => setOpenDropdown(open ? 'sort' : null)} /> */}
         </div>
     );
 }

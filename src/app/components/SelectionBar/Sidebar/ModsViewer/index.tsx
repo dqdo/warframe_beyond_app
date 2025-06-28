@@ -33,8 +33,9 @@ export default function ModsViewer({ query, filters }: ModsViewerProps) {
     const nameMatch = mod.name.toLowerCase().includes(query.toLowerCase());
     const polarityMatch = !filters?.polarity || mod.polarity === filters.polarity;
     const rarityMatch = !filters?.rarity || mod.rarity === filters.rarity;
+    const typeMatch = !filters?.type || (filters.type === "UTILITY" ? mod.isUtility === true : mod.type === filters.type);
 
-    return nameMatch && polarityMatch && rarityMatch;
+    return nameMatch && polarityMatch && rarityMatch && typeMatch;
   });
 
 

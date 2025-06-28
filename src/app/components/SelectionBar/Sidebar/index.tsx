@@ -15,6 +15,7 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
     const [filters, setFilters] = useState<{
         polarity?: string | null;
         rarity?: string | null;
+        type?: string | null;
     }>({});
 
     const updateFilter = (key: keyof typeof filters, value: string | null) => {
@@ -37,7 +38,7 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
     const dropdowns = () => {
         switch (type) {
             case "mods":
-                return <ModsDropdowns onPolarityChange={(val) => updateFilter("polarity", val)} onRarityChange={(val) => updateFilter("rarity", val)} />;
+                return <ModsDropdowns onPolarityChange={(val) => updateFilter("polarity", val)} onRarityChange={(val) => updateFilter("rarity", val)} onTypeChange={(val) => updateFilter("type", val)} />;
             case "arcanes":
                 return <ArcanesDropdowns onRarityChange={(val) => updateFilter("rarity", val)} />;
             case "archon":
