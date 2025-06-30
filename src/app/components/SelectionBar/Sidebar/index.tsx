@@ -51,12 +51,15 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
     return (
         <div
             className={`fixed right-0 h-[90vh] text-white bg-neutral-900 border-l border-b border-white border-t-0 border-r-0 transform transition-transform duration-400 ease-in-out
-        w-full sm:w-[80vw] md:w-[60vw] lg:w-[40vw] overflow-y-auto ${SidebarStyles['scrollbar-custom']}
-        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        w-full sm:w-[80vw] md:w-[60vw] lg:w-[40vw] overflow-hidden flex flex-col
+        ${SidebarStyles['scrollbar-custom']} ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
-            <div className="p-1 flex flex-col items-center">
+            <div className="flex flex-col items-center">
                 <SearchBar onSearch={setQuery} placeholder={getPlaceholder()} />
                 {dropdowns()}
+            </div>
+
+            <div className="overflow-y-auto mt-5">
                 {type === "mods" && <ModsViewer query={query} filters={filters} />}
                 {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
             </div>
