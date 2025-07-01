@@ -56,6 +56,6 @@ export async function fetchWarframesWithTextures(): Promise<WarframeWithTexture[
 
     return warframes.filter((warframe) => warframe.productCategory === 'Suits').map((warframe) => ({
         ...warframe, textureUrl: textureMap.has(warframe.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(warframe.uniqueName)}` : null,
-    }));
+    })).sort((a, b) => a.name.localeCompare(b.name));
 
 }

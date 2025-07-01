@@ -11,4 +11,7 @@ export const DATA_HASHES = {
   manifest: {
     manifest: 'ExportManifest.json!00_0mtxIXHQ+E0Z2i8Jr+elEQ',
   },
+  weapons: {
+    weapons: 'ExportWeapons_en.json!00_cvUPQzwNqPAo-ZCjxHSf-A'
+  }
 };
