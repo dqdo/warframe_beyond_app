@@ -27,9 +27,9 @@ export default function WeaponsViewer({ selectedBuildType, query }: WeaponsViewe
     const filteredWeapons = weapons.filter((weapon) => {
         const typeMatch = (() => {
             switch (selectedBuildType) {
-                case 'primary': return weapon.productCategory === 'LongGuns';
-                case 'secondary': return weapon.productCategory === 'Pistols';
-                case 'melee': return weapon.productCategory === 'Melee';
+                case 'Primary': return weapon.productCategory === 'LongGuns';
+                case 'Secondary': return weapon.productCategory === 'Pistols';
+                case 'Melee': return weapon.productCategory === 'Melee';
                 default: return null;
             }
         })();

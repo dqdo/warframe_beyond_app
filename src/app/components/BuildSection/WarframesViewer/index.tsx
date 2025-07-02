@@ -25,7 +25,7 @@ export default function WarframesViewer({ selectedBuildType, query }: WarframesV
         loadWarframes();
     }, []);
 
-    if (selectedBuildType !== 'warframe') {
+    if (selectedBuildType !== 'Warframe') {
         return null;
     }
 
