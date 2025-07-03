@@ -1,4 +1,4 @@
-import { ModSlot } from "@/app/components/ModSlotsContainer/ModSlot"
+import { ModSlot } from "@/app/components/Slots/ModSlotsContainer/ModSlot"
 
 type ModSlotsContainerProps = {
     isSidebarOpen: boolean;

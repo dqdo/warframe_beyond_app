@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/SelectionBar";
 import { useState } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
-import { ModSlotsContainer } from "@/app/components/ModSlotsContainer";
+import { Slots } from "@/app/components/Slots";
 
 export default function Home() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -22,8 +22,8 @@ export default function Home() {
 
       <BuildSection />
 
-      <div className={`flex items-center justify-center min-h-[50vh] mt-20 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-        <ModSlotsContainer isSidebarOpen={isSidebarOpen} />
+      <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
+        <Slots isSidebarOpen = {isSidebarOpen}/>
       </div>
 
     </>
