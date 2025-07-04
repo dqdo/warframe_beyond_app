@@ -10,7 +10,9 @@ export function Slots({ isSidebarOpen }: SlotsProps) {
     return (
         <>
             <div className="flex flex-col items-center justify-center">
-                <ModSlotsContainer isSidebarOpen={isSidebarOpen} />
+                <div className="z-10">
+                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} />
+                </div>
                 <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} />
                 <ArchonShardSlotsContainer isSidebarOpen={isSidebarOpen} />
             </div>

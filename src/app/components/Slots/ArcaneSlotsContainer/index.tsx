@@ -7,10 +7,13 @@ type ArcaneSlotsContainerProps = {
 export function ArcaneSlotsContainer({ isSidebarOpen }: ArcaneSlotsContainerProps) {
     return (
         <>
-            <div className={`flex justify-center gap-2 mt-5 ${isSidebarOpen ? "-translate-x-10" : "translate-x-0"}`}>
-                <ArcaneSlot />
-                <ArcaneSlot />
+            <div className={`${isSidebarOpen ? "-translate-x-0" : "translate-x-0"}`}>
+                <div className="flex justify-center gap-2 mt-5">
+                    <ArcaneSlot />
+                    <ArcaneSlot />
+                </div>
             </div>
+
         </>
     )
 }

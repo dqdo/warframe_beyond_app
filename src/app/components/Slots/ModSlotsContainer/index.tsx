@@ -6,14 +6,14 @@ type ModSlotsContainerProps = {
 
 export function ModSlotsContainer({ isSidebarOpen }: ModSlotsContainerProps) {
     return (
-        <div>
-            <div className={`flex justify-center gap-2 ${isSidebarOpen ? "-translate-x-10" : "translate-x-0"}`}>
-                <ModSlot />
-                <ModSlot />
+        <div className={`${isSidebarOpen ? "-translate-x-0" : "translate-x-0"}`}>
+            <div className="flex justify-center gap-2">
+                <ModSlot type="AURA" />
+                <ModSlot type="UTLITY" />
             </div>
-            <div className={`grid ${isSidebarOpen ? "-translate-x-10 grid-cols-2" : "translate-x-0 grid-cols-4"} gap-2`}>
+            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} gap-2`}>
                 {Array.from({ length: 8 }, (_, i) => (
-                    <ModSlot key={i} />
+                    <ModSlot key={i} type="Mod" />
                 ))}
             </div>
         </div>
