@@ -21,20 +21,12 @@ type ButtonSelectionsProps = {
 export default function ButtonSelections({ selectedButton, setSelectedButton }: ButtonSelectionsProps) {
     const [arcaneIconIndex, setArcaneIconIndex] = useState(0)
     const [archonHover, setArchonHover] = useState(false)
-    const [archonActive, setArchonActive] = useState(false)
 
     const arcaneInterval = useRef<NodeJS.Timeout | null>(null)
 
     const toggleButton = useCallback((button: string) => {
-        if (selectedButton === button) {
-            setArchonActive(false)
-            setSelectedButton(null)
-        } else {
-            if (button === 'archon') setArchonActive(true)
-            else if (selectedButton === 'archon') setArchonActive(false)
-            setSelectedButton(button)
-        }
-    }, [selectedButton, setSelectedButton])
+        setSelectedButton(prev => (prev === button ? null : button))
+    }, [setSelectedButton])
 
 
     useEffect(() => {
@@ -66,17 +58,26 @@ export default function ButtonSelections({ selectedButton, setSelectedButton }: 
     }, [selectedButton])
 
     const archonImage = useMemo(() => (
-        archonHover || archonActive
+        archonHover || selectedButton === 'archon'
             ? '/images/archon_shards/archon_shard_glow.png'
             : '/images/archon_shards/archon_shard.png'
-    ), [archonHover, archonActive])
+    ), [archonHover, selectedButton])
 
     return (
         <div className="flex space-x-4">
-            <div className="flex items-center" onMouseEnter={() => setArchonHover(true)} onMouseLeave={() => setArchonHover(false)}>
+            <div
+                className="flex items-center"
+                onMouseEnter={() => setArchonHover(true)}
+                onMouseLeave={() => setArchonHover(false)}
+            >
                 <Button
                     text="Archon Shards"
-                    icon={<img src={archonImage} className={`w-11 h-11 ${styles.archonIcon} ${archonHover || archonActive ? styles.archonIconActive : styles.archonIconEnter}`} />}
+                    icon={<img src={archonImage}
+                        className={`w-11 h-11 transition-all duration-300 ease-in-out ${archonHover || selectedButton === 'archon'
+                            ? 'brightness-125 opacity-100'
+                            : ''
+                            } ${styles.archonIcon}`}
+                    />}
                     iconSize="w-11 h-11"
                     onClick={() => toggleButton('archon')}
                 />
