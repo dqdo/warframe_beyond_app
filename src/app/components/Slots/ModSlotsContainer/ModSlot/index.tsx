@@ -3,6 +3,7 @@ import Dropdown from "@/app/components/Elements/Dropdown"
 
 type ModSlotProps = {
     type: string;
+    setSelectedButton: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -21,14 +22,18 @@ const polarityOptions = [
 
 
 
-export function ModSlot({ type }: ModSlotProps) {
+export function ModSlot({ type, setSelectedButton }: ModSlotProps) {
+    const handleClick = () => {
+        setSelectedButton("mods")
+    }
+
     return (
         <>
             <div className="flex flex-col items-center">
                 <div className="">
                     <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
                 </div>
-                <div className="relative">
+                <div className="relative cursor-pointer" onClick={handleClick}>
                     <Image src={"/images/mods/mod_slot.png"} alt="Mod Slot" height={200} width={200} />
 
                     {type === "UTLITY" && (

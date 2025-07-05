@@ -4,17 +4,19 @@ import { ArchonShardSlotsContainer } from "@/app/components/Slots/ArchonShardSlo
 
 type SlotsProps = {
     isSidebarOpen: boolean;
+    setSelectedButton: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export function Slots({ isSidebarOpen }: SlotsProps) {
+export function Slots({ isSidebarOpen, setSelectedButton }: SlotsProps) {
+
     return (
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className="z-10">
-                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} />
+                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} />
                 </div>
-                <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} />
-                <ArchonShardSlotsContainer isSidebarOpen={isSidebarOpen} />
+                <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} />
+                <ArchonShardSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} />
             </div>
         </>
     )
