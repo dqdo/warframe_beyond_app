@@ -23,7 +23,7 @@ export default function Home() {
       <BuildSection />
 
       <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-        <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} />
+        <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} />
       </div>
 
     </>

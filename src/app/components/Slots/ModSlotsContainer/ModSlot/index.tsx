@@ -1,9 +1,14 @@
 import Image from "next/image"
 import Dropdown from "@/app/components/Elements/Dropdown"
+import { useState } from "react";
 
 type ModSlotProps = {
+    id: string;
     type: string;
     setSelectedButton: React.Dispatch<React.SetStateAction<string | null>>;
+    selectedSlot: string | null;
+    setSelectedSlot: React.Dispatch<React.SetStateAction<string | null>>;
+    selectedButton: string | null;
 }
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -22,9 +27,13 @@ const polarityOptions = [
 
 
 
-export function ModSlot({ type, setSelectedButton }: ModSlotProps) {
+export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton }: ModSlotProps) {
+    const isSelected = selectedSlot === id;
+    const [hover, setHover] = useState(false);
+
     const handleClick = () => {
         setSelectedButton("mods")
+        setSelectedSlot(id)
     }
 
     return (
@@ -33,7 +42,8 @@ export function ModSlot({ type, setSelectedButton }: ModSlotProps) {
                 <div className="">
                     <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
                 </div>
-                <div className="relative cursor-pointer" onClick={handleClick}>
+                <div className={`relative cursor-pointer ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`}
+                    onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}>
                     <Image src={"/images/mods/mod_slot.png"} alt="Mod Slot" height={200} width={200} />
 
                     {type === "UTLITY" && (
