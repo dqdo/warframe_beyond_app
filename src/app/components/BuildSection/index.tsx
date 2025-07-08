@@ -7,6 +7,7 @@ import SearchBar from "@/app/components/Elements/SearchBar"
 import WarframesViewer from "@/app/components/BuildSection/WarframesViewer"
 import WeaponsViewer from "@/app/components/BuildSection/WeaponsViewer";
 import BuildSectionStyles from "@/app/components/BuildSection/BuildSection.module.css"
+import { WarframeAbilitiesViewer } from "@/app/components/BuildSection/WarframeAbilitiesViewer";
 
 export function BuildSection() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -21,6 +22,12 @@ export function BuildSection() {
                 {selectedBuildType && (
                     <div className="flex justify-center mb-3">
                         <Button text={`Select a ${selectedBuildType}`} variant="selectBuild" onClick={() => { setModalOpen(true); setQuery('') }} />
+                    </div>
+                )}
+
+                {selectedBuildType == "Warframe" && (
+                    <div className="relative z-1">
+                        <WarframeAbilitiesViewer />
                     </div>
                 )}
 
