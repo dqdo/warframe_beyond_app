@@ -3,7 +3,8 @@ import { ModsDropdowns, ArcanesDropdowns, ArchonShardDropdowns } from "@/app/com
 import SearchBar from "@/app/components/Elements/SearchBar";
 import ModsViewer from '@/app/components/SelectionBar/Sidebar/ModsViewer';
 import ArcanesViewer from "@/app/components/SelectionBar/Sidebar/ArcanesViewer";
-import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css'
+import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css';
+import SlidingButton from "@/app/components/Elements/SlidingButton";
 
 type SidebarProps = {
     type: string;
@@ -12,6 +13,7 @@ type SidebarProps = {
 
 export default function Sidebar({ type, isOpen }: SidebarProps) {
     const [query, setQuery] = useState('');
+    const [expandAll, setExpandAll] = useState(false);
     const [filters, setFilters] = useState<{
         polarity?: string | null;
         rarity?: string | null;
@@ -57,10 +59,13 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
             <div className="flex flex-col items-center">
                 <SearchBar onSearch={setQuery} placeholder={getPlaceholder()} />
                 {dropdowns()}
+                <div className="w-full ml-10 mt-3 flex gap-3 justify-start">
+                    {type === "mods" && <div className="flex gap-3"><SlidingButton isOn={expandAll} onToggle={setExpandAll} />Expand Mods</div>}
+                </div>
             </div>
 
             <div className="overflow-y-auto mt-5">
-                {type === "mods" && <ModsViewer query={query} filters={filters} />}
+                {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} />}
                 {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
             </div>
         </div>

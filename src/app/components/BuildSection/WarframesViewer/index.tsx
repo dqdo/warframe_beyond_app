@@ -40,7 +40,7 @@ export default function WarframesViewer({ selectedBuildType, query }: WarframesV
                 <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
                     <div className="text-white text-sm mb-2 text-center">{warframe.name}</div>
                     {warframe.textureUrl ? (
-                        <Image src={warframe.textureUrl} alt={warframe.name} width={128} height={128} className="w-full h-full" unoptimized />
+                        <Image src={warframe.textureUrl} alt={warframe.name} width={128} height={128} className="w-full h-full" unoptimized loading="lazy" />
                     ) : (
                         <p className="text-gray-400 text-xs italic mt-4">No image</p>
                     )}

@@ -38,7 +38,7 @@ export default function ArcanesViewer({ query, filters }: ArcanesViewerProps) {
         <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
           <div className="text-white text-sm mb-2 text-center">{arcane.name}</div>
           {arcane.textureUrl ? (
-            <Image src={arcane.textureUrl} alt={arcane.name} width={128} height={128} className="w-full h-full" unoptimized />
+            <Image src={arcane.textureUrl} alt={arcane.name} width={128} height={128} className="w-full h-full" unoptimized loading="lazy" />
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>
           )}
