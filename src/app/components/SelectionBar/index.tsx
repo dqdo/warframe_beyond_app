@@ -14,14 +14,15 @@ export function SelectionBarButtons({ selectedButton, setSelectedButton }: Selec
 
 type SidebarGroupProps = {
     selectedButton: string | null;
+    selectedBuildType: string | null;
 };
 
-export function SelectionBarSidebar({ selectedButton }: SidebarGroupProps) {
+export function SelectionBarSidebar({ selectedButton, selectedBuildType }: SidebarGroupProps) {
     const sidebarTypes = ["mods", "archon", "arcanes"];
     return (
         <>
             {sidebarTypes.map((type) => (
-                <Sidebar key={type} type={type} isOpen={selectedButton === type} />
+                <Sidebar key={type} type={type} isOpen={selectedButton === type} selectedBuildType={selectedBuildType} />
             ))}
         </>
     );

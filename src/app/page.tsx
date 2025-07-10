@@ -8,6 +8,7 @@ import { Slots } from "@/app/components/Slots";
 export default function Home() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const isSidebarOpen = selectedButton !== null;
+  const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
 
   return (
     <>
@@ -18,13 +19,15 @@ export default function Home() {
 
       <hr className="w-full border-white" />
 
-      <SelectionBarSidebar selectedButton={selectedButton} />
+      <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
 
-      <BuildSection />
+      <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
 
-      <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-        <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} />
-      </div>
+      {selectedBuildType != null && (
+        <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
+          <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+        </div>
+      )}
 
     </>
   );

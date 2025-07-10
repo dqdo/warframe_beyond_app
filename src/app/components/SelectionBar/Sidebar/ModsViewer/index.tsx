@@ -13,6 +13,7 @@ type ModsViewerProps = {
     type?: string | null;
   };
   expandAll?: boolean;
+  selectedBuildType: string | null;
 };
 
 function getModDetails(mod: ModWithTexture) {
@@ -32,7 +33,7 @@ function getModDetails(mod: ModWithTexture) {
   );
 }
 
-export default function ModsViewer({ query, filters, expandAll }: ModsViewerProps) {
+export default function ModsViewer({ query, filters, expandAll, selectedBuildType }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -48,13 +49,29 @@ export default function ModsViewer({ query, filters, expandAll }: ModsViewerProp
     loadMods();
   }, []);
 
+  function getSelectedBuildTypeMods(buildType: string | null): string[] | null {
+    if (!buildType) return null;
+
+    const map: Record<string, string[]> = {
+      warframe: ["WARFRAME"],
+      primary: ["PRIMARY"],
+      secondary: ["SECONDARY"],
+      melee: ["MELEE"],
+    };
+
+    return map[buildType.toLowerCase()] || null;
+  }
+
+  const allowedModTypes = getSelectedBuildTypeMods(selectedBuildType);
+
   const filteredMods = mods.filter((mod) => {
     const nameMatch = mod.name.toLowerCase().includes(query.toLowerCase());
     const polarityMatch = !filters?.polarity || mod.polarity === filters.polarity;
     const rarityMatch = !filters?.rarity || mod.rarity === filters.rarity;
     const typeMatch = !filters?.type || (filters.type === "UTILITY" ? mod.isUtility === true : mod.type === filters.type);
+    const buildTypeMatch = !allowedModTypes || allowedModTypes.includes(mod.type);
 
-    return nameMatch && polarityMatch && rarityMatch && typeMatch;
+    return nameMatch && polarityMatch && rarityMatch && typeMatch && buildTypeMatch;
   });
 
 

@@ -9,15 +9,19 @@ import WeaponsViewer from "@/app/components/BuildSection/WeaponsViewer";
 import BuildSectionStyles from "@/app/components/BuildSection/BuildSection.module.css"
 import { WarframeAbilitiesViewer } from "@/app/components/BuildSection/WarframeAbilitiesViewer";
 
-export function BuildSection() {
+type BuildSectionProps = {
+    selectedBuildType: string | null;
+    onBuildTypeSelect: (type: string | null) => void;
+}
+
+export function BuildSection({ selectedBuildType, onBuildTypeSelect }: BuildSectionProps) {
     const [modalOpen, setModalOpen] = useState(false);
-    const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
     const [query, setQuery] = useState('');
 
     return (
         <>
             <div className={`fixed left-0 h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] overflow-y-auto`}>
-                <BuildResources onBuildTypeSelect={(type) => { setSelectedBuildType(type); setQuery(''); }} />
+                <BuildResources onBuildTypeSelect={(type) => {onBuildTypeSelect(type); setQuery('');}}/>
 
                 {selectedBuildType && (
                     <div className="flex justify-center mb-3">

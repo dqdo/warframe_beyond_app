@@ -7,9 +7,10 @@ type SlotsProps = {
     isSidebarOpen: boolean;
     setSelectedButton: React.Dispatch<React.SetStateAction<string | null>>;
     selectedButton: string | null;
+    selectedBuildType: string | null;
 }
 
-export function Slots({ isSidebarOpen, setSelectedButton, selectedButton }: SlotsProps) {
+export function Slots({ isSidebarOpen, setSelectedButton, selectedButton, selectedBuildType }: SlotsProps) {
 
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 
@@ -23,10 +24,14 @@ export function Slots({ isSidebarOpen, setSelectedButton, selectedButton }: Slot
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className="z-10">
-                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
+                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
                 </div>
-                <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
-                <ArchonShardSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
+
+                <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+
+                {selectedBuildType == "Warframe" && (
+                    <ArchonShardSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
+                )}
             </div>
         </>
     )

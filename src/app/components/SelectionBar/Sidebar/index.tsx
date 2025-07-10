@@ -9,9 +9,10 @@ import SlidingButton from "@/app/components/Elements/SlidingButton";
 type SidebarProps = {
     type: string;
     isOpen: boolean;
+    selectedBuildType: string | null;
 };
 
-export default function Sidebar({ type, isOpen }: SidebarProps) {
+export default function Sidebar({ type, isOpen, selectedBuildType }: SidebarProps) {
     const [query, setQuery] = useState('');
     const [expandAll, setExpandAll] = useState(false);
     const [filters, setFilters] = useState<{
@@ -64,10 +65,12 @@ export default function Sidebar({ type, isOpen }: SidebarProps) {
                 </div>
             </div>
 
-            <div className="overflow-y-auto mt-5">
-                {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} />}
-                {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
-            </div>
+            {selectedBuildType && (
+                <div className="overflow-y-auto mt-5">
+                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} />}
+                    {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
+                </div>
+            )}
         </div>
     );
 }
