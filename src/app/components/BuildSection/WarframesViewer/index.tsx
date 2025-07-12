@@ -7,10 +7,11 @@ import Image from 'next/image';
 type WarframesViewerProps = {
     selectedBuildType: string | null;
     query: string;
+    onSelect: (warframe: WarframeWithTexture) => void;
 };
 
 
-export default function WarframesViewer({ selectedBuildType, query }: WarframesViewerProps) {
+export default function WarframesViewer({ selectedBuildType, query, onSelect }: WarframesViewerProps) {
     const [warframes, setWarframes] = useState<WarframeWithTexture[]>([]);
 
     useEffect(() => {
@@ -37,7 +38,7 @@ export default function WarframesViewer({ selectedBuildType, query }: WarframesV
     return (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
             {filteredWarframes.map((warframe, index) => (
-                <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
+                <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3 cursor-pointer" onClick={() => onSelect(warframe)}>
                     <div className="text-white text-sm mb-2 text-center">{warframe.name}</div>
                     {warframe.textureUrl ? (
                         <Image src={warframe.textureUrl} alt={warframe.name} width={128} height={128} className="w-full h-full" unoptimized loading="lazy" />

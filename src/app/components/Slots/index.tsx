@@ -23,7 +23,7 @@ export function Slots({ isSidebarOpen, setSelectedButton, selectedButton, select
     return (
         <>
             <div className="flex flex-col items-center justify-center">
-                <div className="z-10">
+                <div className="z-1">
                     <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
                 </div>
 

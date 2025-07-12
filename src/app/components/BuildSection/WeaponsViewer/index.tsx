@@ -7,9 +7,10 @@ import Image from 'next/image'
 type WeaponsViewerProps = {
     selectedBuildType: string | null;
     query: string;
+    onSelect: (weapon: WeaponWithTexture) => void;
 };
 
-export default function WeaponsViewer({ selectedBuildType, query }: WeaponsViewerProps) {
+export default function WeaponsViewer({ selectedBuildType, query, onSelect }: WeaponsViewerProps) {
     const [weapons, setWeapons] = useState<WeaponWithTexture[]>([]);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export default function WeaponsViewer({ selectedBuildType, query }: WeaponsViewe
     return (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
             {filteredWeapons.map((weapon, index) => (
-                <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3">
+                <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3 cursor-pointer" onClick={() => onSelect(weapon)}>
                     <div className="text-white text-sm mb-2 text-center">{weapon.name}</div>
                     {weapon.textureUrl ? (
                         <Image src={weapon.textureUrl} alt={weapon.name} width={128} height={128} className="w-full h-full" unoptimized loading="lazy" />

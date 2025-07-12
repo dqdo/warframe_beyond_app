@@ -17,17 +17,20 @@ export default function Home() {
         <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
       </div>
 
-      <hr className="w-full border-white" />
+      <div className="relative">
+        <hr className="w-full border-white" />
 
-      <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+        <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
 
-      <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
+        <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
 
-      {selectedBuildType != null && (
-        <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-          <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
-        </div>
-      )}
+        {selectedBuildType != null && (
+          <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
+            <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+          </div>
+        )}
+
+      </div>
 
     </>
   );

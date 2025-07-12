@@ -53,10 +53,10 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
     if (!buildType) return null;
 
     const map: Record<string, string[]> = {
-      warframe: ["WARFRAME"],
+      warframe: ["WARFRAME", "AURA"],
       primary: ["PRIMARY"],
       secondary: ["SECONDARY"],
-      melee: ["MELEE"],
+      melee: ["MELEE", "STANCE"],
     };
 
     return map[buildType.toLowerCase()] || null;

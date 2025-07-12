@@ -16,10 +16,9 @@ export type WarframeEntry = {
     passiveDescription: string;
     exalted: string[];
     abilities: {
-        name: string;
+        abilityName: string;
         description: string;
-        icon?: string;
-        uniqueName?: string;
+        abilityUniqueName?: string;
     }[];
     productCategory: 'Suits' | 'SpaceSuits' | 'MechSuits';
 };
@@ -29,7 +28,18 @@ type TextureEntry = {
     textureLocation: string;
 };
 
-export type WarframeWithTexture = WarframeEntry & { textureUrl: string | null };
+type AbilityWithTexture = {
+    name: string;
+    description: string;
+    icon?: string;
+    uniqueName?: string;
+    textureUrl: string | null;
+};
+
+export type WarframeWithTexture = Omit<WarframeEntry, 'abilities'> & {
+    textureUrl: string | null;
+    abilities: AbilityWithTexture[];
+};
 
 export async function fetchWarframesWithTextures(): Promise<WarframeWithTexture[]> {
     const warframesHash = DATA_HASHES.warframes.warframes;
@@ -54,8 +64,27 @@ export async function fetchWarframesWithTextures(): Promise<WarframeWithTexture[
         manifest.map((entry) => [entry.uniqueName, entry.textureLocation])
     );
 
-    return warframes.filter((warframe) => warframe.productCategory === 'Suits').map((warframe) => ({
-        ...warframe, textureUrl: textureMap.has(warframe.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(warframe.uniqueName)}` : null,
-    })).sort((a, b) => a.name.localeCompare(b.name));
+    return warframes.filter((warframe) => warframe.productCategory === 'Suits').map((warframe) => {
+        const warframeTexture = textureMap.has(warframe.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(warframe.uniqueName)}` : null;
+
+        const abilitiesWithTextures: AbilityWithTexture[] = warframe.abilities.map((ability) => {
+            const uniqueName = ability.abilityUniqueName;
+            const abilityTexture = uniqueName && textureMap.has(uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(uniqueName)}` : null;
+
+            return {
+                name: ability.abilityName,
+                description: ability.description,
+                uniqueName: uniqueName,
+                icon: undefined,
+                textureUrl: abilityTexture,
+            };
+        });
+
+        return {
+            ...warframe,
+            textureUrl: warframeTexture,
+            abilities: abilitiesWithTextures,
+        };
+    }).sort((a, b) => a.name.localeCompare(b.name));
 
 }

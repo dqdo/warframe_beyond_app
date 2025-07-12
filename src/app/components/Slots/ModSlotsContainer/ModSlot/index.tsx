@@ -39,7 +39,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     return (
         <>
             <div className="flex flex-col items-center">
-                <div className="">
+                <div className="relative">
                     <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
                 </div>
                 <div className={`relative cursor-pointer ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`}
@@ -47,11 +47,11 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     <Image src={"/images/mods/mod_slot.png"} alt="Mod Slot" height={200} width={200} />
 
                     {type === "UTLITY" && (
-                        <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                        <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     )}
 
                     {type === "AURA" && (
-                        <Image src={"/images/mods/IconAura.png"} alt="Aura Slot" height={60} width={60} className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                        <Image src={"/images/mods/IconAura.png"} alt="Aura Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     )}
                 </div>
             </div>
