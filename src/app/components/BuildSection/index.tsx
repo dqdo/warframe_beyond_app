@@ -11,6 +11,7 @@ import { WarframeAbilitiesViewer } from "@/app/components/BuildSection/WarframeA
 import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
 import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 import Image from "next/image";
+import { WarframeInfo } from "@/app/components/BuildSection/WarframeInfo";
 
 type BuildSectionProps = {
     selectedBuildType: string | null;
@@ -61,21 +62,11 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect }: BuildSect
                     )}
                 </div>
 
-
-
                 <ItemRankProgress />
 
                 {selectedWarframe && selectedBuildType == "Warframe" && (
-                    <div className="m-2 text-med text-white space-y-1">
-                        <div><strong>Energy:</strong> {selectedWarframe.power}</div>
-                        <div><strong>Health:</strong> {selectedWarframe.health}</div>
-                        <div><strong>Shield:</strong> {selectedWarframe.shield}</div>
-                        <div><strong>Armor:</strong> {selectedWarframe.armor}</div>
-                        <div><strong>Sprint Speed:</strong> {selectedWarframe.sprintSpeed}</div>
-                    </div>
+                    <WarframeInfo warframe={selectedWarframe} />
                 )}
-
-
             </div>
 
             <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>

@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { fetchModsWithTextures, ModWithTexture } from '@/app/lib/api/fetchMods';
-import Image from 'next/image';
-import { polarityImages, rarityImages } from '@/app/lib/constants/images'
+import { ModCard } from '@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard';
 
 type ModsViewerProps = {
   query: string;
@@ -76,22 +75,13 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
 
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4">
       {filteredMods.map((mod, index) => (
-        <div key={index} className="select-none flex flex-col items-center bg-zinc-800 border border-gray-700 rounded-2xl p-3" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
-          <div className='flex gap-2'>
-            {mod.rarity && rarityImages[mod.rarity] && (
-              <Image src={rarityImages[mod.rarity]} alt={`${mod.rarity} icon`} width={15} height={15} className="w-5 h-5" loading="lazy" />
-            )}
-
-            <div className="text-white text-sm mb-2 text-center">{mod.name}</div>
-            {mod.polarity && polarityImages[mod.polarity] && (
-              <Image src={polarityImages[mod.polarity]} alt={`${mod.polarity} icon`} width={15} height={15} className="w-5 h-5" loading="lazy" />
-            )}
-          </div>
+        <div key={index} className="select-none flex flex-col items-center" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
 
           {mod.textureUrl ? (
-            <Image src={mod.textureUrl} alt={mod.name} width={128} height={128} className="w-30 h-30" unoptimized loading="lazy" />
+            <ModCard mod={mod} />
+            // <Image src={mod.textureUrl} alt={mod.name} width={128} height={128} className="w-30 h-30" unoptimized loading="lazy" />
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>
           )}
