@@ -50,6 +50,10 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     )}
 
+                    {type === "STANCE" && (
+                        <Image src={"/images/mods/IconStance.png"} alt="Stance Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                    )}
+
                     {type === "AURA" && (
                         <Image src={"/images/mods/IconAura.png"} alt="Aura Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     )}

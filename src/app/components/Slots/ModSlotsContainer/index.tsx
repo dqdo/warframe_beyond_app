@@ -16,6 +16,11 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                 {selectedBuildType === "Warframe" && (
                     <ModSlot id="aura" type="AURA" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
                 )}
+
+                {selectedBuildType === "Melee" && (
+                    <ModSlot id="stance" type="STANCE" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
+                )}
+
                 <ModSlot id="exilus" type="UTLITY" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} />
             </div>
             <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} gap-2`}>
