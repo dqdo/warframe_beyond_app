@@ -15,26 +15,9 @@ type ModsViewerProps = {
   selectedBuildType: string | null;
 };
 
-function getModDetails(mod: ModWithTexture) {
-  const stats = mod.levelStats?.[mod.levelStats.length - 1]?.stats ?? [];
-  const description = mod.description ?? [];
-
-  return (
-    <>
-      {stats.map((stat, i) => (
-        <div key={`stat-${i}`}>{stat}</div>
-      ))}
-      {stats.length === 0 &&
-        description.map((line, i) => (
-          <div key={`desc-${i}`}>{line}</div>
-        ))}
-    </>
-  );
-}
-
 export default function ModsViewer({ query, filters, expandAll, selectedBuildType }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     async function loadMods() {
@@ -77,19 +60,14 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4">
       {filteredMods.map((mod, index) => (
-        <div key={index} className="select-none flex flex-col items-center" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
+        <div key={index} className="select-none flex flex-col items-center">
 
           {mod.textureUrl ? (
-            <ModCard mod={mod} />
+            <ModCard mod={mod} expandAll = {expandAll} />
             // <Image src={mod.textureUrl} alt={mod.name} width={128} height={128} className="w-30 h-30" unoptimized loading="lazy" />
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>
           )}
-
-          <div className={`transition-all duration-500 overflow-hidden text-xs text-gray-300 mt-2 text-center 
-          ${expandAll || hoveredIndex === index ? 'max-h-40 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-2 pointer-events-none'}`}>
-            {(expandAll || hoveredIndex === index) && getModDetails(mod)}
-          </div>
         </div>
       ))}
     </div>

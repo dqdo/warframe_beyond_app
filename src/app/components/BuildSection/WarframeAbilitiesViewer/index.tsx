@@ -21,9 +21,9 @@ export function WarframeAbilitiesViewer({ warframe }: WarframeAbilitiesViewerPro
                     )}
 
                     {hoveredIndex === i && (
-                        <div className="absolute top-14 min-w-72 h-auto opacity-95 bg-neutral-900 border border-neutral-500 rounded-sm text-white text-sm p-2">
+                        <div className="absolute top-14 min-w-100 h-auto opacity-95 bg-neutral-900 border border-neutral-500 rounded-sm text-white text-sm p-2">
                             <div className="font-bold mb-1">{ability.name}</div>
-                            <hr />
+                            <hr className="w-full my-2 mx-0" />
                             <div>{ability.description}</div>
                         </div>
                     )}
