@@ -63,8 +63,7 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
         <div key={index} className="select-none flex flex-col items-center">
 
           {mod.textureUrl ? (
-            <ModCard mod={mod} expandAll = {expandAll} />
-            // <Image src={mod.textureUrl} alt={mod.name} width={128} height={128} className="w-30 h-30" unoptimized loading="lazy" />
+            <ModCard mod={mod} expandAll={expandAll} />
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>
           )}
