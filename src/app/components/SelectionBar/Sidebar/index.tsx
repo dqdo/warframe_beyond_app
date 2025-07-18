@@ -66,7 +66,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType }: SidebarProp
             </div>
 
             {selectedBuildType && (
-                <div className="overflow-y-auto mt-5 min-h-[100%]">
+                <div className="overflow-y-auto mt-5 min-h-[80%]">
                     {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} />}
                     {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
                 </div>
