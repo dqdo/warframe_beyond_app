@@ -10,7 +10,7 @@ type ModCardUpperProps = {
 
 export function ModCardUpper({ frameColor, cardColor, totalDrain, polarity }: ModCardUpperProps) {
     return (
-        <>
+        <div className="pointer-events-none">
             <Image src={`/images/mods/cards/${frameColor}FrameTop.png`} alt="Top Frame" width={200} height={200} loading="lazy" className="z-2 relative" />
             <div className="absolute top-[45%] right-[2%] z-1">
                 <Image src={`/images/mods/cards/${frameColor}UpperTab.png`} alt="Top Frame" width={30} height={30} className="w-10 h-4 gap-1" loading="lazy" />
@@ -32,6 +32,6 @@ export function ModCardUpper({ frameColor, cardColor, totalDrain, polarity }: Mo
                     />
                 </div>
             </div>
-        </>
+        </div>
     )
 }

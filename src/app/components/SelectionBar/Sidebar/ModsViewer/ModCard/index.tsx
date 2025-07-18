@@ -2,6 +2,7 @@ import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import { ModCardUpper } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardUpper";
 import { ModCardLower } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardLower";
 import { ModCardBody } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardBody";
+import { useState } from "react";
 
 type ModCardProps = {
     mod: ModWithTexture;
@@ -9,7 +10,8 @@ type ModCardProps = {
 }
 
 export function ModCard({ mod, expandAll }: ModCardProps) {
-    // const [hover, setHover] = useState(false);
+    const [hover, setHover] = useState(false);
+
     const rarityToFrameColor: Record<string, string> = {
         COMMON: "Bronze",
         UNCOMMON: "Silver",
@@ -32,18 +34,22 @@ export function ModCard({ mod, expandAll }: ModCardProps) {
 
     return (
         <>
-            <div className="relative cursor-pointer">
+            <div
+                className={`absolute top-0 left-0 w-full h-full transition-all duration-200 ease-in-out  ${expandAll ? 'z-5' : hover ? 'z-5' : 'z-0'}`}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+            >
 
-                <div className="relative">
+                <div className="relative pointer-events-none">
                     <ModCardUpper frameColor={frameColor} cardColor={cardColor} totalDrain={totalDrain} polarity={mod.polarity} />
                 </div>
 
-                <div className="relative flex items-center justify-center">
-                    <ModCardBody mod={mod} cardColor={cardColor} expandAll={expandAll} frameColor={frameColor} />
+                <div className="relative flex items-center justify-center pointer-events-none">
+                    <ModCardBody mod={mod} cardColor={cardColor} expandAll={expandAll} frameColor={frameColor} hover={hover} />
                 </div>
 
-                <div className="relative">
-                    <ModCardLower frameColor={frameColor} expandAll={expandAll} cardColor={cardColor} mod={mod} />
+                <div className="relative pointer-events-none">
+                    <ModCardLower frameColor={frameColor} expandAll={expandAll} cardColor={cardColor} mod={mod} hover={hover} />
                 </div>
 
             </div>

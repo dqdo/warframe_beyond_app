@@ -7,6 +7,7 @@ type ModCardBodyProps = {
     cardColor: string;
     expandAll?: boolean;
     frameColor: string;
+    hover?: boolean;
 }
 
 function getModDetails(mod: ModWithTexture) {
@@ -27,7 +28,7 @@ function getModDetails(mod: ModWithTexture) {
 }
 
 
-export function ModCardBody({ mod, cardColor, expandAll, frameColor }: ModCardBodyProps) {
+export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover }: ModCardBodyProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [dynamicTop, setDynamicTop] = useState(77);
@@ -57,7 +58,7 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor }: ModCardBo
                 setClipInset(`inset(0 0 ${baseClip}% 0)`);
             }
         }
-    }, [mod, expandAll]);
+    }, [mod.levelStats, expandAll, hover]);
 
     return (
         <div>
@@ -65,12 +66,12 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor }: ModCardBo
                 {mod.textureUrl ? (
                     <div className="relative w-full h-full">
                         <div>
-                            {expandAll === true && (
+                            {(expandAll || hover) === true && (
                                 <div>
                                     <Image src={`/images/mods/cards/${frameColor}Background.png`} alt={`${frameColor} Background`} width={200} height={200}
-                                        className="absolute top-[0%] w-full h-[170%] scale-[1.1]" style={{ clipPath: "inset(0 0 10% 0)" }} />
+                                        className="transition-all duration-300 ease-in-out absolute top-[0%] w-full h-[170%] scale-[1.1]" style={{ clipPath: "inset(0 0 10% 0)" }} />
 
-                                    <div className="relative z-1 top-5">
+                                    <div className="transition-all duration-300 ease-in-out relative z-1 top-5">
                                         <Image src={`/images/mods/cards/${frameColor}SideLight.png`} alt={`${frameColor} Sidelight Left`} width={10} height={20} style={{ transform: 'scaleX(-1)' }}
                                             className="absolute left-0 -translate-x-1.5 w-[0.75vw] h-auto" />
                                         <Image src={`/images/mods/cards/${frameColor}SideLight.png`} alt={`${frameColor} Sidelight Right`} width={10} height={20}
@@ -94,10 +95,10 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor }: ModCardBo
                         </div>
                         <Image src={mod.textureUrl} alt={mod.name} width={200} height={200} unoptimized loading="lazy"
                             className={`w-full h-full object-cover rounded-b-3xl z-1`}
-                            style={{ clipPath: expandAll ? clipInset : "inset(0 0 60% 0)" }} />
+                            style={{ clipPath: (expandAll || hover) ? clipInset : "inset(0 0 60% 0)" }} />
 
-                        {expandAll === false && (
-                            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-1 justify-center items-center flex">
+                        {(expandAll || hover) === false && (
+                            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-1 justify-center items-center flex w-[80%]">
                                 <div className="text-center text-[91%] leading-tight" style={{ color: cardColor }}>
                                     {mod.name}
                                 </div>
@@ -110,7 +111,7 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor }: ModCardBo
                     </p>
                 )}
                 <div style={{ backgroundColor: cardColor }} className={`absolute top-0 left-0 w-full rounded-b-3xl 
-                    ${expandAll ? 'h-[150%] opacity-20 brightness-40' : 'h-[45%] opacity-70 brightness-10'}`} />
+                    ${(expandAll || hover) ? 'h-[150%] opacity-20 brightness-40' : 'h-[45%] opacity-70 brightness-10'}`} />
             </div>
         </div>
     )
