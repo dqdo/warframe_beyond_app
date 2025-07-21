@@ -1,5 +1,6 @@
 import ButtonSelections from "@/app/components/SelectionBar/ButtonSelections"
 import Sidebar from "@/app/components/SelectionBar/Sidebar"
+import { ModWithTexture } from "@/app/lib/api/fetchMods";
 
 type SelectionBarButtonsProps = {
     selectedButton: string | null;
@@ -15,14 +16,15 @@ export function SelectionBarButtons({ selectedButton, setSelectedButton }: Selec
 type SidebarGroupProps = {
     selectedButton: string | null;
     selectedBuildType: string | null;
+    setSelectedMod: (mod: ModWithTexture | null) => void;
 };
 
-export function SelectionBarSidebar({ selectedButton, selectedBuildType }: SidebarGroupProps) {
+export function SelectionBarSidebar({ selectedButton, selectedBuildType, setSelectedMod }: SidebarGroupProps) {
     const sidebarTypes = ["mods", "archon", "arcanes"];
     return (
         <>
             {sidebarTypes.map((type) => (
-                <Sidebar key={type} type={type} isOpen={selectedButton === type} selectedBuildType={selectedBuildType} />
+                <Sidebar key={type} type={type} isOpen={selectedButton === type} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />
             ))}
         </>
     );

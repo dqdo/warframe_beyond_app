@@ -22,7 +22,7 @@ export function ArchonShardSlot({ setSelectedButton, selectedSlot, setSelectedSl
         <>
             <div className={`flex justify-center cursor-pointer ${selectedButton !== null && isSelected ? "opacity-100" : hover ? "opacity-60" : "opacity-30"}`}
                 onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}>
-                <Image src={"/images/archon_shards/hexagon_archon_slot.svg"} alt="Archon Shard Slot" width={120} height={120} />
+                <Image src={"/images/archon_shards/hexagon_archon_slot.svg"} alt="Archon Shard Slot" width={120} height={120} className="h-[10vh] w-[5vw]" />
             </div>
         </>
     )

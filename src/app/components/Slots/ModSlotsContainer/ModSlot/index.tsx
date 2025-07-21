@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Dropdown from "@/app/components/Elements/Dropdown"
 import { useState } from "react";
+import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
 
 type ModSlotProps = {
     id: string;
@@ -9,6 +11,7 @@ type ModSlotProps = {
     selectedSlot: string | null;
     setSelectedSlot: React.Dispatch<React.SetStateAction<string | null>>;
     selectedButton: string | null;
+    assignedMod: ModWithTexture | null;
 }
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -27,7 +30,7 @@ const polarityOptions = [
 
 
 
-export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton }: ModSlotProps) {
+export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod }: ModSlotProps) {
     const isSelected = selectedSlot === id;
     const [hover, setHover] = useState(false);
 
@@ -36,27 +39,46 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
         setSelectedSlot(id)
     }
 
+    const slotClasses = assignedMod ? "relative cursor-default" : `relative cursor-pointer 
+    ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`;
+
     return (
         <>
-            <div className="flex flex-col items-center">
+            <div className="relative flex flex-col items-center">
                 <div className="relative">
                     <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
                 </div>
-                <div className={`relative cursor-pointer ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`}
-                    onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}>
-                    <Image src={"/images/mods/mod_slot.png"} alt="Mod Slot" height={200} width={200} />
+                <div className={`relative`}>
+                    <div className={`h-[11vh] w-auto relative cursor-pointer ${slotClasses}`}
+                        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}>
 
-                    {type === "UTLITY" && (
-                        <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    )}
+                        <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
+                            {assignedMod ? (
+                                <ModCard mod={assignedMod} />
+                            ) : (
+                                <div className="h-auto w-auto">
+                                    <Image src="/images/mods/mod_slot.png" alt="Mod Slot" height={200} width={200} />
+                                    {assignedMod == null && (
+                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                            {type === "UTLITY" && (
+                                                <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} />
+                                            )}
 
-                    {type === "STANCE" && (
-                        <Image src={"/images/mods/IconStance.png"} alt="Stance Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    )}
+                                            {type === "STANCE" && (
+                                                <Image src={"/images/mods/IconStance.png"} alt="Stance Slot" height={60} width={60} />
+                                            )}
 
-                    {type === "AURA" && (
-                        <Image src={"/images/mods/IconAura.png"} alt="Aura Slot" height={60} width={60} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    )}
+                                            {type === "AURA" && (
+                                                <Image src={"/images/mods/IconAura.png"} alt="Aura Slot" height={60} width={60} />
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </>

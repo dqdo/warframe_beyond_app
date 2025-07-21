@@ -4,11 +4,13 @@ import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/Selec
 import { useState } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
+import { ModWithTexture } from "./lib/api/fetchMods";
 
 export default function Home() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const isSidebarOpen = selectedButton !== null;
   const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
+  const [selectedMod, setSelectedMod] = useState<ModWithTexture | null>(null);
 
   return (
     <>
@@ -20,13 +22,13 @@ export default function Home() {
       <div className="relative">
         <hr className="w-full border-white" />
 
-        <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+        <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />
 
         <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
 
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-            <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />
+            <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} />
           </div>
         )}
 

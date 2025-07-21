@@ -13,9 +13,10 @@ type ModsViewerProps = {
   };
   expandAll?: boolean;
   selectedBuildType: string | null;
+  setSelectedMod: (mod: ModWithTexture | null) => void;
 };
 
-export default function ModsViewer({ query, filters, expandAll, selectedBuildType }: ModsViewerProps) {
+export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {
@@ -59,7 +60,8 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4">
       {filteredMods.map((mod, index) => (
-        <div key={index} className={`relative select-none flex flex-col items-center ${expandAll ? 'h-[16vw]' : 'h-[6vw]'}`}>
+        <div key={index} className={`relative select-none flex flex-col items-center ${expandAll ? 'h-[16vw]' : 'h-[6vw]'}`}
+          onClick={() => setSelectedMod(mod)}>
           {mod.textureUrl ? (
             <ModCard mod={mod} expandAll={expandAll} />
           ) : (

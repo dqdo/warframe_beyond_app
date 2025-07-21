@@ -5,14 +5,16 @@ import ModsViewer from '@/app/components/SelectionBar/Sidebar/ModsViewer';
 import ArcanesViewer from "@/app/components/SelectionBar/Sidebar/ArcanesViewer";
 import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css';
 import SlidingButton from "@/app/components/Elements/SlidingButton";
+import { ModWithTexture } from "@/app/lib/api/fetchMods";
 
 type SidebarProps = {
     type: string;
     isOpen: boolean;
     selectedBuildType: string | null;
+    setSelectedMod: (mod: ModWithTexture | null) => void;
 };
 
-export default function Sidebar({ type, isOpen, selectedBuildType }: SidebarProps) {
+export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMod }: SidebarProps) {
     const [query, setQuery] = useState('');
     const [expandAll, setExpandAll] = useState(false);
     const [filters, setFilters] = useState<{
@@ -67,7 +69,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType }: SidebarProp
 
             {selectedBuildType && (
                 <div className="overflow-y-auto mt-5 min-h-[80%]">
-                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} />}
+                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />}
                     {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
                 </div>
             )}
