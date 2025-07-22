@@ -17,14 +17,16 @@ type SidebarGroupProps = {
     selectedButton: string | null;
     selectedBuildType: string | null;
     setSelectedMod: (mod: ModWithTexture | null) => void;
+    assignedMods: Record<string, ModWithTexture | null>;
+    selectedMod: ModWithTexture | null;
 };
 
-export function SelectionBarSidebar({ selectedButton, selectedBuildType, setSelectedMod }: SidebarGroupProps) {
+export function SelectionBarSidebar({ selectedButton, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: SidebarGroupProps) {
     const sidebarTypes = ["mods", "archon", "arcanes"];
     return (
         <>
             {sidebarTypes.map((type) => (
-                <Sidebar key={type} type={type} isOpen={selectedButton === type} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />
+                <Sidebar key={type} type={type} isOpen={selectedButton === type} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} />
             ))}
         </>
     );

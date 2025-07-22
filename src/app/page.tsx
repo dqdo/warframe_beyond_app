@@ -11,6 +11,7 @@ export default function Home() {
   const isSidebarOpen = selectedButton !== null;
   const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
   const [selectedMod, setSelectedMod] = useState<ModWithTexture | null>(null);
+  const [assignedMods, setAssignedMods] = useState<Record<string, ModWithTexture | null>>({});
 
   return (
     <>
@@ -22,13 +23,13 @@ export default function Home() {
       <div className="relative">
         <hr className="w-full border-white" />
 
-        <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />
+        <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} />
 
         <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
 
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-10 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
-            <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} />
+            <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} assignedMods={assignedMods} setAssignedMods={setAssignedMods} />
           </div>
         )}
 

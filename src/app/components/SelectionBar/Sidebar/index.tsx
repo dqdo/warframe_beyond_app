@@ -12,9 +12,11 @@ type SidebarProps = {
     isOpen: boolean;
     selectedBuildType: string | null;
     setSelectedMod: (mod: ModWithTexture | null) => void;
+    selectedMod: ModWithTexture | null;
+    assignedMods: Record<string, ModWithTexture | null>;
 };
 
-export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMod }: SidebarProps) {
+export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: SidebarProps) {
     const [query, setQuery] = useState('');
     const [expandAll, setExpandAll] = useState(false);
     const [filters, setFilters] = useState<{
@@ -69,7 +71,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMo
 
             {selectedBuildType && (
                 <div className="overflow-y-auto mt-5 min-h-[80%]">
-                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} />}
+                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} />}
                     {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
                 </div>
             )}
