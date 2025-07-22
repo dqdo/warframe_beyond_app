@@ -18,7 +18,7 @@ type ModsViewerProps = {
   assignedMods: Record<string, ModWithTexture | null>;
 };
 
-export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: ModsViewerProps) {
+export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod}: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {

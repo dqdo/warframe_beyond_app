@@ -70,10 +70,14 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
 
             setAssignedMods((prev) => {
                 const newAssignedMods = { ...prev };
-
+                const targetSlotMod = newAssignedMods[id];
 
                 if (fromSlotId && fromSlotId !== id) {
-                    newAssignedMods[fromSlotId] = null;
+                    if (targetSlotMod) {
+                        newAssignedMods[fromSlotId] = targetSlotMod;
+                    } else {
+                        newAssignedMods[fromSlotId] = null;
+                    }
                 }
 
                 newAssignedMods[id] = mod;
@@ -112,15 +116,22 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     <div className={`h-[11vh] w-auto relative cursor-pointer ${slotClasses}`}
                         onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}
                         onContextMenu={handleRightClick}
-                        onDragOver={handleDragOver}
-                        onDrop={handleDrop}
+                        onDragOver={(e) => {
+                            handleDragOver(e);
+                        }}
+                        onDrop={(e) => {
+                            handleDrop(e);
+                        }}
                     >
 
                         <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
                             {assignedMod ? (
-                                <div draggable onDragStart={(e) => {
-                                    e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
-                                }} className="cursor-grab">
+                                <div draggable
+                                    onDragStart={(e) => {
+                                        e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
+                                    }}
+
+                                    className="cursor-grab">
                                     <ModCard mod={assignedMod} />
                                 </div>
                             ) : (
