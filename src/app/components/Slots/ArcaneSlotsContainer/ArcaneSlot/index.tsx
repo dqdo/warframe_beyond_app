@@ -22,7 +22,7 @@ export function ArcaneSlot({ setSelectedButton, selectedSlot, setSelectedSlot, i
         <>
             <div className={`justify-center flex cursor-pointer ${selectedButton != null && isSelected ? 'opacity-100' : hover ? 'opacity-60' : 'opacity-30'}`}
                 onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}>
-                <Image src={"/images/arcanes/arcane_slot.png"} alt="Arcane Slot" height={150} width={150} />
+                <Image src={"/images/arcanes/arcane_slot.png"} alt="Arcane Slot" height={150} width={150} className="h-[10vh]" />
             </div>
         </>
     )
