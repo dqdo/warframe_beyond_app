@@ -1,7 +1,7 @@
 'use client'
 import Header from "@/app/components/Header";
 import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/SelectionBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
 import { ModWithTexture } from "./lib/api/fetchMods";
@@ -12,6 +12,10 @@ export default function Home() {
   const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
   const [selectedMod, setSelectedMod] = useState<ModWithTexture | null>(null);
   const [assignedMods, setAssignedMods] = useState<Record<string, ModWithTexture | null>>({});
+
+  useEffect(() => {
+    setSelectedButton(null);
+  }, [selectedBuildType]);
 
   return (
     <>

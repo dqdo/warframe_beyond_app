@@ -18,7 +18,7 @@ type ModsViewerProps = {
   assignedMods: Record<string, ModWithTexture | null>;
 };
 
-export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod}: ModsViewerProps) {
+export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {
@@ -82,7 +82,9 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
             e.dataTransfer.setData("application/json", JSON.stringify(mod));
           }}>
           {mod.textureUrl ? (
-            <ModCard mod={mod} expandAll={expandAll} />
+            <div className='relative w-[10vw] h-full'>
+              <ModCard mod={mod} expandAll={expandAll} />
+            </div>
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>
           )}
