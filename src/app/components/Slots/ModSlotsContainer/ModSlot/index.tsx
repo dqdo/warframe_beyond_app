@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Dropdown from "@/app/components/Elements/Dropdown"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ModWithTexture } from "@/app/lib/api/fetchMods";
 import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
 import Button from "@/app/components/Elements/Button";
@@ -30,19 +30,73 @@ const polarityOptions = [
     { label: ' ', value: 'AP_ANY', icon: <Image src="/images/mods/polarities/any_polarity.svg" alt="any" width={12} height={12} className="h-3 w-3 invert" /> },
 ];
 
-
-
 export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods }: ModSlotProps) {
     const isSelected = selectedSlot === id;
     const [hover, setHover] = useState(false);
+    const slotRef = useRef<HTMLDivElement>(null);
+    const isDraggingRef = useRef(false);
+    const lastMouseX = useRef(0);
+    const lastMouseY = useRef(0);
+
+    useEffect(() => {
+        if (assignedMod === null) {
+            setHover(false);
+        }
+    }, [assignedMod]);
+
+    const checkHoverState = () => {
+        if (!slotRef.current) return;
+
+        const rect = slotRef.current.getBoundingClientRect();
+        const isMouseOver = (
+            lastMouseX.current >= rect.left &&
+            lastMouseX.current <= rect.right &&
+            lastMouseY.current >= rect.top &&
+            lastMouseY.current <= rect.bottom
+        );
+
+        setHover(isMouseOver);
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            lastMouseX.current = e.clientX;
+            lastMouseY.current = e.clientY;
+
+            if (slotRef.current) {
+                const rect = slotRef.current.getBoundingClientRect();
+                const isHovering = (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                );
+                setHover(isHovering);
+            }
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        return () => document.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+        if (isDraggingRef.current) {
+            const timer = setTimeout(() => {
+                checkHoverState();
+                isDraggingRef.current = false;
+            }, 10);
+
+            return () => clearTimeout(timer);
+        }
+    }, [assignedMod]);
 
     const handleClick = () => {
-        setSelectedButton("mods")
-        setSelectedSlot(id)
+        setSelectedButton("mods");
+        setSelectedSlot(id);
         if (isSelected) {
-            setSelectedSlot(null)
+            setSelectedSlot(null);
         }
-    }
+    };
 
     const handleRightClick = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -51,7 +105,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                 ...prev,
                 [id]: null
             }));
-            setHover(false)
         }
     };
 
@@ -61,6 +114,8 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
 
     const handleDrop = (e: React.DragEvent) => {
         e.preventDefault();
+        isDraggingRef.current = true;
+
         const data = e.dataTransfer.getData("application/json");
 
         try {
@@ -103,7 +158,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                     ...prev,
                                     [id]: null,
                                 }));
-                                setHover(false);
                             }} />
                         </div>
                     )}
@@ -112,16 +166,12 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     </div>
 
                 </div>
-                <div className={`relative`}>
+                <div className={`relative`} ref={slotRef}>
                     <div className={`h-[11vh] w-auto relative cursor-pointer ${slotClasses}`}
-                        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={handleClick}
+                        onClick={handleClick}
                         onContextMenu={handleRightClick}
-                        onDragOver={(e) => {
-                            handleDragOver(e);
-                        }}
-                        onDrop={(e) => {
-                            handleDrop(e);
-                        }}
+                        onDragOver={handleDragOver}
+                        onDrop={handleDrop}
                     >
 
                         <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
@@ -130,8 +180,8 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                     onDragStart={(e) => {
                                         e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
                                     }}
-
-                                    className="cursor-grab">
+                                    className="cursor-grab"
+                                >
                                     <ModCard mod={assignedMod} />
                                 </div>
                             ) : (
@@ -139,7 +189,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                     <Image src="/images/mods/mod_slot.png" alt="Mod Slot" height={200} width={200} />
                                     {assignedMod == null && (
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                            {type === "UTLITY" && (
+                                            {type === "UTILITY" && (
                                                 <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} />
                                             )}
 

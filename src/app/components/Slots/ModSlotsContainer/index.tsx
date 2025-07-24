@@ -40,7 +40,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                     <ModSlot id="stance" type="STANCE" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods['stance']} setAssignedMods={setAssignedMods} />
                 )}
 
-                <ModSlot id="exilus" type="UTLITY" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods['exilus']} setAssignedMods={setAssignedMods} />
+                <ModSlot id="exilus" type="UTILITY" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods['exilus']} setAssignedMods={setAssignedMods} />
             </div>
             <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} gap-2`}>
                 {Array.from({ length: 8 }, (_, i) => (

@@ -2,14 +2,14 @@ import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import { ModCardUpper } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardUpper";
 import { ModCardLower } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardLower";
 import { ModCardBody } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardBody";
-import { useState} from "react";
+import { useState } from "react";
 
 type ModCardProps = {
     mod: ModWithTexture;
     expandAll?: boolean;
 }
 
-export function ModCard({ mod, expandAll}: ModCardProps) {
+export function ModCard({ mod, expandAll }: ModCardProps) {
     const [hover, setHover] = useState(false);
 
     const rarityToFrameColor: Record<string, string> = {
@@ -38,7 +38,6 @@ export function ModCard({ mod, expandAll}: ModCardProps) {
                 className={`absolute top-0 left-0 w-full h-full transition-all duration-200 ease-in-out  ${expandAll ? 'z-5' : hover ? 'z-5' : 'z-0'}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                onDragEnd={() => setHover(false)}
             >
 
                 <div className="relative pointer-events-none">
