@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Dropdown from "@/app/components/Elements/Dropdown"
+import Image from "next/image";
+import Dropdown from "@/app/components/Elements/Dropdown";
 import { useEffect, useRef, useState } from "react";
 import { ModWithTexture } from "@/app/lib/api/fetchMods";
 import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
@@ -14,7 +14,7 @@ type ModSlotProps = {
     selectedButton: string | null;
     assignedMod: ModWithTexture | null;
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
-}
+};
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
 
@@ -80,15 +80,18 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     }, []);
 
     useEffect(() => {
-        if (isDraggingRef.current) {
-            const timer = setTimeout(() => {
-                checkHoverState();
-                isDraggingRef.current = false;
-            }, 10);
+        const handleDragEnd = () => {
+            isDraggingRef.current = false;
+            checkHoverState();
+            document.dispatchEvent(new MouseEvent('mousemove', {
+                clientX: lastMouseX.current,
+                clientY: lastMouseY.current
+            }));
+        };
 
-            return () => clearTimeout(timer);
-        }
-    }, [assignedMod]);
+        document.addEventListener('dragend', handleDragEnd);
+        return () => document.removeEventListener('dragend', handleDragEnd);
+    }, []);
 
     const handleClick = () => {
         setSelectedButton("mods");
@@ -139,6 +142,17 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
 
                 return newAssignedMods;
             });
+
+            lastMouseX.current = e.clientX;
+            lastMouseY.current = e.clientY;
+            checkHoverState();
+
+            setTimeout(() => {
+                document.dispatchEvent(new MouseEvent('mousemove', {
+                    clientX: e.clientX,
+                    clientY: e.clientY
+                }));
+            }, 10);
         } catch (err) {
             console.error("Invalid drop data", err);
         }
