@@ -14,7 +14,7 @@ export default function Home() {
   const [assignedMods, setAssignedMods] = useState<Record<string, ModWithTexture | null>>({});
 
   useEffect(() => {
-    setSelectedButton(null);
+    setSelectedMod(null);
   }, [selectedBuildType]);
 
   return (

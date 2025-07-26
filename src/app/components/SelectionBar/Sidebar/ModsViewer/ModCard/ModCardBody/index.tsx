@@ -82,10 +82,10 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover }: Mo
 
                                         <div ref={contentRef} className="absolute left-1/2 -translate-x-1/2 text-white text-center leading-tight flex flex-col items-center"
                                             style={{ color: cardColor }}>
-                                            <div className="text-[90%] w-33 text-center">
+                                            <div className="text-[0.9rem] w-33 text-center">
                                                 {mod.name}
                                             </div>
-                                            <div className="text-[70%] w-[100%] h-auto text-center whitespace-normal break-words" style={{ color: cardColor }}>
+                                            <div className="lg:text-[0.7rem] sm:text-[0.6rem] md:text-[0.725rem] w-[100%] h-auto text-center whitespace-normal break-words" style={{ color: cardColor }}>
                                                 {getModDetails(mod)}
                                             </div>
                                         </div>
