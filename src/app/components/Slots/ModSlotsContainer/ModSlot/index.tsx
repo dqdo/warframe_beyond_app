@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ModWithTexture } from "@/app/lib/api/fetchMods";
 import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
 import Button from "@/app/components/Elements/Button";
+import { ModRank } from "@/app/components/Slots/ModSlotsContainer/ModSlot/ModRank";
 
 type ModSlotProps = {
     id: string;
@@ -37,9 +38,14 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     const isDraggingRef = useRef(false);
     const lastMouseX = useRef(0);
     const lastMouseY = useRef(0);
+    const [currentModRank, setCurrentModRank] = useState<number | null>(assignedMod ? assignedMod.fusionLimit : null);
+
 
     useEffect(() => {
-        if (assignedMod === null) {
+        if (assignedMod) {
+            setCurrentModRank(assignedMod.fusionLimit);
+        } else {
+            setCurrentModRank(null);
             setHover(false);
         }
     }, [assignedMod]);
@@ -190,13 +196,20 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
 
                         <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
                             {assignedMod ? (
-                                <div draggable
-                                    onDragStart={(e) => {
-                                        e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
-                                    }}
-                                    className="cursor-grab"
-                                >
-                                    <ModCard mod={assignedMod} />
+                                <div className="w-full h-full">
+                                    <div draggable
+                                        onDragStart={(e) => {
+                                            e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
+                                        }}
+                                        className="cursor-grab"
+                                    >
+                                        <ModCard mod={assignedMod} />
+                                    </div>
+                                    <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
+                                        {currentModRank != null && (
+                                            <ModRank currentModRank={currentModRank} fusionLimit={assignedMod.fusionLimit} setCurrentModRank={setCurrentModRank} />
+                                        )}
+                                    </div>
                                 </div>
                             ) : (
                                 <div className="h-auto w-auto">

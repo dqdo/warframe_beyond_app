@@ -31,7 +31,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
 
     return (
         <div className={`${isSidebarOpen ? "-translate-x-0" : "translate-x-0"}`}>
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-[1.5vw]">
                 {selectedBuildType === "Warframe" && (
                     <ModSlot id="aura" type="AURA" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods['aura']} setAssignedMods={setAssignedMods} />
                 )}
@@ -42,7 +42,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
 
                 <ModSlot id="exilus" type="UTILITY" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods['exilus']} setAssignedMods={setAssignedMods} />
             </div>
-            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} gap-2`}>
+            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} mt-[2.5vw] gap-x-[1vw] gap-y-[2.5vw]`}>
                 {Array.from({ length: 8 }, (_, i) => (
                     <ModSlot id={`mod${i}`} key={i} type="Mod" setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} assignedMod={assignedMods[`mod${i}`]} setAssignedMods={setAssignedMods} />
                 ))}
