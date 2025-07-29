@@ -83,7 +83,7 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
           }}>
           {mod.textureUrl ? (
             <div className='relative w-[10vw] h-full'>
-              <ModCard mod={mod} expandAll={expandAll} />
+              <ModCard mod={mod} expandAll={expandAll} currentRank={mod.fusionLimit} />
             </div>
           ) : (
             <p className="text-gray-400 text-xs italic mt-4">No image</p>

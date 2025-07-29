@@ -7,9 +7,10 @@ import { useState, useRef, useEffect } from "react";
 type ModCardProps = {
     mod: ModWithTexture;
     expandAll?: boolean;
+    currentRank: number;
 }
 
-export function ModCard({ mod, expandAll }: ModCardProps) {
+export function ModCard({ mod, expandAll, currentRank }: ModCardProps) {
     const [hover, setHover] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -49,7 +50,7 @@ export function ModCard({ mod, expandAll }: ModCardProps) {
 
     const cardColor = rarityToCardColor[mod.rarity] || "#ffffff";
 
-    const totalDrain = mod.baseDrain + mod.fusionLimit;
+    const totalDrain = mod.baseDrain + currentRank;
 
     return (
         <>
@@ -69,7 +70,7 @@ export function ModCard({ mod, expandAll }: ModCardProps) {
                 </div>
 
                 <div className="relative pointer-events-none">
-                    <ModCardLower frameColor={frameColor} expandAll={expandAll} cardColor={cardColor} mod={mod} hover={hover} />
+                    <ModCardLower frameColor={frameColor} expandAll={expandAll} cardColor={cardColor} mod={mod} hover={hover} currentRank={currentRank} />
                 </div>
 
             </div>

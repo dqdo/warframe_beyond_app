@@ -186,8 +186,8 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     </div>
 
                 </div>
-                <div className={`relative`} ref={slotRef}>
-                    <div className={`h-[11vh] w-auto relative cursor-pointer ${slotClasses}`}
+                <div className={`relative h-auto`} ref={slotRef}>
+                    <div className={`h-[11vh] w-auto relative ${slotClasses}`}
                         onClick={handleClick}
                         onContextMenu={handleRightClick}
                         onDragOver={handleDragOver}
@@ -195,7 +195,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     >
 
                         <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
-                            {assignedMod ? (
+                            {assignedMod && currentModRank != null ? (
                                 <div className="w-full h-full">
                                     <div draggable
                                         onDragStart={(e) => {
@@ -203,7 +203,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                         }}
                                         className="cursor-grab"
                                     >
-                                        <ModCard mod={assignedMod} />
+                                        <ModCard mod={assignedMod} currentRank={currentModRank} />
                                     </div>
                                     <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
                                         {currentModRank != null && (

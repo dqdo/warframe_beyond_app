@@ -7,9 +7,10 @@ type ModCardLowerProps = {
     cardColor: string;
     mod: ModWithTexture;
     hover?: boolean;
+    currentRank: number;
 }
 
-export function ModCardLower({ frameColor, expandAll, cardColor, mod, hover }: ModCardLowerProps) {
+export function ModCardLower({ frameColor, expandAll, cardColor, mod, hover, currentRank }: ModCardLowerProps) {
     return (
         <div className="pointer-events-none relative">
             <Image src={`/images/mods/cards/${frameColor}FrameBottom.png`} alt="Bottom Frame" width={200} height={200} loading="lazy"
@@ -25,17 +26,20 @@ export function ModCardLower({ frameColor, expandAll, cardColor, mod, hover }: M
                 </div>
             )}
 
-            <hr className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[65%] border-t-[0.1rem] border-[#a6e6ff] z-3" />
+            {currentRank == mod.fusionLimit && (
+                <hr className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[65%] border-t-[0.1rem] border-[#a6e6ff] z-3" />
+            )}
 
-            <div className="absolute bottom-[0.7vw] left-1/2 -translate-x-1/2 w-[65%] flex justify-center text-[0.5rem] text-[#a6e6ff] z-4 gap-0.5"
-                style={{
-                    filter: 'drop-shadow(0 0 0.1rem #a6e6ff)',
-                }}>
-                {Array.from({ length: mod.fusionLimit }, (_, i) => (
-                    <span key={i}>★</span>
-                ))}
+            <div className="absolute bottom-[0.7vw] left-1/2 -translate-x-1/2 w-[65%] flex justify-center text-[0.5rem] z-4 gap-0.5">
+                {Array.from({ length: mod.fusionLimit }, (_, i) => {
+                    const ranked = i < (currentRank ?? mod.fusionLimit);
+                    return (
+                        <span key={i} className={ranked ? 'text-[#a6e6ff]' : 'text-[#525252]'} style={ranked ? { filter: 'drop-shadow(0 0 0.1rem #a6e6ff)' } : {}}>
+                            ★
+                        </span>
+                    );
+                })}
             </div>
-
         </div>
     )
 }
