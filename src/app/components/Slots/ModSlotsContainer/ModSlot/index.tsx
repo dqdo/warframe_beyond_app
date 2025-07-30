@@ -39,7 +39,33 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     const lastMouseX = useRef(0);
     const lastMouseY = useRef(0);
     const [currentModRank, setCurrentModRank] = useState<number | null>(assignedMod ? assignedMod.fusionLimit : null);
+    const [polarityCheck, setPolarityCheck] = useState<boolean | null>(null);
+    const [slotPolarity, setSlotPolarity] = useState<string | null>(null);
 
+    const checkPolarity = () => {
+        if (!assignedMod || !slotPolarity || assignedMod === undefined) {
+            setPolarityCheck(null);
+            return;
+        }
+
+        if (assignedMod.polarity === '' || slotPolarity === '') {
+            setPolarityCheck(null);
+            return;
+        }
+
+        if (assignedMod.polarity === 'AP_ANY' || slotPolarity === 'AP_ANY') {
+            setPolarityCheck(true);
+            return;
+        }
+
+        setPolarityCheck(assignedMod.polarity === slotPolarity);
+    };
+
+    useEffect(() => {
+        if (assignedMod) {
+            checkPolarity();
+        }
+    }, [assignedMod, slotPolarity]);
 
     useEffect(() => {
         if (assignedMod) {
@@ -182,7 +208,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         </div>
                     )}
                     <div className="">
-                        <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
+                        <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" onSelect={(option) => setSlotPolarity(option.value)} />
                     </div>
 
                 </div>
@@ -203,7 +229,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                         }}
                                         className="cursor-grab"
                                     >
-                                        <ModCard mod={assignedMod} currentRank={currentModRank} />
+                                        <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} />
                                     </div>
                                     <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
                                         {currentModRank != null && (

@@ -8,9 +8,10 @@ type ModCardProps = {
     mod: ModWithTexture;
     expandAll?: boolean;
     currentRank: number;
+    polarityCheck?: boolean | null;
 }
 
-export function ModCard({ mod, expandAll, currentRank }: ModCardProps) {
+export function ModCard({ mod, expandAll, currentRank, polarityCheck }: ModCardProps) {
     const [hover, setHover] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -50,6 +51,7 @@ export function ModCard({ mod, expandAll, currentRank }: ModCardProps) {
 
     const cardColor = rarityToCardColor[mod.rarity] || "#ffffff";
 
+
     const totalDrain = mod.baseDrain + currentRank;
 
     return (
@@ -62,7 +64,7 @@ export function ModCard({ mod, expandAll, currentRank }: ModCardProps) {
             >
 
                 <div className="relative pointer-events-none">
-                    <ModCardUpper frameColor={frameColor} cardColor={cardColor} totalDrain={totalDrain} polarity={mod.polarity} />
+                    <ModCardUpper frameColor={frameColor} cardColor={cardColor} totalDrain={totalDrain} polarity={mod.polarity} polarityCheck={polarityCheck} />
                 </div>
 
                 <div className="relative flex items-center justify-center pointer-events-none">

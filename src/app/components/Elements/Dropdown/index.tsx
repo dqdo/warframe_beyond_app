@@ -26,19 +26,19 @@ type DropdownProps = {
 const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
     default: {
         button: "select-none font-roboto w-30 sm:w-20 md:w-20 lg:w-30 text-xs sm: gap-0 md: gap-0 h-8 justify-between rounded-md px-2 py-2 text-left shadow-sm flex items-center gap-2 bg-neutral-900 text-white border border-zinc-600 cursor-pointer",
-        list: "select-none fixed font-roboto z-10 mt-0.5 w-30 sm:w-10 md:w-20 lg:w-30 h-auto text-xs rounded-md overflow-auto bg-neutral-900 text-white border border-zinc-600",
+        list: "fixed z-10 mt-0.5 w-30 sm:w-10 md:w-20 lg:w-30 h-auto text-xs rounded-md overflow-auto bg-neutral-900 text-white border border-zinc-600",
         item: "select-none font-roboto h-5 px-2 py-2 cursor-pointer flex items-center gap-2 hover:bg-black",
         header: "select-none font-roboto text-center w-30 sm:w-10 md:w-20 lg:w-30 text-m",
     },
     buildSection: {
         button: "select-none font-roboto w-30 sm:w-20 md:w-20 lg:w-36 text-xs sm: gap-0 md: gap-0 h-8 justify-between rounded-md px-2 py-2 text-left shadow-sm flex items-center gap-2 bg-neutral-800 text-white border border-zinc-600 cursor-pointer",
-        list: "select-none fixed font-roboto z-10 mt-0.5 w-35 sm:w-10 md:w-20 lg:w-36 h-auto text-xs rounded-md overflow-auto bg-neutral-800 text-white border border-zinc-600",
+        list: "fixed z-10 mt-0.5 w-35 sm:w-10 md:w-20 lg:w-36 h-auto text-xs rounded-md overflow-auto bg-neutral-800 text-white border border-zinc-600",
         item: "select-none font-roboto h-5 px-2 py-2 cursor-pointer flex items-center gap-2 hover:bg-black",
         header: "select-none font-roboto text-center w-30 sm:w-10 md:w-20 lg:w-30 text-m",
     },
     modSlot: {
-        button: "select-none font-roboto z-1 sm:w-8 md:w-10 lg:w-13 text-xs h-8 justify-between rounded-md px-2 py-2 text-left shadow-sm flex items-center gap-2 bg-neutral-800 text-white border border-zinc-600 cursor-pointer",
-        list: "select-none absolute font-roboto z-1 top-full sm:w-8 md:w-10 lg:w-13 text-xs rounded-md bg-neutral-800 text-white border border-zinc-600",
+        button: "select-none font-roboto sm:w-8 md:w-10 lg:w-13 text-xs h-8 justify-between rounded-md px-2 py-2 text-left shadow-sm flex items-center gap-2 bg-neutral-800 text-white border border-zinc-600 cursor-pointer",
+        list: "absolute z-10 top-full sm:w-8 md:w-10 lg:w-13 text-xs rounded-md bg-neutral-800 text-white border border-zinc-600",
         item: "select-none font-roboto h-5 px-2 py-2 cursor-pointer flex items-center gap-2 hover:bg-black justify-center",
         header: "select-none font-roboto text-center sm:w-8 md:w-10 lg:w-13 text-m",
     }
