@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ModWithTexture } from "@/app/lib/api/fetchMods";
 import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
 import Button from "@/app/components/Elements/Button";
+import { ModRank } from "@/app/components/Slots/ModSlotsContainer/ModSlot/ModRank";
 
 type ModSlotProps = {
     id: string;
@@ -14,6 +15,8 @@ type ModSlotProps = {
     selectedButton: string | null;
     assignedMod: ModWithTexture | null;
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
+    setPolarityMatch: (slotId: string, match: boolean | null) => void;
+    setCalculatedDrains: (slotId: string, drain: number) => void;
 };
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -30,16 +33,62 @@ const polarityOptions = [
     { label: ' ', value: 'AP_ANY', icon: <Image src="/images/mods/polarities/any_polarity.svg" alt="any" width={12} height={12} className="h-3 w-3 invert" /> },
 ];
 
-export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods }: ModSlotProps) {
+export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods, setPolarityMatch, setCalculatedDrains }: ModSlotProps) {
     const isSelected = selectedSlot === id;
     const [hover, setHover] = useState(false);
     const slotRef = useRef<HTMLDivElement>(null);
     const isDraggingRef = useRef(false);
     const lastMouseX = useRef(0);
     const lastMouseY = useRef(0);
+    const [currentModRank, setCurrentModRank] = useState<number | null>(assignedMod ? assignedMod.fusionLimit : null);
+    const [polarityCheck, setPolarityCheck] = useState<boolean | null>(null);
+    const [slotPolarity, setSlotPolarity] = useState<string | null>(null);
+
+    const handleDrainCalculated = (drain: number) => {
+        setCalculatedDrains(id, drain);
+    };
+
+    const checkPolarity = () => {
+        if (!assignedMod || !slotPolarity || assignedMod === undefined) {
+            setPolarityCheck(null);
+            setPolarityMatch(id, null);
+            return;
+        }
+
+        if (assignedMod.polarity === '' || slotPolarity === '') {
+            setPolarityCheck(null);
+            setPolarityMatch(id, null);
+            return;
+        }
+
+        if (assignedMod.polarity === 'AP_ANY' || slotPolarity === 'AP_ANY') {
+            setPolarityCheck(true);
+            setPolarityMatch(id, true);
+            return;
+        }
+
+        const match = assignedMod.polarity === slotPolarity;
+        setPolarityCheck(match);
+        setPolarityMatch(id, match);
+    };
 
     useEffect(() => {
-        if (assignedMod === null) {
+        if (!assignedMod) {
+            setCalculatedDrains(id, 0);
+        }
+    }, [assignedMod]);
+
+    useEffect(() => {
+        if (assignedMod) {
+            checkPolarity();
+        }
+    }, [assignedMod, slotPolarity]);
+
+    useEffect(() => {
+        if (assignedMod) {
+            setCurrentModRank(assignedMod.fusionLimit);
+        } else {
+            setCurrentModRank(null);
             setHover(false);
         }
     }, [assignedMod]);
@@ -139,7 +188,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                 }
 
                 newAssignedMods[id] = mod;
-
                 return newAssignedMods;
             });
 
@@ -157,6 +205,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             console.error("Invalid drop data", err);
         }
     };
+
 
     const slotClasses = assignedMod ? "relative cursor-default" : `relative cursor-pointer 
     ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`;
@@ -176,12 +225,12 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         </div>
                     )}
                     <div className="">
-                        <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" />
+                        <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" onSelect={(option) => setSlotPolarity(option.value)} />
                     </div>
 
                 </div>
-                <div className={`relative`} ref={slotRef}>
-                    <div className={`h-[11vh] w-auto relative cursor-pointer ${slotClasses}`}
+                <div className={`relative h-auto`} ref={slotRef}>
+                    <div className={`h-[11vh] w-auto relative ${slotClasses}`}
                         onClick={handleClick}
                         onContextMenu={handleRightClick}
                         onDragOver={handleDragOver}
@@ -189,14 +238,21 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                     >
 
                         <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
-                            {assignedMod ? (
-                                <div draggable
-                                    onDragStart={(e) => {
-                                        e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
-                                    }}
-                                    className="cursor-grab"
-                                >
-                                    <ModCard mod={assignedMod} />
+                            {assignedMod && currentModRank != null ? (
+                                <div className="w-full h-full">
+                                    <div draggable
+                                        onDragStart={(e) => {
+                                            e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
+                                        }}
+                                        className="cursor-grab"
+                                    >
+                                        <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} onDrainCalculated={handleDrainCalculated} />
+                                    </div>
+                                    <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
+                                        {currentModRank != null && (
+                                            <ModRank currentModRank={currentModRank} fusionLimit={assignedMod.fusionLimit} setCurrentModRank={setCurrentModRank} />
+                                        )}
+                                    </div>
                                 </div>
                             ) : (
                                 <div className="h-auto w-auto">

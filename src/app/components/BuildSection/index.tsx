@@ -16,9 +16,10 @@ import { WarframeInfo } from "@/app/components/BuildSection/WarframeInfo";
 type BuildSectionProps = {
     selectedBuildType: string | null;
     onBuildTypeSelect: (type: string | null) => void;
+    totalDrain: number;
 }
 
-export function BuildSection({ selectedBuildType, onBuildTypeSelect }: BuildSectionProps) {
+export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain }: BuildSectionProps) {
     const [modalOpen, setModalOpen] = useState(false);
     const [query, setQuery] = useState('');
     const [selectedWarframe, setSelectedWarframe] = useState<WarframeWithTexture | null>(null);
@@ -62,7 +63,7 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect }: BuildSect
                     )}
                 </div>
 
-                <ItemRankProgress />
+                <ItemRankProgress totalDrain={totalDrain} />
 
                 {selectedWarframe && selectedBuildType == "Warframe" && (
                     <WarframeInfo warframe={selectedWarframe} />

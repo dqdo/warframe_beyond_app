@@ -12,10 +12,10 @@ type SlotsProps = {
     selectedMod: ModWithTexture | null;
     assignedMods: Record<string, ModWithTexture | null>;
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
+    setTotalDrain: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function Slots({ isSidebarOpen, setSelectedButton, selectedButton, selectedBuildType, selectedMod, assignedMods, setAssignedMods }: SlotsProps) {
-
+export function Slots({ isSidebarOpen, setSelectedButton, selectedButton, selectedBuildType, selectedMod, assignedMods, setAssignedMods, setTotalDrain }: SlotsProps) {
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export function Slots({ isSidebarOpen, setSelectedButton, selectedButton, select
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className="z-1">
-                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} assignedMods={assignedMods} setAssignedMods={setAssignedMods} />
+                    <ModSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} assignedMods={assignedMods} setAssignedMods={setAssignedMods} setTotalDrain={setTotalDrain} />
                 </div>
 
                 <ArcaneSlotsContainer isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot} selectedButton={selectedButton} selectedBuildType={selectedBuildType} />

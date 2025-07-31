@@ -3,10 +3,13 @@ import { ItemRankBar } from "@/app/components/BuildSection/ItemRankProgress/Item
 import { ItemRankCounter } from "@/app/components/BuildSection/ItemRankProgress/ItemRankCounter";
 import SlidingButton from "@/app/components/Elements/SlidingButton";
 
-export function ItemRankProgress() {
+type ItemRankProgressProps = {
+    totalDrain: number;
+}
+
+export function ItemRankProgress({ totalDrain }: ItemRankProgressProps) {
     const [count, setCount] = useState(0);
     const [isDouble, setIsDouble] = useState(false);
-    const modDrain = 0;
 
     const displayCount = isDouble ? count * 2 : count;
 
@@ -14,7 +17,7 @@ export function ItemRankProgress() {
         <>
             <ItemRankCounter count={count} setCount={setCount} />
             <div className="justify-self-center">
-                <ItemRankBar count={displayCount} modDrain={modDrain} />
+                <ItemRankBar count={displayCount} totalDrain={totalDrain} />
             </div>
             <div className="flex justify-between m-2">
                 <div className="text-base font-bold"> Orokin Reactor </div>

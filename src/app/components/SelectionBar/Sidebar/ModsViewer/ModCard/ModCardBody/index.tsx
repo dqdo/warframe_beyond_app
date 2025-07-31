@@ -8,10 +8,14 @@ type ModCardBodyProps = {
     expandAll?: boolean;
     frameColor: string;
     hover?: boolean;
+    currentRank?: number;
 }
 
-function getModDetails(mod: ModWithTexture) {
-    const stats = mod.levelStats?.[mod.levelStats.length - 1]?.stats ?? [];
+function getModDetails(mod: ModWithTexture, currentRank?: number) {
+    const levelStats = mod.levelStats ?? [];
+    const levelIndex = currentRank !== undefined ? currentRank : levelStats.length - 1;
+
+    const stats = levelStats[levelIndex]?.stats ?? [];
     const description = mod.description ?? [];
 
     return (
@@ -28,7 +32,7 @@ function getModDetails(mod: ModWithTexture) {
 }
 
 
-export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover }: ModCardBodyProps) {
+export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover, currentRank }: ModCardBodyProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [dynamicTop, setDynamicTop] = useState(77);
@@ -86,7 +90,7 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover }: Mo
                                                 {mod.name}
                                             </div>
                                             <div className="lg:text-[0.7rem] sm:text-[0.6rem] md:text-[0.725rem] w-[100%] h-auto text-center whitespace-normal break-words" style={{ color: cardColor }}>
-                                                {getModDetails(mod)}
+                                                {getModDetails(mod, currentRank)}
                                             </div>
                                         </div>
                                     </div>
