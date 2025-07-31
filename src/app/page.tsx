@@ -12,6 +12,7 @@ export default function Home() {
   const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
   const [selectedMod, setSelectedMod] = useState<ModWithTexture | null>(null);
   const [assignedMods, setAssignedMods] = useState<Record<string, ModWithTexture | null>>({});
+  const [totalDrain, setTotalDrain] = useState<number>(0);
 
   useEffect(() => {
     setSelectedMod(null);
@@ -26,14 +27,14 @@ export default function Home() {
         </div>
         <hr className="w-full border-white" />
         <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} />
-        <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} />
+        <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} totalDrain={totalDrain} />
       </div>
 
       <div className="py-[9.5vh]">
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
             <div>
-              <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} assignedMods={assignedMods} setAssignedMods={setAssignedMods} />
+              <Slots isSidebarOpen={isSidebarOpen} setSelectedButton={setSelectedButton} selectedButton={selectedButton} selectedBuildType={selectedBuildType} selectedMod={selectedMod} assignedMods={assignedMods} setAssignedMods={setAssignedMods} setTotalDrain={setTotalDrain} />
             </div>
           </div>
         )}

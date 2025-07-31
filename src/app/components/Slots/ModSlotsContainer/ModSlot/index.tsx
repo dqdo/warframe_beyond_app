@@ -15,6 +15,8 @@ type ModSlotProps = {
     selectedButton: string | null;
     assignedMod: ModWithTexture | null;
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
+    setPolarityMatch: (slotId: string, match: boolean | null) => void;
+    setCalculatedDrains: (slotId: string, drain: number) => void;
 };
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -31,7 +33,7 @@ const polarityOptions = [
     { label: ' ', value: 'AP_ANY', icon: <Image src="/images/mods/polarities/any_polarity.svg" alt="any" width={12} height={12} className="h-3 w-3 invert" /> },
 ];
 
-export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods }: ModSlotProps) {
+export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods, setPolarityMatch, setCalculatedDrains }: ModSlotProps) {
     const isSelected = selectedSlot === id;
     const [hover, setHover] = useState(false);
     const slotRef = useRef<HTMLDivElement>(null);
@@ -42,24 +44,39 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     const [polarityCheck, setPolarityCheck] = useState<boolean | null>(null);
     const [slotPolarity, setSlotPolarity] = useState<string | null>(null);
 
+    const handleDrainCalculated = (drain: number) => {
+        setCalculatedDrains(id, drain);
+    };
+
     const checkPolarity = () => {
         if (!assignedMod || !slotPolarity || assignedMod === undefined) {
             setPolarityCheck(null);
+            setPolarityMatch(id, null);
             return;
         }
 
         if (assignedMod.polarity === '' || slotPolarity === '') {
             setPolarityCheck(null);
+            setPolarityMatch(id, null);
             return;
         }
 
         if (assignedMod.polarity === 'AP_ANY' || slotPolarity === 'AP_ANY') {
             setPolarityCheck(true);
+            setPolarityMatch(id, true);
             return;
         }
 
-        setPolarityCheck(assignedMod.polarity === slotPolarity);
+        const match = assignedMod.polarity === slotPolarity;
+        setPolarityCheck(match);
+        setPolarityMatch(id, match);
     };
+
+    useEffect(() => {
+        if (!assignedMod) {
+            setCalculatedDrains(id, 0);
+        }
+    }, [assignedMod]);
 
     useEffect(() => {
         if (assignedMod) {
@@ -171,7 +188,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                 }
 
                 newAssignedMods[id] = mod;
-
                 return newAssignedMods;
             });
 
@@ -189,6 +205,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             console.error("Invalid drop data", err);
         }
     };
+
 
     const slotClasses = assignedMod ? "relative cursor-default" : `relative cursor-pointer 
     ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`;
@@ -229,7 +246,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                         }}
                                         className="cursor-grab"
                                     >
-                                        <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} />
+                                        <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} onDrainCalculated={handleDrainCalculated} />
                                     </div>
                                     <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
                                         {currentModRank != null && (
