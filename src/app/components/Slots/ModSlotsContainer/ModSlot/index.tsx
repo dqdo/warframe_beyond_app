@@ -107,6 +107,23 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
         setHover(isMouseOver);
     };
 
+    const checkAura = (mod: ModWithTexture) => {
+        const isAuraSlot = type === 'AURA';
+        const isAuraMod = mod.compatName === 'AURA' || mod.type === 'AURA'
+
+        if (isAuraSlot && !isAuraMod) {
+            console.log("Cannot place non-AURA mod in AURA slot");
+            return false;
+        }
+
+        if (!isAuraSlot && isAuraMod) {
+            console.log("Cannot place AURA mod in non-AURA slot");
+            return false;
+        }
+
+        return true;
+    }
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             lastMouseX.current = e.clientX;
@@ -174,6 +191,10 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             const parsed = JSON.parse(data);
             const mod: ModWithTexture = parsed.mod || parsed;
             const fromSlotId: string | undefined = parsed.fromSlotId;
+
+            if (!checkAura(mod)) {
+                return;
+            }
 
             setAssignedMods((prev) => {
                 const newAssignedMods = { ...prev };

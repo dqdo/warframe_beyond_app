@@ -51,10 +51,30 @@ export async function fetchModsWithTextures(): Promise<ModWithTexture[]> {
         manifest.map((entry) => [entry.uniqueName, entry.textureLocation])
     );
 
-    const excludedPaths = ['/Randomized', '/Immortal', '/Grimoire', '/CrewShip']
-    const excludedNames = ['Unfused Artifact']
+    const excludedPaths = ['/Randomized', '/Immortal', '/Grimoire', '/CrewShip'];
+    const excludedNames = ['Unfused Artifact'];
 
-    return upgrades.filter((mod) => !excludedPaths.some((path) => mod.uniqueName.includes(path)) && !excludedNames.includes(mod.name)).map((mod) => ({
-        ...mod, textureUrl: textureMap.has(mod.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(mod.uniqueName)}` : null,
-    })).sort((a, b) => a.name.localeCompare(b.name));
+    const seenNames = new Map<string, boolean>();
+
+    return upgrades.filter((mod) => {
+        if (excludedPaths.some((path) => mod.uniqueName.includes(path))) return false;
+        if (excludedNames.includes(mod.name)) return false;
+        if (seenNames.has(mod.name)) return false;
+
+        seenNames.set(mod.name, true);
+        return true;
+    })
+        .map((mod) => {
+            const isAura = mod.compatName === 'AURA' || mod.type === 'AURA';
+            const baseDrain = isAura ? Math.abs(mod.baseDrain) : mod.baseDrain;
+            
+            return {
+                ...mod,
+                baseDrain,
+                textureUrl: textureMap.has(mod.uniqueName) 
+                    ? `https://content.warframe.com/PublicExport${textureMap.get(mod.uniqueName)}` 
+                    : null,
+            };
+        })
+        .sort((a, b) => a.name.localeCompare(b.name));
 }

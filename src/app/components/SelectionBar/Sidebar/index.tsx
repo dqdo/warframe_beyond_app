@@ -6,6 +6,8 @@ import ArcanesViewer from "@/app/components/SelectionBar/Sidebar/ArcanesViewer";
 import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css';
 import SlidingButton from "@/app/components/Elements/SlidingButton";
 import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
+import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 
 type SidebarProps = {
     type: string;
@@ -14,9 +16,11 @@ type SidebarProps = {
     setSelectedMod: (mod: ModWithTexture | null) => void;
     selectedMod: ModWithTexture | null;
     assignedMods: Record<string, ModWithTexture | null>;
+    selectedWarframe: WarframeWithTexture | null;
+    selectedWeapon: WeaponWithTexture | null;
 };
 
-export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: SidebarProps) {
+export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMod, assignedMods, selectedMod, selectedWarframe, selectedWeapon }: SidebarProps) {
     const [query, setQuery] = useState('');
     const [expandAll, setExpandAll] = useState(false);
     const [filters, setFilters] = useState<{
@@ -71,7 +75,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMo
 
             {selectedBuildType && (
                 <div className="overflow-y-auto mt-5 min-h-[80%]">
-                    {type === "mods" && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} />}
+                    {(type === "mods" && (selectedWarframe || selectedWeapon)) && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} selectedWarframe={selectedWarframe} />}
                     {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
                 </div>
             )}

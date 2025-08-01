@@ -14,15 +14,23 @@ type ModCardUpperProps = {
     currentRank: number;
 }
 
-export function ModCardUpper({ frameColor, cardColor, maxDrain, polarity, polarityCheck, onDrainCalculated, currentRank }: ModCardUpperProps) {
+export function ModCardUpper({ frameColor, cardColor, maxDrain, polarity, polarityCheck, onDrainCalculated, currentRank, mod }: ModCardUpperProps) {
     let calculatedDrain = maxDrain;
 
-    if (polarityCheck === true) {
-        calculatedDrain = Math.ceil(maxDrain / 2);
-    } else if (polarityCheck === false) {
-        calculatedDrain = Math.round(maxDrain * 1.25);
+    if (mod?.type === 'AURA') {
+        if (polarityCheck === true) {
+            calculatedDrain = maxDrain * 2;
+        } else if (polarityCheck === false) {
+            calculatedDrain = Math.floor(maxDrain * 0.8);
+        }
     }
-
+    else {
+        if (polarityCheck === true) {
+            calculatedDrain = Math.ceil(maxDrain / 2);
+        } else if (polarityCheck === false) {
+            calculatedDrain = Math.round(maxDrain * 1.25);
+        }
+    }
     useEffect(() => {
         if (onDrainCalculated) {
             onDrainCalculated(calculatedDrain);

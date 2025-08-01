@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchModsWithTextures, ModWithTexture } from '@/app/lib/api/fetchMods';
 import { ModCard } from '@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard';
+import { WarframeWithTexture } from '@/app/lib/api/fetchWarframes';
 
 type ModsViewerProps = {
   query: string;
@@ -16,9 +17,10 @@ type ModsViewerProps = {
   setSelectedMod: (mod: ModWithTexture | null) => void;
   selectedMod: ModWithTexture | null;
   assignedMods: Record<string, ModWithTexture | null>;
+  selectedWarframe: WarframeWithTexture | null;
 };
 
-export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod }: ModsViewerProps) {
+export default function ModsViewer({ query, filters, expandAll, selectedBuildType, setSelectedMod, assignedMods, selectedMod, selectedWarframe }: ModsViewerProps) {
   const [mods, setMods] = useState<ModWithTexture[]>([]);
 
   useEffect(() => {
@@ -58,7 +60,11 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
     const buildTypeMatch = !allowedModTypes || allowedModTypes.includes(mod.type);
     const notAlreadyAssigned = !assignedModNames.includes(mod.uniqueName);
 
-    return nameMatch && polarityMatch && rarityMatch && typeMatch && buildTypeMatch && notAlreadyAssigned;
+    const isAugment = mod.polarity === 'AP_POWER'
+    const isAugmentCompatible = selectedWarframe && mod.subtype === selectedWarframe?.parentName
+    const allowedAugments = !isAugment || isAugmentCompatible;
+
+    return nameMatch && polarityMatch && rarityMatch && typeMatch && buildTypeMatch && notAlreadyAssigned && allowedAugments;
   });
 
   useEffect(() => {

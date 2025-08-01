@@ -12,18 +12,23 @@ import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
 import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 import Image from "next/image";
 import { WarframeInfo } from "@/app/components/BuildSection/WarframeInfo";
+import { ModWithTexture } from "@/app/lib/api/fetchMods";
 
 type BuildSectionProps = {
     selectedBuildType: string | null;
     onBuildTypeSelect: (type: string | null) => void;
     totalDrain: number;
+    setSelectedWarframe: React.Dispatch<React.SetStateAction<WarframeWithTexture | null>>;
+    selectedWarframe: WarframeWithTexture | null;
+    setSelectedWeapon: React.Dispatch<React.SetStateAction<WeaponWithTexture | null>>;
+    selectedWeapon: WeaponWithTexture | null;
+    assignedMods: Record<string, ModWithTexture | null>;
+    calculatedDrains: Record<string, number>;
 }
 
-export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain }: BuildSectionProps) {
+export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain, selectedWarframe, setSelectedWarframe, selectedWeapon, setSelectedWeapon, assignedMods, calculatedDrains }: BuildSectionProps) {
     const [modalOpen, setModalOpen] = useState(false);
     const [query, setQuery] = useState('');
-    const [selectedWarframe, setSelectedWarframe] = useState<WarframeWithTexture | null>(null);
-    const [selectedWeapon, setSelectedWeapon] = useState<WeaponWithTexture | null>(null);
 
     return (
         <>
@@ -63,7 +68,7 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain 
                     )}
                 </div>
 
-                <ItemRankProgress totalDrain={totalDrain} />
+                <ItemRankProgress totalDrain={totalDrain} assignedMods={assignedMods} calculatedDrains={calculatedDrains} />
 
                 {selectedWarframe && selectedBuildType == "Warframe" && (
                     <WarframeInfo warframe={selectedWarframe} />
