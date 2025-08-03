@@ -37,7 +37,7 @@ export default function Home() {
         <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} totalDrain={totalDrain} selectedWarframe={selectedWarframe} setSelectedWarframe={setSelectedWarframe} selectedWeapon={selectedWeapon} setSelectedWeapon={setSelectedWeapon} assignedMods={assignedMods} calculatedDrains={calculatedDrains} />
       </div>
 
-      <div className="py-[9.5vh]">
+      <div className="py-[120px]">
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
             <div>

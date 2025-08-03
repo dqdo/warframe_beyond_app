@@ -77,7 +77,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
 
     return (
         <div className={`${isSidebarOpen ? "-translate-x-0" : "translate-x-0"}`}>
-            <div className="flex justify-center gap-[1.5vw]">
+            <div className="flex justify-center gap-[40px]">
                 {selectedBuildType === "Warframe" && (
                     <ModSlot
                         id="aura"
@@ -151,7 +151,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                     }}
                 />
             </div>
-            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} mt-[2.5vw] gap-x-[1vw] gap-y-[2.5vw]`}>
+            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} mt-[60px] gap-x-[10px] gap-y-[60px]`}>
                 {Array.from({ length: 8 }, (_, i) => (
                     <ModSlot
                         id={`mod${i}`}

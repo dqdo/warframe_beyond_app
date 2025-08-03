@@ -75,9 +75,9 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
 
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4">
+    <div className={`grid lg:grid-cols-2 2xl:grid-cols-3 gap-2 p-4 ${expandAll ? 'mt-[50px]' : ''}`}>
       {filteredMods.map((mod, index) => (
-        <div key={index} className={`relative cursor-grab select-none flex flex-col items-center ${expandAll ? 'h-[16vw]' : 'h-[6vw]'}`}
+        <div key={index} className={`relative cursor-grab select-none flex flex-col items-center ${expandAll ? 'h-[300px]' : 'h-[100px]'}`}
           onClick={() => {
             if (!assignedModNames.includes(mod.uniqueName)) {
               setSelectedMod(mod);
@@ -88,7 +88,7 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
             e.dataTransfer.setData("application/json", JSON.stringify(mod));
           }}>
           {mod.textureUrl ? (
-            <div className='relative w-[10vw] h-full'>
+            <div className='relative w-[180px] h-full'>
               <ModCard mod={mod} expandAll={expandAll} currentRank={mod.fusionLimit} />
             </div>
           ) : (

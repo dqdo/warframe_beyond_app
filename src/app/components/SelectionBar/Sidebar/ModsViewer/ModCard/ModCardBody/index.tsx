@@ -77,19 +77,17 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover, curr
 
                                     <div className="transition-all duration-300 ease-in-out relative z-1 top-5">
                                         <Image src={`/images/mods/cards/${frameColor}SideLight.png`} alt={`${frameColor} Sidelight Left`} width={10} height={20} style={{ transform: 'scaleX(-1)' }}
-                                            className="absolute left-0 -translate-x-1.5 w-[0.75vw] h-auto" />
+                                            className="absolute left-0 -translate-x-1.5 w-[12px] h-auto" />
                                         <Image src={`/images/mods/cards/${frameColor}SideLight.png`} alt={`${frameColor} Sidelight Right`} width={10} height={20}
-                                            className="absolute right-0 translate-x-1.5 w-[0.75vw] h-auto" />
+                                            className="absolute right-0 translate-x-1.5 w-[12px] h-auto" />
                                     </div>
-
                                     <div ref={containerRef} className="absolute h-[81px] w-[160px] left-1/2 -translate-x-1/2 z-1" style={{ top: `${dynamicTop}%` }}>
-
                                         <div ref={contentRef} className="absolute left-1/2 -translate-x-1/2 text-white text-center leading-tight flex flex-col items-center"
                                             style={{ color: cardColor }}>
                                             <div className="text-[0.9rem] w-33 text-center">
                                                 {mod.name}
                                             </div>
-                                            <div className="lg:text-[0.7rem] sm:text-[0.6rem] md:text-[0.725rem] w-[100%] h-auto text-center whitespace-normal break-words" style={{ color: cardColor }}>
+                                            <div className="text-[0.7rem] w-[100%] h-auto text-center whitespace-normal break-words" style={{ color: cardColor }}>
                                                 {getModDetails(mod, currentRank)}
                                             </div>
                                         </div>

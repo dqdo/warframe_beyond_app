@@ -12,9 +12,11 @@ type ModCardUpperProps = {
     onDrainCalculated?: (drain: number) => void;
     mod?: ModWithTexture;
     currentRank: number;
+    hover?: boolean;
+    expandAll?: boolean;
 }
 
-export function ModCardUpper({ frameColor, cardColor, maxDrain, polarity, polarityCheck, onDrainCalculated, currentRank, mod }: ModCardUpperProps) {
+export function ModCardUpper({ frameColor, cardColor, maxDrain, polarity, polarityCheck, onDrainCalculated, currentRank, mod, hover, expandAll }: ModCardUpperProps) {
     let calculatedDrain = maxDrain;
 
     if (mod?.type === 'AURA') {
@@ -41,9 +43,9 @@ export function ModCardUpper({ frameColor, cardColor, maxDrain, polarity, polari
 
 
     return (
-        <div className="pointer-events-none">
+        <div className={`pointer-events-none relative transition-all duration-100 ease-in-out ${hover || expandAll ? '-top-[60px]' : 'top-0'}`}>
             <Image src={`/images/mods/cards/${frameColor}FrameTop.png`} alt="Top Frame" width={200} height={200} loading="lazy" className="z-2 relative" />
-            <div className="absolute top-[1.1vw] right-[2%] z-1">
+            <div className="absolute top-[18px] right-[3px] z-1">
                 <Image src={`/images/mods/cards/${frameColor}UpperTab.png`} alt="Top Frame" width={30} height={30} className="w-10 h-4 gap-1" loading="lazy" />
                 <div className="ml-0.5 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs flex items-center gap-0.5">
                     <div style={{ color: drainColor }}>{calculatedDrain}</div>

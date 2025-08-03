@@ -12,7 +12,7 @@ type ModCardProps = {
     onDrainCalculated?: (drain: number) => void;
 }
 
-export function ModCard({ mod, expandAll, currentRank, polarityCheck, onDrainCalculated }: ModCardProps) {
+export function ModCard({ mod, expandAll, currentRank, polarityCheck, onDrainCalculated}: ModCardProps) {
     const [hover, setHover] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -59,20 +59,20 @@ export function ModCard({ mod, expandAll, currentRank, polarityCheck, onDrainCal
         <>
             <div
                 ref={cardRef}
-                className={`absolute top-0 left-0 w-full h-full transition-all duration-200 ease-in-out  ${expandAll ? 'z-5' : hover ? 'z-5' : 'z-0'}`}
+                className={`absolute top-0 left-0 w-full h-full transition-all duration-200 ease-in-out  ${expandAll ? 'z-5' : hover ? 'z-5 scale-[1.1]' : 'z-0'}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
 
-                <div className="relative pointer-events-none">
-                    <ModCardUpper frameColor={frameColor} cardColor={cardColor} maxDrain={maxDrain} polarity={mod.polarity} polarityCheck={polarityCheck} onDrainCalculated={onDrainCalculated} mod={mod} currentRank={currentRank} />
+                <div className={`relative pointer-events-none`}>
+                    <ModCardUpper frameColor={frameColor} cardColor={cardColor} maxDrain={maxDrain} polarity={mod.polarity} polarityCheck={polarityCheck} onDrainCalculated={onDrainCalculated} mod={mod} currentRank={currentRank} hover={hover} expandAll={expandAll} />
                 </div>
 
-                <div className="relative flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center justify-center pointer-events-none ${hover || expandAll ? '-top-[60px]' : ''}`}>
                     <ModCardBody mod={mod} cardColor={cardColor} expandAll={expandAll} frameColor={frameColor} hover={hover} currentRank={currentRank} />
                 </div>
 
-                <div className="relative pointer-events-none">
+                <div className={`relative pointer-events-none ${hover || expandAll ? '-top-[60px]' : ''}`}>
                     <ModCardLower frameColor={frameColor} expandAll={expandAll} cardColor={cardColor} mod={mod} hover={hover} currentRank={currentRank} />
                 </div>
 

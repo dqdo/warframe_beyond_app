@@ -258,7 +258,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         onDrop={handleDrop}
                     >
 
-                        <div className="relative select-none flex flex-col items-center h-[5.5vw] w-[10vw]">
+                        <div className="relative select-none flex flex-col items-center h-[90px] w-[180px]">
                             {assignedMod && currentModRank != null ? (
                                 <div className="w-full h-full">
                                     <div draggable
@@ -269,7 +269,7 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                     >
                                         <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} onDrainCalculated={handleDrainCalculated} />
                                     </div>
-                                    <div className="absolute top-[100%] mt-[0.3vw] left-1/2 -translate-x-1/2">
+                                    <div className="absolute top-[100%] mt-[10%] left-1/2 -translate-x-1/2">
                                         {currentModRank != null && (
                                             <ModRank currentModRank={currentModRank} fusionLimit={assignedMod.fusionLimit} setCurrentModRank={setCurrentModRank} />
                                         )}

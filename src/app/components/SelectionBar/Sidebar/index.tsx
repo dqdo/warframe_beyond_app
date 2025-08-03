@@ -74,7 +74,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMo
             </div>
 
             {selectedBuildType && (
-                <div className="overflow-y-auto mt-5 min-h-[80%]">
+                <div className="overflow-y-auto mt-5 min-h-[70%] max-h-[85%]">
                     {(type === "mods" && (selectedWarframe || selectedWeapon)) && <ModsViewer query={query} filters={filters} expandAll={expandAll} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} selectedWarframe={selectedWarframe} />}
                     {type === "arcanes" && <ArcanesViewer query={query} filters={filters} />}
                 </div>
