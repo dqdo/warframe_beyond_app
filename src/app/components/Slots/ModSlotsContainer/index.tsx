@@ -33,6 +33,21 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
         calculateTotalDrain();
     }, [calculatedDrains, polarityMatches]);
 
+    const checkExilusCompatibility = (slotType: string | null, mod: ModWithTexture | null): boolean => {
+        if (!mod) return true;
+
+        const isExilusSlot = slotType === 'UTILITY';
+        const isExilusMod = mod.isUtility;
+
+        if (isExilusSlot && !isExilusMod) {
+            setSelectedSlot(null);
+            setSelectedMod(null);
+            return false;
+        }
+
+        return true;
+    };
+
     const checkAuraCompatibility = (slotType: string | null, mod: ModWithTexture | null): boolean => {
         if (!mod) return true;
 
@@ -60,12 +75,16 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
             if (selectedSlot === 'stance') slotType = 'STANCE';
             if (selectedSlot === 'exilus') slotType = 'UTILITY';
 
-            if (checkAuraCompatibility(slotType, selectedMod)) {
+            const auraCheck = checkAuraCompatibility(slotType, selectedMod);
+            const exilusCheck = checkExilusCompatibility(slotType, selectedMod);
+
+            if (auraCheck && exilusCheck) {
                 setAssignedMods(prev => ({
                     ...prev,
                     [selectedSlot]: selectedMod,
                 }));
             }
+
             setSelectedSlot(null);
         }
     }, [selectedMod, selectedSlot]);
@@ -151,7 +170,7 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                     }}
                 />
             </div>
-            <div className={`grid ${isSidebarOpen ? "grid-cols-3" : "grid-cols-4"} mt-[60px] gap-x-[10px] gap-y-[60px]`}>
+            <div className={`grid ${isSidebarOpen ? "lg:grid-cols-2 2xl:grid-cols-3" : "lg:grid-cols-3 2xl:grid-cols-4"} mt-[60px] gap-x-[10px] gap-y-[60px]`}>
                 {Array.from({ length: 8 }, (_, i) => (
                     <ModSlot
                         id={`mod${i}`}

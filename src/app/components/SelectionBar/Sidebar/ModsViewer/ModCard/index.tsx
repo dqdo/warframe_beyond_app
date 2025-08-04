@@ -59,7 +59,7 @@ export function ModCard({ mod, expandAll, currentRank, polarityCheck, onDrainCal
         <>
             <div
                 ref={cardRef}
-                className={`absolute top-0 left-0 w-full h-full transition-all duration-200 ease-in-out  ${expandAll ? 'z-5' : hover ? 'z-5 scale-[1.1]' : 'z-0'}`}
+                className={`absolute left-0 w-full h-[100px] transition-all duration-200 ease-in-out ${expandAll ? 'z-5 top-[60px]' : hover ? 'z-5 scale-[1.1]' : 'z-0'}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >

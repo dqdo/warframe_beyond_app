@@ -11,8 +11,8 @@ type ItemRankProgressProps = {
 }
 
 export function ItemRankProgress({ totalDrain, assignedMods, calculatedDrains }: ItemRankProgressProps) {
-    const [count, setCount] = useState(0);
-    const [isDouble, setIsDouble] = useState(false);
+    const [count, setCount] = useState(30);
+    const [isDouble, setIsDouble] = useState(true);
 
     const displayCount = isDouble ? count * 2 : count;
 

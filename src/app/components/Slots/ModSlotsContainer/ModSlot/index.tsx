@@ -124,6 +124,19 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
         return true;
     }
 
+    const checkExilus = (mod: ModWithTexture) => {
+        const isExilusSlot = type === 'UTILITY'
+        const isExilusMod = mod.isUtility;
+
+        if (isExilusSlot && !isExilusMod) {
+            console.log("Can only place EXILUS/UTILITY mods in EXILUS slot")
+            return false;
+        }
+
+        return true;
+
+    }
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             lastMouseX.current = e.clientX;
@@ -193,6 +206,10 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             const fromSlotId: string | undefined = parsed.fromSlotId;
 
             if (!checkAura(mod)) {
+                return;
+            }
+
+            if (!checkExilus(mod)) {
                 return;
             }
 

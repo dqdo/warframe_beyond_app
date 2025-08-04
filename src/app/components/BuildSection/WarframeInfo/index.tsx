@@ -6,7 +6,7 @@ type WarframeInfoProps = {
 export function WarframeInfo({ warframe }: WarframeInfoProps) {
     return (
         <>
-            <div className="m-2 text-med text-white space-y-1">
+            <div className="m-2 text-sm text-white">
                 <div><strong>Energy:</strong> {warframe.power}</div>
                 <div><strong>Health:</strong> {warframe.health}</div>
                 <div><strong>Shield:</strong> {warframe.shield}</div>

@@ -61,7 +61,7 @@ export default function Sidebar({ type, isOpen, selectedBuildType, setSelectedMo
 
     return (
         <div
-            className={`fixed right-0 h-[90vh] text-white bg-neutral-900 border-l border-b border-white border-t-0 border-r-0 transform transition-transform duration-400 ease-in-out
+            className={`fixed right-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-neutral-900 border-l border-b border-white border-t-0 border-r-0 transform transition-transform duration-400 ease-in-out
         w-full sm:w-[25vw] md:w-[30vw] lg:w-[35vw] overflow-hidden flex flex-col
         ${SidebarStyles['scrollbar-custom']} ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >

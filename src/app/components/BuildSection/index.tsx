@@ -32,7 +32,7 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain,
 
     return (
         <>
-            <div className={`fixed left-0 h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
+            <div className={`fixed left-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
                 <BuildResources onBuildTypeSelect={(type) => { onBuildTypeSelect(type); setQuery(''); setSelectedWarframe(null); setSelectedWeapon(null); }} />
 
                 {selectedBuildType && (

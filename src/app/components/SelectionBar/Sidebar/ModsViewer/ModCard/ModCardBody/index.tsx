@@ -96,7 +96,7 @@ export function ModCardBody({ mod, cardColor, expandAll, frameColor, hover, curr
                             )}
                         </div>
                         <Image src={mod.textureUrl} alt={mod.name} width={200} height={200} loading="lazy" quality={75}
-                            className={`w-full h-full object-cover rounded-b-3xl z-1`}
+                            className={`w-full h-full object-cover rounded-b-3xl transition duration-300 ease-in-out z-1 ${hover ? 'scale-[1.01]' :''}`}
                             style={{ clipPath: (expandAll || hover) ? clipInset : "inset(0 0 60% 0)" }} />
 
                         {(expandAll || hover) === false && (

@@ -75,7 +75,7 @@ export default function ModsViewer({ query, filters, expandAll, selectedBuildTyp
 
 
   return (
-    <div className={`grid lg:grid-cols-2 2xl:grid-cols-3 gap-2 p-4 ${expandAll ? 'mt-[50px]' : ''}`}>
+    <div className={`grid lg:grid-cols-2 2xl:grid-cols-3 gap-2 p-4`}>
       {filteredMods.map((mod, index) => (
         <div key={index} className={`relative cursor-grab select-none flex flex-col items-center ${expandAll ? 'h-[300px]' : 'h-[100px]'}`}
           onClick={() => {
