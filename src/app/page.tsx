@@ -19,11 +19,14 @@ export default function Home() {
   const [selectedWeapon, setSelectedWeapon] = useState<WeaponWithTexture | null>(null);
   const [calculatedDrains, setCalculatedDrains] = useState<Record<string, number>>({});
 
-  console.log(assignedMods)
-
   useEffect(() => {
     setSelectedMod(null);
   }, [selectedBuildType]);
+
+  useEffect(() => {
+    setAssignedMods({});
+    setSelectedMod(null);
+  },[selectedWarframe, selectedWeapon]);
 
   return (
     <div>

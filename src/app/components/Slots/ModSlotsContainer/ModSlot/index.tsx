@@ -294,9 +294,9 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                 </div>
                             ) : (
                                 <div className="h-auto w-auto">
-                                    <Image src="/images/mods/mod_slot.png" alt="Mod Slot" height={200} width={200} />
+                                    <Image src="/images/mods/mod_slot.png" alt="Mod Slot" height={200} width={200} draggable="false" />
                                     {assignedMod == null && (
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" draggable="false">
                                             {type === "UTILITY" && (
                                                 <Image src={"/images/mods/IconUtility.png"} alt="Exilus Slot" height={60} width={60} />
                                             )}
