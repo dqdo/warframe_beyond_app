@@ -17,6 +17,10 @@ type ModSlotProps = {
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
     setPolarityMatch: (slotId: string, match: boolean | null) => void;
     setCalculatedDrains: (slotId: string, drain: number) => void;
+    currentRanks: Record<string, number>;
+    setCurrentRanks: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+    slotPolarities: Record<string, string>;
+    setSlotPolarities: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 };
 
 const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arrow" width={12} height={12} className="h-3 w-3" />;
@@ -33,23 +37,38 @@ const polarityOptions = [
     { label: ' ', value: 'AP_ANY', icon: <Image src="/images/mods/polarities/any_polarity.svg" alt="any" width={12} height={12} className="h-3 w-3 invert" /> },
 ];
 
-export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelectedSlot, selectedButton, assignedMod, setAssignedMods, setPolarityMatch, setCalculatedDrains }: ModSlotProps) {
+export function ModSlot({
+    type,
+    setSelectedButton,
+    id,
+    selectedSlot,
+    setSelectedSlot,
+    selectedButton,
+    assignedMod,
+    setAssignedMods,
+    setPolarityMatch,
+    setCalculatedDrains,
+    currentRanks,
+    setCurrentRanks,
+    slotPolarities,
+    setSlotPolarities
+}: ModSlotProps) {
     const isSelected = selectedSlot === id;
     const [hover, setHover] = useState(false);
     const slotRef = useRef<HTMLDivElement>(null);
     const isDraggingRef = useRef(false);
     const lastMouseX = useRef(0);
     const lastMouseY = useRef(0);
-    const [currentModRank, setCurrentModRank] = useState<number | null>(assignedMod ? assignedMod.fusionLimit : null);
+    const currentModRank = assignedMod ? (currentRanks[id] ?? assignedMod.fusionLimit) : null;
+    const slotPolarity = slotPolarities[id] ?? '';
     const [polarityCheck, setPolarityCheck] = useState<boolean | null>(null);
-    const [slotPolarity, setSlotPolarity] = useState<string | null>(null);
 
     const handleDrainCalculated = (drain: number) => {
         setCalculatedDrains(id, drain);
     };
 
     const checkPolarity = () => {
-        if (!assignedMod || !slotPolarity || assignedMod === undefined) {
+        if (!assignedMod || !slotPolarity) {
             setPolarityCheck(null);
             setPolarityMatch(id, null);
             return;
@@ -75,6 +94,11 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
     useEffect(() => {
         if (!assignedMod) {
             setCalculatedDrains(id, 0);
+            setCurrentRanks(prev => {
+                const newRanks = { ...prev };
+                delete newRanks[id];
+                return newRanks;
+            });
         }
     }, [assignedMod]);
 
@@ -83,15 +107,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             checkPolarity();
         }
     }, [assignedMod, slotPolarity]);
-
-    useEffect(() => {
-        if (assignedMod) {
-            setCurrentModRank(assignedMod.fusionLimit);
-        } else {
-            setCurrentModRank(null);
-            setHover(false);
-        }
-    }, [assignedMod]);
 
     const checkHoverState = () => {
         if (!slotRef.current) return;
@@ -134,7 +149,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
         }
 
         return true;
-
     }
 
     useEffect(() => {
@@ -229,6 +243,11 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                 return newAssignedMods;
             });
 
+            setCurrentRanks(prev => ({
+                ...prev,
+                [id]: mod.fusionLimit
+            }));
+
             lastMouseX.current = e.clientX;
             lastMouseY.current = e.clientY;
             checkHoverState();
@@ -243,7 +262,6 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
             console.error("Invalid drop data", err);
         }
     };
-
 
     const slotClasses = assignedMod ? "relative cursor-default" : `relative cursor-pointer 
     ${selectedButton !== null && isSelected ? "opacity-100 brightness-200" : hover ? "brightness-200 opacity-50" : "opacity-40"}`;
@@ -263,9 +281,17 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         </div>
                     )}
                     <div className="">
-                        <Dropdown label="---" labelIcon={arrowIcon} options={polarityOptions} styleVariant="modSlot" onSelect={(option) => setSlotPolarity(option.value)} />
+                        <Dropdown
+                            label="---"
+                            labelIcon={arrowIcon}
+                            options={polarityOptions}
+                            styleVariant="modSlot"
+                            onSelect={(option) => setSlotPolarities(prev => ({
+                                ...prev,
+                                [id]: option.value
+                            }))}
+                        />
                     </div>
-
                 </div>
                 <div className={`relative h-auto`} ref={slotRef}>
                     <div className={`h-[11vh] w-auto relative ${slotClasses}`}
@@ -274,21 +300,38 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                         onDragOver={handleDragOver}
                         onDrop={handleDrop}
                     >
-
                         <div className="relative select-none flex flex-col items-center h-[90px] w-[180px]">
                             {assignedMod && currentModRank != null ? (
                                 <div className="w-full h-full">
                                     <div draggable
                                         onDragStart={(e) => {
-                                            e.dataTransfer.setData("application/json", JSON.stringify({ mod: assignedMod, fromSlotId: id }));
+                                            e.dataTransfer.setData("application/json", JSON.stringify({
+                                                mod: assignedMod,
+                                                fromSlotId: id,
+                                                currentRank: currentModRank
+                                            }));
                                         }}
                                         className="cursor-grab"
                                     >
-                                        <ModCard mod={assignedMod} currentRank={currentModRank} polarityCheck={polarityCheck} onDrainCalculated={handleDrainCalculated} />
+                                        <ModCard
+                                            mod={assignedMod}
+                                            currentRank={currentModRank}
+                                            polarityCheck={polarityCheck}
+                                            onDrainCalculated={handleDrainCalculated}
+                                        />
                                     </div>
                                     <div className="absolute top-[100%] mt-[10%] left-1/2 -translate-x-1/2">
                                         {currentModRank != null && (
-                                            <ModRank currentModRank={currentModRank} fusionLimit={assignedMod.fusionLimit} setCurrentModRank={setCurrentModRank} />
+                                            <ModRank
+                                                currentModRank={currentModRank}
+                                                fusionLimit={assignedMod.fusionLimit}
+                                                setCurrentModRank={(newRank) => {
+                                                    setCurrentRanks(prev => ({
+                                                        ...prev,
+                                                        [id]: newRank
+                                                    }));
+                                                }}
+                                            />
                                         )}
                                     </div>
                                 </div>
@@ -312,10 +355,8 @@ export function ModSlot({ type, setSelectedButton, id, selectedSlot, setSelected
                                     )}
                                 </div>
                             )}
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

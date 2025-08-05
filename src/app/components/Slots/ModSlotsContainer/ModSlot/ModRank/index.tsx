@@ -1,18 +1,16 @@
 type ModRankProps = {
     currentModRank: number;
-    setCurrentModRank: React.Dispatch<React.SetStateAction<number | null>>;
+    setCurrentModRank: (rank: number) => void;
     fusionLimit: number;
 }
 
 export function ModRank({ currentModRank, setCurrentModRank, fusionLimit }: ModRankProps) {
     const incrementRank = () => {
-        if (currentModRank === null) return;
-        setCurrentModRank((prev) => prev !== null ? Math.min(prev + 1, fusionLimit) : prev);
+        setCurrentModRank(Math.min(currentModRank + 1, fusionLimit));
     };
 
     const decrementRank = () => {
-        if (currentModRank === null) return;
-        setCurrentModRank((prev) => prev !== null ? Math.max(prev - 1, 0) : prev);
+        setCurrentModRank(Math.max(currentModRank - 1, 0));
     };
 
     return (
