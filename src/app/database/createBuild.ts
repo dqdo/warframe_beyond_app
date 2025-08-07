@@ -17,7 +17,15 @@ export interface BuildProps {
 
 export async function createBuild(buildProps: BuildProps) {
     try {
-        const response = await axios.post<{ buildID: string }>(ROUTES.CREATE_BUILD, buildProps);
+        const response = await axios.post<{ buildID: string }>(
+            ROUTES.CREATE_BUILD, 
+            JSON.stringify(buildProps), // Explicit stringify
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
         return response.data.buildID;
     } catch (error) {
         console.error('Error creating build:', error);

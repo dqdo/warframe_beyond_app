@@ -3,13 +3,21 @@ import prismaClient from "../../../lib/prisma"
 import { nanoid } from 'nanoid';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
     if (req.method !== 'POST') {
         res.setHeader('Allow', ['POST']);
         return res.status(405).json({ message: `Method ${req.method} not allowed` });
     }
 
     try {
-        const data = req.body;
+        const data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
 
         if (!data.buildType) {
             return res.status(400).json({ message: 'buildType is required' });
