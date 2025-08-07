@@ -3,8 +3,18 @@ import prismaClient from "../../../lib/prisma"
 import { nanoid } from 'nanoid';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    const data = req.body;
+    if (req.method !== 'POST') {
+        res.setHeader('Allow', ['POST']);
+        return res.status(405).json({ message: `Method ${req.method} not allowed` });
+    }
+
     try {
+        const data = req.body;
+
+        if (!data.buildType) {
+            return res.status(400).json({ message: 'buildType is required' });
+        }
+
         const newBuild = await prismaClient.build.create({
             data: {
                 buildID: nanoid(),
@@ -19,9 +29,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             },
         });
 
-        res.status(200).json({ buildID: newBuild.buildID });
+        return res.status(200).json({ buildID: newBuild.buildID });
     } catch (err) {
         console.error(err);
-        res.status(500).json("Failed to create build");
+        return res.status(500).json({ message: "Failed to create build" });
     }
 }
