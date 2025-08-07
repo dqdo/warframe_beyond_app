@@ -1,7 +1,7 @@
 'use client'
 import Header from "@/app/components/Header";
 import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/SelectionBar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
 import Button from "./components/Elements/Button";
@@ -9,8 +9,10 @@ import { createBuild } from "./database/createBuild";
 import { ModWithTexture } from "../../pages/api/fetchMods";
 import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
+import { useSearchParams } from "next/navigation";
+import { getBuild } from "./database/getBuild";
 
-export default function Home() {
+function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const isSidebarOpen = selectedButton !== null;
   const [selectedBuildType, setSelectedBuildType] = useState<string | null>(null);
@@ -22,11 +24,15 @@ export default function Home() {
   const [calculatedDrains, setCalculatedDrains] = useState<Record<string, number>>({});
   const [currentModRanks, setCurrentModRanks] = useState<Record<string, number>>({});
   const [slotPolarities, setSlotPolarities] = useState<Record<string, string>>({});
+  const [itemRank, setItemRank] = useState(30);
+  const [orokinReactor, setOrokinReactor] = useState(true);
+  const searchParams = useSearchParams();
+  const [buildLink, setBuildLink] = useState<string | null>(null);
 
   const handleSaveBuild = () => {
     const buildData = {
-      orokinReactor: true,
-      itemRank: 30,
+      orokinReactor: orokinReactor,
+      itemRank: itemRank,
       buildType: selectedBuildType,
       assignedMods: assignedMods,
       slotPolarities: slotPolarities,
@@ -34,32 +40,49 @@ export default function Home() {
       selectedWarframe: selectedWarframe,
       selectedWeapon: selectedWeapon
     };
-
     createBuild(buildData)
       .then(buildID => {
         console.log("Build created with ID:", buildID);
-        alert(`Build saved successfully! Build ID: ${buildID}`);
+        const shareableUrl = `${window.location.origin}?build=${buildID}`;
+        setBuildLink(shareableUrl);
+        navigator.clipboard.writeText(shareableUrl)
+          .then(() => {
+            console.log(`Link Saved: ${shareableUrl}`)
+          })
+          .catch(() => {
+            console.log("Clipboard write failed");
+          });
+        window.history.pushState({}, '', `?build=${buildID}`);
       })
       .catch(error => {
         console.error("Error creating build:", error);
-        alert("Failed to save build. Please try again.");
       });
   };
 
   useEffect(() => {
-    setSelectedMod(null);
-  }, [selectedBuildType]);
-
-  useEffect(() => {
-    setAssignedMods({});
-    setSelectedMod(null);
-  }, [selectedWarframe, selectedWeapon]);
+    const buildParam = searchParams?.get("build");
+    if (buildParam) {
+      getBuild(buildParam).then((buildData) => {
+        setSelectedBuildType(buildData.buildType);
+        setAssignedMods(buildData.assignedMods);
+        setSlotPolarities(buildData.slotPolarities);
+        setCurrentModRanks(buildData.currentModRanks);
+        setSelectedWarframe(buildData.selectedWarframe);
+        setSelectedWeapon(buildData.selectedWeapon);
+        setItemRank(buildData.itemRank);
+        setOrokinReactor(buildData.orokinReactor);
+      }).catch(error => {
+        console.error("Error loading build:", error);
+      });
+    }
+  }, [searchParams]);
 
   return (
     <div>
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
+          {buildLink}
           <div className="flex gap-5">
             <Button
               text="🔗 Create & Save Build"
@@ -67,11 +90,24 @@ export default function Home() {
             />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
-
         </div>
         <hr className="w-full border-white" />
         <SelectionBarSidebar selectedButton={selectedButton} selectedBuildType={selectedBuildType} setSelectedMod={setSelectedMod} assignedMods={assignedMods} selectedMod={selectedMod} selectedWarframe={selectedWarframe} selectedWeapon={selectedWeapon} />
-        <BuildSection selectedBuildType={selectedBuildType} onBuildTypeSelect={setSelectedBuildType} totalDrain={totalDrain} selectedWarframe={selectedWarframe} setSelectedWarframe={setSelectedWarframe} selectedWeapon={selectedWeapon} setSelectedWeapon={setSelectedWeapon} assignedMods={assignedMods} calculatedDrains={calculatedDrains} />
+        <BuildSection
+          selectedBuildType={selectedBuildType}
+          onBuildTypeSelect={setSelectedBuildType}
+          totalDrain={totalDrain}
+          selectedWarframe={selectedWarframe}
+          setSelectedWarframe={setSelectedWarframe}
+          selectedWeapon={selectedWeapon}
+          setSelectedWeapon={setSelectedWeapon}
+          assignedMods={assignedMods}
+          setAssignedMods={setAssignedMods}
+          calculatedDrains={calculatedDrains}
+          count={itemRank}
+          setCount={setItemRank}
+          isDouble={orokinReactor}
+          setIsDouble={setOrokinReactor} />
       </div>
 
       <div className="py-[120px]">
@@ -97,9 +133,15 @@ export default function Home() {
             </div>
           </div>
         )}
-
       </div>
-
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Warframe Beyond",
-  description: "",
+  description: "Warframe Builder",
 };
 
 export default function RootLayout({

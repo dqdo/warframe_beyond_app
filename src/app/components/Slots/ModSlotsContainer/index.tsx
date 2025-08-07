@@ -112,7 +112,6 @@ export function ModSlotsContainer({
     }, [selectedMod, selectedSlot]);
 
     useEffect(() => {
-        setAssignedMods({});
         setSelectedSlot(null);
     }, [selectedBuildType]);
 
