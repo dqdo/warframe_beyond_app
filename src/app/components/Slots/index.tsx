@@ -2,7 +2,7 @@ import { ModSlotsContainer } from "@/app/components/Slots/ModSlotsContainer"
 import { ArcaneSlotsContainer } from "@/app/components/Slots/ArcaneSlotsContainer"
 import { ArchonShardSlotsContainer } from "@/app/components/Slots/ArchonShardSlotsContainer"
 import { useState, useEffect } from "react";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModWithTexture } from "../../../../pages/api/fetchMods";
 
 type SlotsProps = {
     isSidebarOpen: boolean;

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Dropdown from "@/app/components/Elements/Dropdown";
 import { useEffect, useRef, useState } from "react";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
 import { ModCard } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard";
 import Button from "@/app/components/Elements/Button";
 import { ModRank } from "@/app/components/Slots/ModSlotsContainer/ModSlot/ModRank";
+import { ModWithTexture } from "../../../../../../pages/api/fetchMods";
 
 type ModSlotProps = {
     id: string;
@@ -68,13 +68,7 @@ export function ModSlot({
     };
 
     const checkPolarity = () => {
-        if (!assignedMod || !slotPolarity) {
-            setPolarityCheck(null);
-            setPolarityMatch(id, null);
-            return;
-        }
-
-        if (assignedMod.polarity === '' || slotPolarity === '') {
+        if (!assignedMod || !slotPolarity || assignedMod.polarity === '' || slotPolarity === '') {
             setPolarityCheck(null);
             setPolarityMatch(id, null);
             return;

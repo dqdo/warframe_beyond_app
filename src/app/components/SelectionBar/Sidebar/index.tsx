@@ -5,9 +5,9 @@ import ModsViewer from '@/app/components/SelectionBar/Sidebar/ModsViewer';
 import ArcanesViewer from "@/app/components/SelectionBar/Sidebar/ArcanesViewer";
 import SidebarStyles from '@/app/components/SelectionBar/Sidebar/Sidebar.module.css';
 import SlidingButton from "@/app/components/Elements/SlidingButton";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
-import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
+import { ModWithTexture } from "../../../../../pages/api/fetchMods";
+import { WarframeWithTexture } from "../../../../../pages/api/fetchWarframes";
+import { WeaponWithTexture } from "../../../../../pages/api/fetchWeapons";
 
 type SidebarProps = {
     type: string;

@@ -8,11 +8,12 @@ import WarframesViewer from "@/app/components/BuildSection/WarframesViewer"
 import WeaponsViewer from "@/app/components/BuildSection/WeaponsViewer";
 import BuildSectionStyles from "@/app/components/BuildSection/BuildSection.module.css"
 import { WarframeAbilitiesViewer } from "@/app/components/BuildSection/WarframeAbilitiesViewer";
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
-import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 import Image from "next/image";
 import { WarframeInfo } from "@/app/components/BuildSection/WarframeInfo";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { WarframeWithTexture } from "../../../../pages/api/fetchWarframes";
+import { WeaponWithTexture } from "../../../../pages/api/fetchWeapons";
+import { ModWithTexture } from "../../../../pages/api/fetchMods";
+
 
 type BuildSectionProps = {
     selectedBuildType: string | null;

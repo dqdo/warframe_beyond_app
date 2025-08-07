@@ -1,6 +1,6 @@
 import { ModSlot } from "@/app/components/Slots/ModSlotsContainer/ModSlot"
-import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import { useEffect, useState } from "react";
+import { ModWithTexture } from "../../../../../pages/api/fetchMods";
 
 type ModSlotsContainerProps = {
     isSidebarOpen: boolean;

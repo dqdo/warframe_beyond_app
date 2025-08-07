@@ -1,7 +1,7 @@
 import Image from "next/image"
-import { polarityImages } from '@/app/lib/constants/images'
+import { polarityImages } from '../../../../../../constants/images'
 import { useEffect } from "react";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModWithTexture } from "../../../../../../../../pages/api/fetchMods";
 
 type ModCardUpperProps = {
     frameColor: string;

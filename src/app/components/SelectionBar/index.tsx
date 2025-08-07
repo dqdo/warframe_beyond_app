@@ -1,8 +1,8 @@
 import ButtonSelections from "@/app/components/SelectionBar/ButtonSelections"
 import Sidebar from "@/app/components/SelectionBar/Sidebar"
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
-import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
+import { ModWithTexture } from "../../../../pages/api/fetchMods";
+import { WarframeWithTexture } from "../../../../pages/api/fetchWarframes";
+import { WeaponWithTexture } from "../../../../pages/api/fetchWeapons";
 
 type SelectionBarButtonsProps = {
     selectedButton: string | null;

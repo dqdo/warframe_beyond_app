@@ -1,7 +1,7 @@
 import Button from "@/app/components/Elements/Button";
 import { useState } from "react";
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
 import Image from "next/image";
+import { WarframeWithTexture } from "../../../../../pages/api/fetchWarframes";
 
 type WarframeAbilitiesViewerProps = {
     warframe: WarframeWithTexture;

@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchModsWithTextures, ModWithTexture } from '@/app/lib/api/fetchMods';
+
 import { ModCard } from '@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard';
-import { WarframeWithTexture } from '@/app/lib/api/fetchWarframes';
+import { fetchModsWithTextures, ModWithTexture } from '../../../../../../pages/api/fetchMods';
+import { WarframeWithTexture } from '../../../../../../pages/api/fetchWarframes';
 
 type ModsViewerProps = {
   query: string;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ItemRankBar } from "@/app/components/BuildSection/ItemRankProgress/ItemRankBar";
 import { ItemRankCounter } from "@/app/components/BuildSection/ItemRankProgress/ItemRankCounter";
 import SlidingButton from "@/app/components/Elements/SlidingButton";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModWithTexture } from "../../../../../pages/api/fetchMods";
 
 type ItemRankProgressProps = {
     totalDrain: number;

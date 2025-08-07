@@ -4,10 +4,11 @@ import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/Selec
 import { useEffect, useState } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
-import { ModWithTexture } from "./lib/api/fetchMods";
-import { WarframeWithTexture } from "./lib/api/fetchWarframes";
-import { WeaponWithTexture } from "./lib/api/fetchWeapons";
 import Button from "./components/Elements/Button";
+import { createBuild } from "./database/createBuild";
+import { ModWithTexture } from "../../pages/api/fetchMods";
+import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
+import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 
 export default function Home() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -26,22 +27,6 @@ export default function Home() {
     setSelectedMod(null);
   }, [selectedBuildType]);
 
-  // useEffect(() => {
-  //   console.log('--------------------------------------')
-  //   console.log('currentModRanks:', currentModRanks);
-  //   console.log('assignedMods:', assignedMods);
-  //   console.log('slotPolarities:', slotPolarities);
-
-  //   console.log('Assigned Mods Details:');
-  //   Object.entries(assignedMods).forEach(([slotId, mod]) => {
-  //     if (mod) {
-  //       console.log(`Slot ${slotId}:`, mod.name, 'Rank:', currentModRanks[slotId], 'Polarity:', slotPolarities[slotId]);
-  //     } else {
-  //       console.log(`Slot ${slotId}: Empty`);
-  //     }
-  //   });
-  // }, [currentModRanks, assignedMods, slotPolarities]);
-
   useEffect(() => {
     setAssignedMods({});
     setSelectedMod(null);
@@ -52,8 +37,29 @@ export default function Home() {
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
-          <div className= "flex gap-5">
-            <Button text="🔗 Save Build" />
+          <div className="flex gap-5">
+            <Button
+              text="🔗 Create & Save Build"
+              onClick={async () => {
+                try {
+                  const buildID = await createBuild({
+                    orokinReactor: true,
+                    itemRank: 30,
+                    buildType: selectedBuildType,
+                    assignedMods: assignedMods,
+                    slotPolarities: slotPolarities,
+                    currentModRanks: currentModRanks,
+                    selectedWarframe: selectedWarframe,
+                    selectedWeapon: selectedWeapon
+                  });
+                  console.log("Build created with ID:", buildID);
+                  alert(`Build saved successfully! Build ID: ${buildID}`);
+                } catch (error) {
+                  console.error("Error creating build:", error);
+                  alert("Failed to save build. Please try again.");
+                }
+              }}
+            />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
 

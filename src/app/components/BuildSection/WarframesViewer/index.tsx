@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchWarframesWithTextures, WarframeWithTexture } from '@/app/lib/api/fetchWarframes';
 import Image from 'next/image';
+import { fetchWarframesWithTextures, WarframeWithTexture } from '../../../../../pages/api/fetchWarframes';
 
 type WarframesViewerProps = {
     selectedBuildType: string | null;
