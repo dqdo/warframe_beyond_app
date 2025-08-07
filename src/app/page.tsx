@@ -23,6 +23,29 @@ export default function Home() {
   const [currentModRanks, setCurrentModRanks] = useState<Record<string, number>>({});
   const [slotPolarities, setSlotPolarities] = useState<Record<string, string>>({});
 
+  const handleSaveBuild = () => {
+    const buildData = {
+      orokinReactor: true,
+      itemRank: 30,
+      buildType: selectedBuildType,
+      assignedMods: assignedMods,
+      slotPolarities: slotPolarities,
+      currentModRanks: currentModRanks,
+      selectedWarframe: selectedWarframe,
+      selectedWeapon: selectedWeapon
+    };
+
+    createBuild(buildData)
+      .then(buildID => {
+        console.log("Build created with ID:", buildID);
+        alert(`Build saved successfully! Build ID: ${buildID}`);
+      })
+      .catch(error => {
+        console.error("Error creating build:", error);
+        alert("Failed to save build. Please try again.");
+      });
+  };
+
   useEffect(() => {
     setSelectedMod(null);
   }, [selectedBuildType]);
@@ -40,25 +63,7 @@ export default function Home() {
           <div className="flex gap-5">
             <Button
               text="🔗 Create & Save Build"
-              onClick={async () => {
-                try {
-                  const buildID = await createBuild({
-                    orokinReactor: true,
-                    itemRank: 30,
-                    buildType: selectedBuildType,
-                    assignedMods: assignedMods,
-                    slotPolarities: slotPolarities,
-                    currentModRanks: currentModRanks,
-                    selectedWarframe: selectedWarframe,
-                    selectedWeapon: selectedWeapon
-                  });
-                  console.log("Build created with ID:", buildID);
-                  alert(`Build saved successfully! Build ID: ${buildID}`);
-                } catch (error) {
-                  console.error("Error creating build:", error);
-                  alert("Failed to save build. Please try again.");
-                }
-              }}
+              onClick={handleSaveBuild}
             />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
