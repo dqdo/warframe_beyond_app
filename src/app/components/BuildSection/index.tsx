@@ -55,6 +55,7 @@ export function BuildSection({
         <>
             <div className={`fixed left-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
                 <BuildResources
+                selectedBuildType={selectedBuildType}
                     onBuildTypeSelect={(type) => {
                         onBuildTypeSelect(type);
                         if (type !== selectedBuildType) {

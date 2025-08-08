@@ -3,12 +3,13 @@ import { ResourceCount } from "@/app/components/BuildSection/BuildResources/Reso
 
 type BuildResourcesProps = {
     onBuildTypeSelect: (val: string | null) => void;
+    selectedBuildType: string | null;
 };
 
-export function BuildResources({ onBuildTypeSelect }: BuildResourcesProps) {
+export function BuildResources({ onBuildTypeSelect, selectedBuildType}: BuildResourcesProps) {
     return (
         <div className="m-2 flex">
-            <BuildTypeSelect onSelect={onBuildTypeSelect} />
+            <BuildTypeSelect onSelect={onBuildTypeSelect} selectedBuildType={selectedBuildType} />
             <ResourceCount />
         </div>
     );

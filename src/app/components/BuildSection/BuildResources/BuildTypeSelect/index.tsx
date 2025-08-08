@@ -12,12 +12,15 @@ const arrowIcon = <Image src="/images/misc/down-arrow-svgrepo-com.svg" alt="arro
 
 type BuildTypeSelectProps = {
     onSelect?: (val: string | null) => void;
+    selectedBuildType: string | null;
 }
 
-export function BuildTypeSelect({ onSelect }: BuildTypeSelectProps) {
+export function BuildTypeSelect({ onSelect, selectedBuildType }: BuildTypeSelectProps) {
+    const initialOption = buildOptions.find(option => option.label === selectedBuildType);
+  
     return (
         <div className="flex gap-3">
-            <Dropdown label="Select" options={buildOptions} header="Build Type:" labelIcon={arrowIcon} styleVariant="buildSection" onSelect={(option) => onSelect?.(option.value)} />
+            <Dropdown label="Select" options={buildOptions} header="Build Type:" labelIcon={arrowIcon} styleVariant="buildSection" onSelect={(option) => onSelect?.(option.value)} initialOption={initialOption} />
         </div>
     );
 }

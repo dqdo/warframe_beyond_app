@@ -11,6 +11,7 @@ import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 import { useSearchParams } from "next/navigation";
 import { getBuild } from "./database/getBuild";
+import Toast from "./components/Elements/Toast";
 
 function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -27,7 +28,8 @@ function HomeContent() {
   const [itemRank, setItemRank] = useState(30);
   const [orokinReactor, setOrokinReactor] = useState(true);
   const searchParams = useSearchParams();
-  const [buildLink, setBuildLink] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   const handleSaveBuild = () => {
     const buildData = {
@@ -44,10 +46,10 @@ function HomeContent() {
       .then(buildID => {
         console.log("Build created with ID:", buildID);
         const shareableUrl = `${window.location.origin}?build=${buildID}`;
-        setBuildLink(shareableUrl);
         navigator.clipboard.writeText(shareableUrl)
           .then(() => {
-            console.log(`Link Saved: ${shareableUrl}`)
+            setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
+            setShowToast(true);
           })
           .catch(() => {
             console.log("Clipboard write failed");
@@ -79,10 +81,10 @@ function HomeContent() {
 
   return (
     <div>
+      <Toast message={toastMessage} show={showToast} onClose={() => setShowToast(false)} />
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
-          {buildLink}
           <div className="flex gap-5">
             <Button
               text="🔗 Create & Save Build"

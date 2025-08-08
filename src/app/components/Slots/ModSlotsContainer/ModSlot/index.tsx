@@ -63,6 +63,8 @@ export function ModSlot({
     const slotPolarity = slotPolarities[id] ?? '';
     const [polarityCheck, setPolarityCheck] = useState<boolean | null>(null);
 
+    const initialOption = polarityOptions.find(option => option.value === slotPolarities[id]);
+
     const handleDrainCalculated = (drain: number) => {
         setCalculatedDrains(id, drain);
     };
@@ -284,6 +286,7 @@ export function ModSlot({
                                 ...prev,
                                 [id]: option.value
                             }))}
+                            initialOption={initialOption}
                         />
                     </div>
                 </div>
