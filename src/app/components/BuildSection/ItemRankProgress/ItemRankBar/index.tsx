@@ -1,4 +1,4 @@
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModWithTexture } from "../../../../../../pages/api/fetchMods";
 
 type ItemRankBarProps = {
     count: number;

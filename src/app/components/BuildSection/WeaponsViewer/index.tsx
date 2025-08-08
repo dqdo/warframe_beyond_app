@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { fetchWeaponsWithTextures, WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 import Image from 'next/image'
+import { fetchWeaponsWithTextures, WeaponWithTexture } from "../../../../../pages/api/fetchWeapons";
 
 type WeaponsViewerProps = {
     selectedBuildType: string | null;

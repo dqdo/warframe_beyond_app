@@ -1,6 +1,6 @@
 import { ModSlot } from "@/app/components/Slots/ModSlotsContainer/ModSlot"
-import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import { useEffect, useState } from "react";
+import { ModWithTexture } from "../../../../../pages/api/fetchMods";
 
 type ModSlotsContainerProps = {
     isSidebarOpen: boolean;
@@ -16,9 +16,31 @@ type ModSlotsContainerProps = {
     setTotalDrain: React.Dispatch<React.SetStateAction<number>>;
     calculatedDrains: Record<string, number>;
     setCalculatedDrains: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+    currentRanks: Record<string, number>;
+    setCurrentRanks: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+    slotPolarities: Record<string, string>;
+    setSlotPolarities: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 }
 
-export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSlot, setSelectedSlot, selectedButton, selectedBuildType, selectedMod, assignedMods, setAssignedMods, setTotalDrain, setSelectedMod, calculatedDrains, setCalculatedDrains }: ModSlotsContainerProps) {
+export function ModSlotsContainer({
+    isSidebarOpen,
+    setSelectedButton,
+    selectedSlot,
+    setSelectedSlot,
+    selectedButton,
+    selectedBuildType,
+    selectedMod,
+    assignedMods,
+    setAssignedMods,
+    setTotalDrain,
+    setSelectedMod,
+    calculatedDrains,
+    setCalculatedDrains,
+    currentRanks,
+    setCurrentRanks,
+    slotPolarities,
+    setSlotPolarities
+}: ModSlotsContainerProps) {
     const [polarityMatches, setPolarityMatches] = useState<Record<string, boolean | null>>({});
 
     useEffect(() => {
@@ -90,7 +112,6 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
     }, [selectedMod, selectedSlot]);
 
     useEffect(() => {
-        setAssignedMods({});
         setSelectedSlot(null);
     }, [selectedBuildType]);
 
@@ -107,6 +128,10 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                         selectedButton={selectedButton}
                         assignedMod={assignedMods['aura']}
                         setAssignedMods={setAssignedMods}
+                        currentRanks={currentRanks}
+                        setCurrentRanks={setCurrentRanks}
+                        slotPolarities={slotPolarities}
+                        setSlotPolarities={setSlotPolarities}
                         setPolarityMatch={(slotId, match) => {
                             setPolarityMatches(prev => ({
                                 ...prev,
@@ -132,6 +157,10 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                         selectedButton={selectedButton}
                         assignedMod={assignedMods['stance']}
                         setAssignedMods={setAssignedMods}
+                        currentRanks={currentRanks}
+                        setCurrentRanks={setCurrentRanks}
+                        slotPolarities={slotPolarities}
+                        setSlotPolarities={setSlotPolarities}
                         setPolarityMatch={(slotId, match) => {
                             setPolarityMatches(prev => ({
                                 ...prev,
@@ -156,6 +185,10 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                     selectedButton={selectedButton}
                     assignedMod={assignedMods['exilus']}
                     setAssignedMods={setAssignedMods}
+                    currentRanks={currentRanks}
+                    setCurrentRanks={setCurrentRanks}
+                    slotPolarities={slotPolarities}
+                    setSlotPolarities={setSlotPolarities}
                     setPolarityMatch={(slotId, match) => {
                         setPolarityMatches(prev => ({
                             ...prev,
@@ -182,6 +215,10 @@ export function ModSlotsContainer({ isSidebarOpen, setSelectedButton, selectedSl
                         selectedButton={selectedButton}
                         assignedMod={assignedMods[`mod${i}`]}
                         setAssignedMods={setAssignedMods}
+                        currentRanks={currentRanks}
+                        setCurrentRanks={setCurrentRanks}
+                        slotPolarities={slotPolarities}
+                        setSlotPolarities={setSlotPolarities}
                         setPolarityMatch={(slotId, match) => {
                             setPolarityMatches(prev => ({
                                 ...prev,

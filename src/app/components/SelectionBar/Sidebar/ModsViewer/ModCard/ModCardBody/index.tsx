@@ -1,6 +1,6 @@
-import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
+import { ModWithTexture } from "../../../../../../../../pages/api/fetchMods";
 
 type ModCardBodyProps = {
     mod: ModWithTexture;

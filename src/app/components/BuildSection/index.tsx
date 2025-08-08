@@ -8,11 +8,12 @@ import WarframesViewer from "@/app/components/BuildSection/WarframesViewer"
 import WeaponsViewer from "@/app/components/BuildSection/WeaponsViewer";
 import BuildSectionStyles from "@/app/components/BuildSection/BuildSection.module.css"
 import { WarframeAbilitiesViewer } from "@/app/components/BuildSection/WarframeAbilitiesViewer";
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
-import { WeaponWithTexture } from "@/app/lib/api/fetchWeapons";
 import Image from "next/image";
 import { WarframeInfo } from "@/app/components/BuildSection/WarframeInfo";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { WarframeWithTexture } from "../../../../pages/api/fetchWarframes";
+import { WeaponWithTexture } from "../../../../pages/api/fetchWeapons";
+import { ModWithTexture } from "../../../../pages/api/fetchMods";
+
 
 type BuildSectionProps = {
     selectedBuildType: string | null;
@@ -23,17 +24,48 @@ type BuildSectionProps = {
     setSelectedWeapon: React.Dispatch<React.SetStateAction<WeaponWithTexture | null>>;
     selectedWeapon: WeaponWithTexture | null;
     assignedMods: Record<string, ModWithTexture | null>;
+    setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
     calculatedDrains: Record<string, number>;
+    count: number;
+    setCount: React.Dispatch<React.SetStateAction<number>>
+    isDouble: boolean;
+    setIsDouble: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain, selectedWarframe, setSelectedWarframe, selectedWeapon, setSelectedWeapon, assignedMods, calculatedDrains }: BuildSectionProps) {
+export function BuildSection({
+    selectedBuildType,
+    onBuildTypeSelect,
+    totalDrain,
+    selectedWarframe,
+    setSelectedWarframe,
+    selectedWeapon,
+    setSelectedWeapon,
+    assignedMods,
+    setAssignedMods,
+    calculatedDrains,
+    count,
+    setCount,
+    isDouble,
+    setIsDouble,
+}: BuildSectionProps) {
     const [modalOpen, setModalOpen] = useState(false);
     const [query, setQuery] = useState('');
 
     return (
         <>
             <div className={`fixed left-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
-                <BuildResources onBuildTypeSelect={(type) => { onBuildTypeSelect(type); setQuery(''); setSelectedWarframe(null); setSelectedWeapon(null); }} />
+                <BuildResources
+                selectedBuildType={selectedBuildType}
+                    onBuildTypeSelect={(type) => {
+                        onBuildTypeSelect(type);
+                        if (type !== selectedBuildType) {
+                            setQuery('');
+                            setSelectedWarframe(null);
+                            setSelectedWeapon(null);
+                            setAssignedMods({});
+                        }
+                    }}
+                />
 
                 {selectedBuildType && (
                     <div className="flex flex-col items-center gap-3 mb-3">
@@ -68,7 +100,7 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain,
                     )}
                 </div>
 
-                <ItemRankProgress totalDrain={totalDrain} assignedMods={assignedMods} calculatedDrains={calculatedDrains} />
+                <ItemRankProgress totalDrain={totalDrain} assignedMods={assignedMods} calculatedDrains={calculatedDrains} count={count} setCount={setCount} isDouble={isDouble} setIsDouble={setIsDouble} />
 
                 {selectedWarframe && selectedBuildType == "Warframe" && (
                     <WarframeInfo warframe={selectedWarframe} />
@@ -82,10 +114,17 @@ export function BuildSection({ selectedBuildType, onBuildTypeSelect, totalDrain,
                     </div>
                     <hr className="w-full border-white mt-1" />
                     <div className={`overflow-auto ${BuildSectionStyles['scrollbar-custom']}`}>
-                        <WarframesViewer selectedBuildType={selectedBuildType} query={query} onSelect={(warframe) => {
-                            setSelectedWarframe(warframe);
-                            setModalOpen(false);
-                        }} />
+                        <WarframesViewer
+                            selectedBuildType={selectedBuildType}
+                            query={query}
+                            onSelect={(warframe) => {
+                                if (!selectedWarframe || warframe.uniqueName !== selectedWarframe.uniqueName) {
+                                    setSelectedWarframe(warframe);
+                                    setAssignedMods({});
+                                }
+                                setModalOpen(false);
+                            }}
+                        />
                         <WeaponsViewer selectedBuildType={selectedBuildType} query={query} onSelect={(weapon) => {
                             setSelectedWeapon(weapon);
                             setModalOpen(false);

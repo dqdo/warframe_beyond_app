@@ -13,6 +13,14 @@ datasource db {
   url      = env("POSTGRES_PRISMA_URL")
 }
 
-model Dan {
-  ownerID    String  @id
+model Build {
+  buildID          String  @id
+  orokinReactor    Boolean @default(true)
+  itemRank         Int     @default(30)
+  buildType        String?
+  assignedMods     Json
+  slotPolarities   Json
+  currentModRanks  Json
+  selectedWarframe Json?
+  selectedWeapon   Json?
 }

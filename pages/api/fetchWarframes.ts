@@ -1,4 +1,4 @@
-import { DATA_HASHES } from '@/app/lib/constants/dataHashes';
+import { DATA_HASHES } from "../../src/app/constants/dataHashes";
 
 export type WarframeEntry = {
     uniqueName: string;

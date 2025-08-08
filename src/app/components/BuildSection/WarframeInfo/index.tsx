@@ -1,4 +1,5 @@
-import { WarframeWithTexture } from "@/app/lib/api/fetchWarframes";
+import { WarframeWithTexture } from "../../../../../pages/api/fetchWarframes";
+
 type WarframeInfoProps = {
     warframe: WarframeWithTexture;
 }

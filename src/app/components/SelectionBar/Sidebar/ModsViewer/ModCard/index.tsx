@@ -1,8 +1,8 @@
-import { ModWithTexture } from "@/app/lib/api/fetchMods"
 import { ModCardUpper } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardUpper";
 import { ModCardLower } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardLower";
 import { ModCardBody } from "@/app/components/SelectionBar/Sidebar/ModsViewer/ModCard/ModCardBody";
 import { useState, useRef, useEffect } from "react";
+import { ModWithTexture } from "../../../../../../../pages/api/fetchMods";
 
 type ModCardProps = {
     mod: ModWithTexture;

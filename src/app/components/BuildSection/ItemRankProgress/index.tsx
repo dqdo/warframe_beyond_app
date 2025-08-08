@@ -1,19 +1,19 @@
-import { useState } from "react";
 import { ItemRankBar } from "@/app/components/BuildSection/ItemRankProgress/ItemRankBar";
 import { ItemRankCounter } from "@/app/components/BuildSection/ItemRankProgress/ItemRankCounter";
 import SlidingButton from "@/app/components/Elements/SlidingButton";
-import { ModWithTexture } from "@/app/lib/api/fetchMods";
+import { ModWithTexture } from "../../../../../pages/api/fetchMods";
 
 type ItemRankProgressProps = {
     totalDrain: number;
     assignedMods: Record<string, ModWithTexture | null>;
     calculatedDrains: Record<string, number>;
+    count: number;
+    setCount: React.Dispatch<React.SetStateAction<number>>
+    isDouble: boolean;
+    setIsDouble: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function ItemRankProgress({ totalDrain, assignedMods, calculatedDrains }: ItemRankProgressProps) {
-    const [count, setCount] = useState(30);
-    const [isDouble, setIsDouble] = useState(true);
-
+export function ItemRankProgress({ totalDrain, assignedMods, calculatedDrains, count, setCount, isDouble, setIsDouble }: ItemRankProgressProps) {
     const displayCount = isDouble ? count * 2 : count;
 
     return (

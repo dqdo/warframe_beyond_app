@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ModWithTexture } from "@/app/lib/api/fetchMods"
+import { ModWithTexture } from "../../../../../../../../pages/api/fetchMods";
 
 type ModCardLowerProps = {
     frameColor: string;

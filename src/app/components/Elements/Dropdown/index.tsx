@@ -21,6 +21,7 @@ type DropdownProps = {
     isOpen?: boolean;
     onToggleOpen?: (open: boolean) => void;
     onSelect?: (option: DropdownOption) => void;
+    initialOption?: DropdownOption;
 }
 
 const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
@@ -44,7 +45,7 @@ const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
     }
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, styleVariant = 'default', isOpen: externalIsOpen, onToggleOpen, onSelect }) => {
+const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, styleVariant = 'default', isOpen: externalIsOpen, onToggleOpen, onSelect, initialOption }) => {
     const [internalOpen, setInternalOpen] = useState(false);
     const [selected, setSelected] = useState<DropdownOption | null>(null);
     const styles = StyleVariant[styleVariant];
@@ -103,8 +104,23 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
             </div>
             <button onClick={toggleOpen} className={`${styles.button}`}>
                 <div className="flex gap-1">
-                    {selected?.icon}
-                    {selected?.label ? selected.label : label}
+                    <div className="flex gap-1">
+                        {selected ? (
+                            <>
+                                {selected.icon}
+                                {selected.label ?? label}
+                            </>
+                        ) : initialOption ? (
+                            <>
+                                {initialOption.icon}
+                                {initialOption.label ?? label}
+                            </>
+                        ) : (
+                            <>
+                                {label}
+                            </>
+                        )}
+                    </div>
                 </div>
                 {labelIcon}
             </button>

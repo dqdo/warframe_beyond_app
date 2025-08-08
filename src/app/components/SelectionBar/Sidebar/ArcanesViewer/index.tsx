@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchArcanesWithTextures, ArcaneWithTexture } from '@/app/lib/api/fetchArcanes';
+
 import Image from 'next/image';
+import { ArcaneWithTexture, fetchArcanesWithTextures } from '../../../../../../pages/api/fetchArcanes';
 
 type ArcanesViewerProps = {
   query: string;
