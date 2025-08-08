@@ -1,3 +1,6 @@
+To have access to any mods, please select a build type (Warframe, Primary, etc.) and select one of those build types in the select square. Happy building!
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
