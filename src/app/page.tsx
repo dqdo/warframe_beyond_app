@@ -106,6 +106,7 @@ function HomeContent() {
           assignedMods={assignedMods}
           setAssignedMods={setAssignedMods}
           calculatedDrains={calculatedDrains}
+          setCalculatedDrains={setCalculatedDrains}
           count={itemRank}
           setCount={setItemRank}
           isDouble={orokinReactor}

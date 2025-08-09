@@ -26,6 +26,7 @@ type BuildSectionProps = {
     assignedMods: Record<string, ModWithTexture | null>;
     setAssignedMods: React.Dispatch<React.SetStateAction<Record<string, ModWithTexture | null>>>;
     calculatedDrains: Record<string, number>;
+    setCalculatedDrains: React.Dispatch<React.SetStateAction<Record<string, number>>>;
     count: number;
     setCount: React.Dispatch<React.SetStateAction<number>>
     isDouble: boolean;
@@ -43,6 +44,7 @@ export function BuildSection({
     assignedMods,
     setAssignedMods,
     calculatedDrains,
+    setCalculatedDrains,
     count,
     setCount,
     isDouble,
@@ -63,6 +65,7 @@ export function BuildSection({
                             setSelectedWarframe(null);
                             setSelectedWeapon(null);
                             setAssignedMods({});
+                            setCalculatedDrains({});
                         }
                     }}
                 />
