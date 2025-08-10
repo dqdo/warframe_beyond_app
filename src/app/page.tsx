@@ -1,7 +1,7 @@
 'use client'
 import Header from "@/app/components/Header";
 import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/SelectionBar";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, useContext } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
 import Button from "./components/Elements/Button";
@@ -12,6 +12,7 @@ import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 import { useSearchParams } from "next/navigation";
 import { getBuild } from "./database/getBuild";
 import Toast from "./components/Elements/Toast";
+import { SessionContext } from "./SessionContext";
 
 function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -30,6 +31,7 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const session = useContext(SessionContext);
 
   const handleSaveBuild = () => {
     const buildData = {
@@ -85,6 +87,14 @@ function HomeContent() {
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
+          <a href="/auth/login">Login</a>
+          <a href="/auth/logout">Logout</a>
+          {session?.user.name}
+          {session && (
+            <div>
+              Logged in
+              </div>
+          )}
           <div className="flex gap-5">
             <Button
               text="🔗 Create & Save Build"
