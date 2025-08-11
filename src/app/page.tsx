@@ -63,6 +63,22 @@ function HomeContent() {
       });
   };
 
+  const handleNewBuild = () => {
+    setSelectedButton(null);
+    setSelectedBuildType(null);
+    setSelectedMod(null);
+    setAssignedMods({});
+    setTotalDrain(0);
+    setSelectedWarframe(null);
+    setSelectedWeapon(null);
+    setCalculatedDrains({});
+    setCurrentModRanks({});
+    setSlotPolarities({});
+    setItemRank(30);
+    setOrokinReactor(true);
+    window.history.pushState({}, '', window.location.origin);
+  };
+
   useEffect(() => {
     const buildParam = searchParams?.get("build");
     if (buildParam) {
@@ -93,13 +109,11 @@ function HomeContent() {
           {session && (
             <div>
               Logged in
-              </div>
+            </div>
           )}
           <div className="flex gap-5">
-            <Button
-              text="🔗 Create & Save Build"
-              onClick={handleSaveBuild}
-            />
+            <Button text="New Build" onClick={handleNewBuild} />
+            <Button text="🔗 Create & Save Build" onClick={handleSaveBuild} />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
         </div>
@@ -120,7 +134,8 @@ function HomeContent() {
           count={itemRank}
           setCount={setItemRank}
           isDouble={orokinReactor}
-          setIsDouble={setOrokinReactor} />
+          setIsDouble={setOrokinReactor}
+          setSlotPolarities={setSlotPolarities} />
       </div>
 
       <div className="py-[120px]">

@@ -21,7 +21,7 @@ type DropdownProps = {
     isOpen?: boolean;
     onToggleOpen?: (open: boolean) => void;
     onSelect?: (option: DropdownOption) => void;
-    initialOption?: DropdownOption;
+    selectedOption?: DropdownOption | null;
 }
 
 const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
@@ -45,9 +45,19 @@ const StyleVariant: Record<DropdownStyleVariant, DropdownStyle> = {
     }
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, styleVariant = 'default', isOpen: externalIsOpen, onToggleOpen, onSelect, initialOption }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+    label,
+    header,
+    options,
+    labelIcon,
+    styleVariant = "default",
+    isOpen: externalIsOpen,
+    onToggleOpen,
+    onSelect,
+    selectedOption,
+}) => {
     const [internalOpen, setInternalOpen] = useState(false);
-    const [selected, setSelected] = useState<DropdownOption | null>(null);
+    const [internalSelectedOption, setInternalSelectedOption] = useState<DropdownOption | null>(null);
     const styles = StyleVariant[styleVariant];
     const ref = useRef<HTMLDivElement>(null);
 
@@ -62,12 +72,11 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
         }
     };
 
-
     const handleSelect = (option: DropdownOption) => {
-        setSelected(option);
-        if (onSelect) {
-            onSelect(option);
+        if (!selectedOption) {
+            setInternalSelectedOption(option);
         }
+        onSelect?.(option);
         if (onToggleOpen) {
             onToggleOpen(false);
         } else {
@@ -89,45 +98,37 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
         if (isOpen) {
             document.addEventListener("mousedown", handleClickOutside);
         }
-
         return () => {
-            if (isOpen) {
-                document.removeEventListener("mousedown", handleClickOutside);
-            }
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isOpen, onToggleOpen]);
 
+    const displayedOption = selectedOption !== undefined ? selectedOption : internalSelectedOption;
+
     return (
         <div ref={ref}>
-            <div className={`${styles.header}`}>
-                {header}
-            </div>
-            <button onClick={toggleOpen} className={`${styles.button}`}>
+            {header && <div className={styles.header}>{header}</div>}
+            <button onClick={toggleOpen} className={styles.button}>
                 <div className="flex gap-1">
-                    <div className="flex gap-1">
-                        {selected ? (
-                            <>
-                                {selected.icon}
-                                {selected.label ?? label}
-                            </>
-                        ) : initialOption ? (
-                            <>
-                                {initialOption.icon}
-                                {initialOption.label ?? label}
-                            </>
-                        ) : (
-                            <>
-                                {label}
-                            </>
-                        )}
-                    </div>
+                    {displayedOption ? (
+                        <>
+                            {displayedOption.icon}
+                            {displayedOption.label ?? label}
+                        </>
+                    ) : (
+                        label
+                    )}
                 </div>
                 {labelIcon}
             </button>
             {isOpen && (
-                <ul className={`${styles.list}`}>
+                <ul className={styles.list}>
                     {options.map((option) => (
-                        <li key={option.value} onClick={() => handleSelect(option)} className={`${styles.item}`}>
+                        <li
+                            key={option.value}
+                            onClick={() => handleSelect(option)}
+                            className={styles.item}
+                        >
                             {option.icon}
                             {option.label}
                         </li>
@@ -136,6 +137,6 @@ const Dropdown: React.FC<DropdownProps> = ({ label, header, options, labelIcon, 
             )}
         </div>
     );
-}
+};
 
-export default Dropdown
+export default Dropdown;
