@@ -114,8 +114,8 @@ export function BuildSection({
                     )}
                 </div>
                 <div className="absolute top-25 left-[calc(20vw+10px)]">
-                    <Button text="Clear Mods" onClick={() => {setAssignedMods({})}} />
-                    <Button text="Clear Polarities" onClick={() => {setSlotPolarities({})}}/>
+                    <Button text="Clear Mods" onClick={() => {setAssignedMods({})}} variant="clearButton" />
+                    <Button text="Clear Polarities" onClick={() => {setSlotPolarities({})}} variant="clearButton"/>
                 </div>
             </div>
 

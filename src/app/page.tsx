@@ -13,6 +13,8 @@ import { useSearchParams } from "next/navigation";
 import { getBuild } from "./database/getBuild";
 import Toast from "./components/Elements/Toast";
 import { SessionContext } from "./SessionContext";
+import Image from "next/image";
+import { Modal } from "./components/Elements/Modal";
 
 function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -31,10 +33,15 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const session = useContext(SessionContext);
 
   const handleSaveBuild = () => {
+    const buildName = selectedWarframe?.name ? `${selectedWarframe.name} Build` : selectedWeapon?.name ? `${selectedWeapon.name} Build` : "Unnamed Build";
     const buildData = {
+      auth0Owner: session?.user.sub,
+      email: session?.user.email,
+      buildName: buildName,
       orokinReactor: orokinReactor,
       itemRank: itemRank,
       buildType: selectedBuildType,
@@ -103,15 +110,12 @@ function HomeContent() {
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
-          <a href="/auth/login">Login</a>
-          <a href="/auth/logout">Logout</a>
-          {session?.user.name}
-          {session && (
-            <div>
-              Logged in
-            </div>
-          )}
           <div className="flex gap-5">
+            {session && (
+              <>
+                <Button text="Show Builds" onClick={() => setModalOpen(true)} />
+              </>
+            )}
             <Button text="New Build" onClick={handleNewBuild} />
             <Button text="🔗 Create & Save Build" onClick={handleSaveBuild} />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
@@ -138,6 +142,36 @@ function HomeContent() {
           setSlotPolarities={setSlotPolarities} />
       </div>
 
+      <div className="absolute top-[90px] right-0 flex items-center gap-2 p-2">
+        <div className="border p-2 rounded border-gray-700 bg-neutral-800">
+          {session ? (
+            <a href="/auth/logout">Logout</a>
+          ) : (
+            <a href="/auth/login">Login</a>
+          )}
+        </div>
+
+        {session && (
+          <>
+            {session.user.picture ? (
+              <div className="relative group">
+                <Image src={session.user.picture} alt="User profile" width={40} height={40} className="rounded-full" />
+                <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 
+                           bg-gray-800 text-white text-xs rounded px-2 py-1 
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-200 
+                           whitespace-nowrap z-10">
+                  {session.user.name || "User"}
+                </span>
+              </div>
+            ) : (
+              <div className="text-white">
+                {session.user.name}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+
       <div className="py-[120px]">
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
@@ -162,6 +196,9 @@ function HomeContent() {
           </div>
         )}
       </div>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+
+      </Modal>
     </div>
   );
 }

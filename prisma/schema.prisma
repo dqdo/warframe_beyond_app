@@ -15,6 +15,7 @@ datasource db {
 
 model Build {
   auth0Owner       String?
+  email            String?
   buildID          String  @id
   buildName        String?
   orokinReactor    Boolean @default(true)
