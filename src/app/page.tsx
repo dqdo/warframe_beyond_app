@@ -10,11 +10,26 @@ import { ModWithTexture } from "../../pages/api/fetchMods";
 import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 import { useSearchParams } from "next/navigation";
-import { getBuild } from "./database/getBuild";
+import { getBuild, getBuildsByOwner } from "./database/getBuild";
 import Toast from "./components/Elements/Toast";
 import { SessionContext } from "./SessionContext";
 import Image from "next/image";
 import { Modal } from "./components/Elements/Modal";
+
+type Build = {
+  buildID: string;
+  buildName: string;
+  auth0Owner: string;
+  email: string;
+  orokinReactor: boolean;
+  itemRank: number;
+  buildType: string | null;
+  assignedMods: Record<string, ModWithTexture | null>;
+  slotPolarities: Record<string, string>;
+  currentModRanks: Record<string, number>;
+  selectedWarframe: WarframeWithTexture | null;
+  selectedWeapon: WeaponWithTexture | null;
+};
 
 function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -35,6 +50,24 @@ function HomeContent() {
   const [showToast, setShowToast] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const session = useContext(SessionContext);
+  const [ownerBuilds, setOwnerBuilds] = useState<Build[]>([]);
+  const [loadingBuilds, setLoadingBuilds] = useState(false);
+  const [currentBuildOwner, setCurrentBuildOwner] = useState<string | null>(null);
+
+  const handleShowBuilds = () => {
+    if (!session?.user?.sub) return;
+    setLoadingBuilds(true);
+    getBuildsByOwner(session.user.sub)
+      .then(data => {
+        setOwnerBuilds(data);
+      })
+      .catch(err => {
+        console.error(err);
+      })
+      .finally(() => setLoadingBuilds(false));
+
+    setModalOpen(true);
+  };
 
   const handleSaveBuild = () => {
     const buildName = selectedWarframe?.name ? `${selectedWarframe.name} Build` : selectedWeapon?.name ? `${selectedWeapon.name} Build` : "Unnamed Build";
@@ -90,6 +123,7 @@ function HomeContent() {
     const buildParam = searchParams?.get("build");
     if (buildParam) {
       getBuild(buildParam).then((buildData) => {
+        setCurrentBuildOwner(buildData.auth0Owner);
         setSelectedBuildType(buildData.buildType);
         setAssignedMods(buildData.assignedMods);
         setSlotPolarities(buildData.slotPolarities);
@@ -106,18 +140,23 @@ function HomeContent() {
 
   return (
     <div>
-      <Toast message={toastMessage} show={showToast} onClose={() => setShowToast(false)} />
+      <div className="relative z-60">
+        <Toast message={toastMessage} show={showToast} onClose={() => setShowToast(false)} />
+      </div>
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
           <div className="flex gap-5">
+            {session && session.user.sub === currentBuildOwner && (
+              <Button text="Save Build" />
+            )}
             {session && (
               <>
-                <Button text="Show Builds" onClick={() => setModalOpen(true)} />
+                <Button text="Show Builds" onClick={handleShowBuilds} />
               </>
             )}
             <Button text="New Build" onClick={handleNewBuild} />
-            <Button text="🔗 Create & Save Build" onClick={handleSaveBuild} />
+            <Button text="🔗 Create Build" onClick={handleSaveBuild} />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
         </div>
@@ -197,7 +236,36 @@ function HomeContent() {
         )}
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-
+        <div className="p-4">
+          <h2 className="text-lg font-bold mb-4">Your Builds</h2>
+          {loadingBuilds ? (
+            <p>Loading...</p>
+          ) : ownerBuilds.length === 0 ? (
+            <p>No builds found.</p>
+          ) : (
+            <ul className="space-y-2">
+              {ownerBuilds.map((build) => (
+                <li key={build.buildID} className="border p-2 rounded bg-neutral-800 flex justify-between items-center">
+                  <span>{build.buildName}</span>
+                  <div className="flex gap-2">
+                    <Button text="Load" onClick={() => {
+                      window.location.href = `?build=${build.buildID}`;
+                    }} />
+                    <div className="text-xl">
+                      |
+                    </div>
+                    <Button text="Copy Link" onClick={() => {
+                      const shareableUrl = `${window.location.origin}?build=${build.buildID}`;
+                      navigator.clipboard.writeText(shareableUrl);
+                      setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
+                      setShowToast(true);
+                    }} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </Modal>
     </div>
   );
