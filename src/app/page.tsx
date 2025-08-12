@@ -5,16 +5,16 @@ import { useEffect, useState, Suspense, useContext } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
 import Button from "./components/Elements/Button";
-import { createBuild } from "./database/createBuild";
 import { ModWithTexture } from "../../pages/api/fetchMods";
 import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 import { useSearchParams } from "next/navigation";
-import { getBuild, getBuildsByOwner } from "./database/getBuild";
+import { getBuild } from "./database/getBuild";
 import Toast from "./components/Elements/Toast";
 import { SessionContext } from "./SessionContext";
 import Image from "next/image";
 import { Modal } from "./components/Elements/Modal";
+import { buildHandlers } from "./buildHandlers";
 
 type Build = {
   buildID: string;
@@ -51,73 +51,36 @@ function HomeContent() {
   const [modalOpen, setModalOpen] = useState(false);
   const session = useContext(SessionContext);
   const [ownerBuilds, setOwnerBuilds] = useState<Build[]>([]);
-  const [loadingBuilds, setLoadingBuilds] = useState(false);
   const [currentBuildOwner, setCurrentBuildOwner] = useState<string | null>(null);
 
-  const handleShowBuilds = () => {
-    if (!session?.user?.sub) return;
-    setLoadingBuilds(true);
-    getBuildsByOwner(session.user.sub)
-      .then(data => {
-        setOwnerBuilds(data);
-      })
-      .catch(err => {
-        console.error(err);
-      })
-      .finally(() => setLoadingBuilds(false));
-
-    setModalOpen(true);
-  };
-
-  const handleSaveBuild = () => {
-    const buildName = selectedWarframe?.name ? `${selectedWarframe.name} Build` : selectedWeapon?.name ? `${selectedWeapon.name} Build` : "Unnamed Build";
-    const buildData = {
-      auth0Owner: session?.user.sub,
-      email: session?.user.email,
-      buildName: buildName,
-      orokinReactor: orokinReactor,
-      itemRank: itemRank,
-      buildType: selectedBuildType,
-      assignedMods: assignedMods,
-      slotPolarities: slotPolarities,
-      currentModRanks: currentModRanks,
-      selectedWarframe: selectedWarframe,
-      selectedWeapon: selectedWeapon
-    };
-    createBuild(buildData)
-      .then(buildID => {
-        console.log("Build created with ID:", buildID);
-        const shareableUrl = `${window.location.origin}?build=${buildID}`;
-        navigator.clipboard.writeText(shareableUrl)
-          .then(() => {
-            setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
-            setShowToast(true);
-          })
-          .catch(() => {
-            console.log("Clipboard write failed");
-          });
-        window.history.pushState({}, '', `?build=${buildID}`);
-      })
-      .catch(error => {
-        console.error("Error creating build:", error);
-      });
-  };
-
-  const handleNewBuild = () => {
-    setSelectedButton(null);
-    setSelectedBuildType(null);
-    setSelectedMod(null);
-    setAssignedMods({});
-    setTotalDrain(0);
-    setSelectedWarframe(null);
-    setSelectedWeapon(null);
-    setCalculatedDrains({});
-    setCurrentModRanks({});
-    setSlotPolarities({});
-    setItemRank(30);
-    setOrokinReactor(true);
-    window.history.pushState({}, '', window.location.origin);
-  };
+  const handlers = buildHandlers({
+    session,
+    searchParams,
+    selectedWarframe,
+    selectedWeapon,
+    orokinReactor,
+    itemRank,
+    selectedBuildType,
+    assignedMods,
+    slotPolarities,
+    currentModRanks,
+    setToastMessage,
+    setShowToast,
+    setOwnerBuilds,
+    setSelectedButton,
+    setSelectedBuildType,
+    setSelectedMod,
+    setAssignedMods,
+    setTotalDrain,
+    setSelectedWarframe,
+    setSelectedWeapon,
+    setCalculatedDrains,
+    setCurrentModRanks,
+    setSlotPolarities,
+    setItemRank,
+    setOrokinReactor,
+    setModalOpen: setModalOpen,
+  });
 
   useEffect(() => {
     const buildParam = searchParams?.get("build");
@@ -148,15 +111,17 @@ function HomeContent() {
           <Header />
           <div className="flex gap-5">
             {session && session.user.sub === currentBuildOwner && (
-              <Button text="Save Build" />
+              <>
+                <Button text="⤓ Save Build" onClick={handlers.handleSaveBuild} />
+              </>
             )}
             {session && (
               <>
-                <Button text="Show Builds" onClick={handleShowBuilds} />
+                <Button text="👁 Show Builds" onClick={handlers.handleShowBuilds} />
               </>
             )}
-            <Button text="New Build" onClick={handleNewBuild} />
-            <Button text="🔗 Create Build" onClick={handleSaveBuild} />
+            <Button text="⚒ New Build" onClick={handlers.handleNewBuild} />
+            <Button text="🔗 Create Build" onClick={handlers.handleCreateBuild} />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
         </div>
@@ -238,9 +203,8 @@ function HomeContent() {
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <div className="p-4">
           <h2 className="text-lg font-bold mb-4">Your Builds</h2>
-          {loadingBuilds ? (
-            <p>Loading...</p>
-          ) : ownerBuilds.length === 0 ? (
+
+          {ownerBuilds.length === 0 ? (
             <p>No builds found.</p>
           ) : (
             <ul className="space-y-2">
@@ -248,12 +212,13 @@ function HomeContent() {
                 <li key={build.buildID} className="border p-2 rounded bg-neutral-800 flex justify-between items-center">
                   <span>{build.buildName}</span>
                   <div className="flex gap-2">
+                    <Button text="Delete" onClick={() => handlers.handleDeleteBuild(build.buildID)} />
+                    <div className="text-xl">|</div>
                     <Button text="Load" onClick={() => {
                       window.location.href = `?build=${build.buildID}`;
                     }} />
-                    <div className="text-xl">
-                      |
-                    </div>
+
+                    <div className="text-xl">|</div>
                     <Button text="Copy Link" onClick={() => {
                       const shareableUrl = `${window.location.origin}?build=${build.buildID}`;
                       navigator.clipboard.writeText(shareableUrl);
