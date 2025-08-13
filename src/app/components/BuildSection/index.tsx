@@ -30,7 +30,8 @@ type BuildSectionProps = {
     count: number;
     setCount: React.Dispatch<React.SetStateAction<number>>
     isDouble: boolean;
-    setIsDouble: React.Dispatch<React.SetStateAction<boolean>>
+    setIsDouble: React.Dispatch<React.SetStateAction<boolean>>;
+    setSlotPolarities: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 }
 
 export function BuildSection({
@@ -49,66 +50,75 @@ export function BuildSection({
     setCount,
     isDouble,
     setIsDouble,
+    setSlotPolarities,
 }: BuildSectionProps) {
     const [modalOpen, setModalOpen] = useState(false);
     const [query, setQuery] = useState('');
 
     return (
         <>
-            <div className={`fixed left-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
-                <BuildResources
-                selectedBuildType={selectedBuildType}
-                    onBuildTypeSelect={(type) => {
-                        onBuildTypeSelect(type);
-                        if (type !== selectedBuildType) {
-                            setQuery('');
-                            setSelectedWarframe(null);
-                            setSelectedWeapon(null);
-                            setAssignedMods({});
-                            setCalculatedDrains({});
-                        }
-                    }}
-                />
+            <div>
+                <div className={`fixed left-0 lg:h-[85vh] 2xl:h-[90vh] text-white bg-[#141414] border-r border-b border-white border-t-0 border-l-0 w-full sm:w-[30vw] md:w-[30vw] lg:w-[20vw] z-2`}>
+                    <BuildResources
+                        selectedBuildType={selectedBuildType}
+                        onBuildTypeSelect={(type) => {
+                            onBuildTypeSelect(type);
+                            if (type !== selectedBuildType) {
+                                setQuery('');
+                                setSelectedWarframe(null);
+                                setSelectedWeapon(null);
+                                setAssignedMods({});
+                                setCalculatedDrains({});
+                                setSlotPolarities({});
+                            }
+                        }}
+                    />
 
-                {selectedBuildType && (
-                    <div className="flex flex-col items-center gap-3 mb-3">
+                    {selectedBuildType && (
+                        <div className="flex flex-col items-center gap-3 mb-3">
 
-                        {selectedWarframe && selectedBuildType === "Warframe" && (
-                            <div className="cursor-pointer" onClick={() => { setModalOpen(true); setQuery('') }}>
-                                <div className="text-white text-sm items-center justify-center flex">{selectedWarframe.name}</div>
-                                {selectedWarframe.textureUrl && (
-                                    <Image src={selectedWarframe.textureUrl} alt={selectedWarframe.name} width={128} height={128} unoptimized loading="lazy" className="w-55 h-55" />
-                                )}
-                            </div>
-                        )}
+                            {selectedWarframe && selectedBuildType === "Warframe" && (
+                                <div className="cursor-pointer" onClick={() => { setModalOpen(true); setQuery('') }}>
+                                    <div className="text-white text-sm items-center justify-center flex">{selectedWarframe.name}</div>
+                                    {selectedWarframe.textureUrl && (
+                                        <Image src={selectedWarframe.textureUrl} alt={selectedWarframe.name} width={128} height={128} unoptimized loading="lazy" className="w-55 h-55" />
+                                    )}
+                                </div>
+                            )}
 
-                        {selectedWeapon && selectedBuildType !== "Warframe" && (
-                            <div className="cursor-pointer" onClick={() => { setModalOpen(true); setQuery('') }}>
-                                <div className="text-white text-sm items-center justify-center flex">{selectedWeapon.name}</div>
-                                {selectedWeapon.textureUrl && (
-                                    <Image src={selectedWeapon.textureUrl} alt={selectedWeapon.name} width={128} height={128} unoptimized loading="lazy" className="w-55 h-55" />
-                                )}
-                            </div>
-                        )}
+                            {selectedWeapon && selectedBuildType !== "Warframe" && (
+                                <div className="cursor-pointer" onClick={() => { setModalOpen(true); setQuery('') }}>
+                                    <div className="text-white text-sm items-center justify-center flex">{selectedWeapon.name}</div>
+                                    {selectedWeapon.textureUrl && (
+                                        <Image src={selectedWeapon.textureUrl} alt={selectedWeapon.name} width={128} height={128} unoptimized loading="lazy" className="w-55 h-55" />
+                                    )}
+                                </div>
+                            )}
 
-                        {!selectedWarframe && !selectedWeapon && (
-                            <Button text={`Select a ${selectedBuildType}`} variant="selectBuild" onClick={() => { setModalOpen(true); setQuery('') }} />
+                            {!selectedWarframe && !selectedWeapon && (
+                                <Button text={`Select a ${selectedBuildType}`} variant="selectBuild" onClick={() => { setModalOpen(true); setQuery('') }} />
+                            )}
+                        </div>
+                    )}
+
+                    <div className="relative z-10">
+                        {selectedBuildType === "Warframe" && selectedWarframe && (
+                            <WarframeAbilitiesViewer warframe={selectedWarframe} />
                         )}
                     </div>
-                )}
 
-                <div className="relative z-10">
-                    {selectedBuildType === "Warframe" && selectedWarframe && (
-                        <WarframeAbilitiesViewer warframe={selectedWarframe} />
+                    <ItemRankProgress totalDrain={totalDrain} assignedMods={assignedMods} calculatedDrains={calculatedDrains} count={count} setCount={setCount} isDouble={isDouble} setIsDouble={setIsDouble} />
+
+                    {selectedWarframe && selectedBuildType == "Warframe" && (
+                        <WarframeInfo warframe={selectedWarframe} />
                     )}
                 </div>
-
-                <ItemRankProgress totalDrain={totalDrain} assignedMods={assignedMods} calculatedDrains={calculatedDrains} count={count} setCount={setCount} isDouble={isDouble} setIsDouble={setIsDouble} />
-
-                {selectedWarframe && selectedBuildType == "Warframe" && (
-                    <WarframeInfo warframe={selectedWarframe} />
-                )}
+                <div className="absolute top-25 left-[calc(20vw+10px)]">
+                    <Button text="Clear Mods" onClick={() => {setAssignedMods({})}} variant="clearButton" />
+                    <Button text="Clear Polarities" onClick={() => {setSlotPolarities({})}} variant="clearButton"/>
+                </div>
             </div>
+
 
             <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
                 <div className="flex flex-col h-179">

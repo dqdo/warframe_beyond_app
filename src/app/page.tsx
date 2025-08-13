@@ -1,17 +1,35 @@
 'use client'
 import Header from "@/app/components/Header";
 import { SelectionBarButtons, SelectionBarSidebar } from "@/app/components/SelectionBar";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, useContext } from "react";
 import { BuildSection } from "@/app/components/BuildSection";
 import { Slots } from "@/app/components/Slots";
 import Button from "./components/Elements/Button";
-import { createBuild } from "./database/createBuild";
 import { ModWithTexture } from "../../pages/api/fetchMods";
 import { WarframeWithTexture } from "../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../pages/api/fetchWeapons";
 import { useSearchParams } from "next/navigation";
 import { getBuild } from "./database/getBuild";
 import Toast from "./components/Elements/Toast";
+import { SessionContext } from "./SessionContext";
+import Image from "next/image";
+import { Modal } from "./components/Elements/Modal";
+import { buildHandlers } from "./buildHandlers";
+
+type Build = {
+  buildID: string;
+  buildName: string;
+  auth0Owner: string;
+  email: string;
+  orokinReactor: boolean;
+  itemRank: number;
+  buildType: string | null;
+  assignedMods: Record<string, ModWithTexture | null>;
+  slotPolarities: Record<string, string>;
+  currentModRanks: Record<string, number>;
+  selectedWarframe: WarframeWithTexture | null;
+  selectedWeapon: WeaponWithTexture | null;
+};
 
 function HomeContent() {
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -30,41 +48,58 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const session = useContext(SessionContext);
+  const [ownerBuilds, setOwnerBuilds] = useState<Build[]>([]);
+  const [currentBuildOwner, setCurrentBuildOwner] = useState<string | null>(null);
+  const [buildName, setBuildName] = useState("");
 
-  const handleSaveBuild = () => {
-    const buildData = {
-      orokinReactor: orokinReactor,
-      itemRank: itemRank,
-      buildType: selectedBuildType,
-      assignedMods: assignedMods,
-      slotPolarities: slotPolarities,
-      currentModRanks: currentModRanks,
-      selectedWarframe: selectedWarframe,
-      selectedWeapon: selectedWeapon
-    };
-    createBuild(buildData)
-      .then(buildID => {
-        console.log("Build created with ID:", buildID);
-        const shareableUrl = `${window.location.origin}?build=${buildID}`;
-        navigator.clipboard.writeText(shareableUrl)
-          .then(() => {
-            setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
-            setShowToast(true);
-          })
-          .catch(() => {
-            console.log("Clipboard write failed");
-          });
-        window.history.pushState({}, '', `?build=${buildID}`);
-      })
-      .catch(error => {
-        console.error("Error creating build:", error);
-      });
+  const handlers = buildHandlers({
+    session,
+    searchParams,
+    selectedWarframe,
+    selectedWeapon,
+    orokinReactor,
+    itemRank,
+    selectedBuildType,
+    assignedMods,
+    slotPolarities,
+    currentModRanks,
+    buildName,
+    setToastMessage,
+    setShowToast,
+    setOwnerBuilds,
+    setSelectedButton,
+    setSelectedBuildType,
+    setSelectedMod,
+    setAssignedMods,
+    setTotalDrain,
+    setSelectedWarframe,
+    setSelectedWeapon,
+    setCalculatedDrains,
+    setCurrentModRanks,
+    setSlotPolarities,
+    setItemRank,
+    setOrokinReactor,
+    setModalOpen: setModalOpen,
+    setBuildName: setBuildName,
+    setCurrentBuildOwner: setCurrentBuildOwner,
+  });
+
+  const getDisplayName = () => {
+    return buildName ||
+      (selectedWarframe?.name
+        ? `${selectedWarframe.name} Build`
+        : selectedWeapon?.name
+          ? `${selectedWeapon.name} Build`
+          : "Unnamed Build");
   };
 
   useEffect(() => {
     const buildParam = searchParams?.get("build");
     if (buildParam) {
       getBuild(buildParam).then((buildData) => {
+        setCurrentBuildOwner(buildData.auth0Owner);
         setSelectedBuildType(buildData.buildType);
         setAssignedMods(buildData.assignedMods);
         setSlotPolarities(buildData.slotPolarities);
@@ -73,6 +108,7 @@ function HomeContent() {
         setSelectedWeapon(buildData.selectedWeapon);
         setItemRank(buildData.itemRank);
         setOrokinReactor(buildData.orokinReactor);
+        setBuildName(buildData.buildName || "");
       }).catch(error => {
         console.error("Error loading build:", error);
       });
@@ -81,15 +117,25 @@ function HomeContent() {
 
   return (
     <div>
-      <Toast message={toastMessage} show={showToast} onClose={() => setShowToast(false)} />
+      <div className="relative z-60">
+        <Toast message={toastMessage} show={showToast} onClose={() => setShowToast(false)} />
+      </div>
       <div className="fixed top-0 left-0 right-0 z-5 bg-[#121212]">
         <div className="flex justify-between ml-4 mr-4 py-2">
           <Header />
           <div className="flex gap-5">
-            <Button
-              text="🔗 Create & Save Build"
-              onClick={handleSaveBuild}
-            />
+            {session && session.user.sub === currentBuildOwner && (
+              <>
+                <Button text="⤓ Save Build" onClick={handlers.handleSaveBuild} />
+              </>
+            )}
+            {session && (
+              <>
+                <Button text="👁 Show Builds" onClick={handlers.handleShowBuilds} />
+              </>
+            )}
+            <Button text="⚒ New Build" onClick={handlers.handleNewBuild} />
+            <Button text="🔗 Create Build" onClick={handlers.handleCreateBuild} />
             <SelectionBarButtons selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
           </div>
         </div>
@@ -110,10 +156,50 @@ function HomeContent() {
           count={itemRank}
           setCount={setItemRank}
           isDouble={orokinReactor}
-          setIsDouble={setOrokinReactor} />
+          setIsDouble={setOrokinReactor}
+          setSlotPolarities={setSlotPolarities} />
+      </div>
+
+      <div className="absolute top-[90px] right-0 flex items-center gap-2 p-2">
+        <div className="border p-2 rounded border-gray-700 bg-neutral-800">
+          {session ? (
+            <a href="/auth/logout">Logout</a>
+          ) : (
+            <a href="/auth/login">Login</a>
+          )}
+        </div>
+
+        {session && (
+          <>
+            {session.user.picture ? (
+              <div className="relative group">
+                <Image src={session.user.picture} alt="User profile" width={40} height={40} className="rounded-full" />
+                <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 
+                           bg-gray-800 text-white text-xs rounded px-2 py-1 
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-200 
+                           whitespace-nowrap z-10">
+                  {session.user.name || "User"}
+                </span>
+              </div>
+            ) : (
+              <div className="text-white">
+                {session.user.name}
+              </div>
+            )}
+          </>
+        )}
       </div>
 
       <div className="py-[120px]">
+        <div className="absolute left-1/2 -translate-x-1/2 top-25">
+          <input
+            type="text"
+            value={buildName}
+            onChange={(e) => setBuildName(e.target.value)}
+            placeholder={getDisplayName()}
+            className="text-white rounded border border-gray-700 text-center"
+          />
+        </div>
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
             <div>
@@ -137,6 +223,38 @@ function HomeContent() {
           </div>
         )}
       </div>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        <div className="p-4">
+          <h2 className="text-lg font-bold mb-4">Your Builds</h2>
+
+          {ownerBuilds.length === 0 ? (
+            <p>No builds found.</p>
+          ) : (
+            <ul className="space-y-2">
+              {ownerBuilds.map((build) => (
+                <li key={build.buildID} className="border p-2 rounded bg-neutral-800 flex justify-between items-center">
+                  <span>{build.buildName}</span>
+                  <div className="flex gap-2">
+                    <Button text="Delete" onClick={() => handlers.handleDeleteBuild(build.buildID)} />
+                    <div className="text-xl">|</div>
+                    <Button text="Load" onClick={() => {
+                      window.location.href = `?build=${build.buildID}`;
+                    }} />
+
+                    <div className="text-xl">|</div>
+                    <Button text="Copy Link" onClick={() => {
+                      const shareableUrl = `${window.location.origin}?build=${build.buildID}`;
+                      navigator.clipboard.writeText(shareableUrl);
+                      setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
+                      setShowToast(true);
+                    }} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 }

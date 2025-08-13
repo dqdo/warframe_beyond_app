@@ -15,12 +15,24 @@ type BuildTypeSelectProps = {
     selectedBuildType: string | null;
 }
 
-export function BuildTypeSelect({ onSelect, selectedBuildType }: BuildTypeSelectProps) {
-    const initialOption = buildOptions.find(option => option.label === selectedBuildType);
-  
+export function BuildTypeSelect({
+    onSelect,
+    selectedBuildType,
+}: BuildTypeSelectProps) {
+    const selectedOption =
+        buildOptions.find((option) => option.value === selectedBuildType) || null;
+
     return (
         <div className="flex gap-3">
-            <Dropdown label="Select" options={buildOptions} header="Build Type:" labelIcon={arrowIcon} styleVariant="buildSection" onSelect={(option) => onSelect?.(option.value)} initialOption={initialOption} />
+            <Dropdown
+                label="Select"
+                options={buildOptions}
+                header="Build Type:"
+                labelIcon={arrowIcon}
+                styleVariant="buildSection"
+                selectedOption={selectedOption}
+                onSelect={(option) => onSelect?.(option?.value ?? null)}
+            />
         </div>
     );
 }

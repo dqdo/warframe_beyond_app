@@ -8,9 +8,14 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'content.warframe.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
       }
     ]
   }
 };
+
 
 export default nextConfig;

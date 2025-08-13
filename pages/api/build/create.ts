@@ -7,7 +7,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         const newBuild = await prismaClient.build.create({
             data: {
+                auth0Owner: data.auth0Owner,
+                email: data.email,
                 buildID: nanoid(),
+                buildName: data.buildName,
                 orokinReactor: data.orokinReactor ?? true,
                 itemRank: data.itemRank ?? 30,
                 buildType: data.buildType,
