@@ -5,6 +5,7 @@ import { WarframeWithTexture } from "../../../pages/api/fetchWarframes";
 import { WeaponWithTexture } from "../../../pages/api/fetchWeapons";
 
 export interface BuildProps {
+    buildName?: string;
     auth0Owner?: string;
     email?: string;
     orokinReactor: boolean;

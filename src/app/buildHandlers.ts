@@ -39,6 +39,7 @@ export type BuildHandlersProps = {
     assignedMods: Record<string, ModWithTexture | null>;
     slotPolarities: Record<string, string>;
     currentModRanks: Record<string, number>;
+    buildName: string;
     setToastMessage: (message: string) => void;
     setShowToast: (show: boolean) => void;
     setOwnerBuilds: (builds: Build[]) => void;
@@ -55,15 +56,18 @@ export type BuildHandlersProps = {
     setItemRank: (rank: number) => void;
     setOrokinReactor: (reactor: boolean) => void;
     setModalOpen: (open: boolean) => void;
+    setBuildName: (name: string) => void;
+    setCurrentBuildOwner: (owner: string | null) => void;
 };
 
 export const buildHandlers = (props: BuildHandlersProps) => ({
     handleCreateBuild: () => {
-        const buildName = props.selectedWarframe?.name
-            ? `${props.selectedWarframe.name} Build`
-            : props.selectedWeapon?.name
-                ? `${props.selectedWeapon.name} Build`
-                : "Unnamed Build";
+        const buildName = props.buildName ||
+            (props.selectedWarframe?.name
+                ? `${props.selectedWarframe.name} Build`
+                : props.selectedWeapon?.name
+                    ? `${props.selectedWeapon.name} Build`
+                    : "Unnamed Build");
 
         const buildData = {
             auth0Owner: props.session?.user?.sub,
@@ -101,7 +105,15 @@ export const buildHandlers = (props: BuildHandlersProps) => ({
         const buildID = props.searchParams?.get("build");
         if (!buildID) return;
 
+        const buildName = props.buildName ||
+            (props.selectedWarframe?.name
+                ? `${props.selectedWarframe.name} Build`
+                : props.selectedWeapon?.name
+                    ? `${props.selectedWeapon.name} Build`
+                    : "Unnamed Build");
+
         const buildData = {
+            buildName: buildName,
             auth0Owner: props.session?.user?.sub,
             email: props.session?.user?.email,
             orokinReactor: props.orokinReactor,
@@ -146,6 +158,8 @@ export const buildHandlers = (props: BuildHandlersProps) => ({
                 props.setSlotPolarities({});
                 props.setItemRank(30);
                 props.setOrokinReactor(true);
+                props.setBuildName('')
+                props.setCurrentBuildOwner(null);
                 window.history.pushState({}, '', window.location.origin);
             }
 
@@ -173,6 +187,8 @@ export const buildHandlers = (props: BuildHandlersProps) => ({
         props.setSlotPolarities({});
         props.setItemRank(30);
         props.setOrokinReactor(true);
+        props.setBuildName("Unnamed Build");
+        props.setCurrentBuildOwner(null);
         window.history.pushState({}, '', window.location.origin);
     },
 

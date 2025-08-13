@@ -52,6 +52,7 @@ function HomeContent() {
   const session = useContext(SessionContext);
   const [ownerBuilds, setOwnerBuilds] = useState<Build[]>([]);
   const [currentBuildOwner, setCurrentBuildOwner] = useState<string | null>(null);
+  const [buildName, setBuildName] = useState("");
 
   const handlers = buildHandlers({
     session,
@@ -64,6 +65,7 @@ function HomeContent() {
     assignedMods,
     slotPolarities,
     currentModRanks,
+    buildName,
     setToastMessage,
     setShowToast,
     setOwnerBuilds,
@@ -80,7 +82,18 @@ function HomeContent() {
     setItemRank,
     setOrokinReactor,
     setModalOpen: setModalOpen,
+    setBuildName: setBuildName,
+    setCurrentBuildOwner: setCurrentBuildOwner,
   });
+
+  const getDisplayName = () => {
+    return buildName ||
+      (selectedWarframe?.name
+        ? `${selectedWarframe.name} Build`
+        : selectedWeapon?.name
+          ? `${selectedWeapon.name} Build`
+          : "Unnamed Build");
+  };
 
   useEffect(() => {
     const buildParam = searchParams?.get("build");
@@ -95,6 +108,7 @@ function HomeContent() {
         setSelectedWeapon(buildData.selectedWeapon);
         setItemRank(buildData.itemRank);
         setOrokinReactor(buildData.orokinReactor);
+        setBuildName(buildData.buildName || "");
       }).catch(error => {
         console.error("Error loading build:", error);
       });
@@ -177,6 +191,15 @@ function HomeContent() {
       </div>
 
       <div className="py-[120px]">
+        <div className="absolute left-1/2 -translate-x-1/2 top-25">
+          <input
+            type="text"
+            value={buildName}
+            onChange={(e) => setBuildName(e.target.value)}
+            placeholder={getDisplayName()}
+            className="text-white rounded border border-gray-700 text-center"
+          />
+        </div>
         {selectedBuildType != null && (
           <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
             <div>
