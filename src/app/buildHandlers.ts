@@ -187,7 +187,7 @@ export const buildHandlers = (props: BuildHandlersProps) => ({
         props.setSlotPolarities({});
         props.setItemRank(30);
         props.setOrokinReactor(true);
-        props.setBuildName("Unnamed Build");
+        props.setBuildName('');
         props.setCurrentBuildOwner(null);
         window.history.pushState({}, '', window.location.origin);
     },
