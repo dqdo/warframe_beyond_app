@@ -53,6 +53,7 @@ function HomeContent() {
   const [ownerBuilds, setOwnerBuilds] = useState<Build[]>([]);
   const [currentBuildOwner, setCurrentBuildOwner] = useState<string | null>(null);
   const [buildName, setBuildName] = useState("");
+  const [buildsLoading, setBuildsLoading] = useState(false);
 
   const handlers = buildHandlers({
     session,
@@ -84,6 +85,7 @@ function HomeContent() {
     setModalOpen: setModalOpen,
     setBuildName: setBuildName,
     setCurrentBuildOwner: setCurrentBuildOwner,
+    setBuildsLoading: setBuildsLoading,
   });
 
   const getDisplayName = () => {
@@ -226,8 +228,11 @@ function HomeContent() {
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <div className="p-4">
           <h2 className="text-lg font-bold mb-4">Your Builds</h2>
-
-          {ownerBuilds.length === 0 ? (
+          {buildsLoading ? (
+            <div className="flex justify-center items-center h-20">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+            </div>
+          ) : ownerBuilds.length === 0 ? (
             <p>No builds found.</p>
           ) : (
             <ul className="space-y-2">
@@ -261,7 +266,7 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>}>
       <HomeContent />
     </Suspense>
   );

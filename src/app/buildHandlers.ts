@@ -58,6 +58,7 @@ export type BuildHandlersProps = {
     setModalOpen: (open: boolean) => void;
     setBuildName: (name: string) => void;
     setCurrentBuildOwner: (owner: string | null) => void;
+    setBuildsLoading: (loading: boolean) => void;
 };
 
 export const buildHandlers = (props: BuildHandlersProps) => ({
@@ -194,14 +195,17 @@ export const buildHandlers = (props: BuildHandlersProps) => ({
 
     handleShowBuilds: () => {
         if (!props.session?.user?.sub) return;
-
+        props.setBuildsLoading(true);
         getBuildsByOwner(props.session.user.sub)
             .then(data => {
                 props.setOwnerBuilds(data);
             })
             .catch(err => {
                 console.error(err);
-            });
+            })
+            .finally(() => {
+                props.setBuildsLoading(false);
+            })
 
         props.setModalOpen(true);
     }
