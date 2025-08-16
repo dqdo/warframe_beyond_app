@@ -193,7 +193,7 @@ function HomeContent() {
       </div>
 
       <div className="py-[120px]">
-        <div className="absolute left-1/2 -translate-x-1/2 top-25">
+        <div className={`absolute left-1/2 -translate-x-1/2 top-25 ${isSidebarOpen ? 'right-[24vw]' : ''}`}>
           <input
             type="text"
             value={buildName}
@@ -203,7 +203,7 @@ function HomeContent() {
           />
         </div>
         {selectedBuildType != null && (
-          <div className={`min-h-[50vh] mt-2 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
+          <div className={`min-h-[50vh] mt-5 ${isSidebarOpen ? "mr-[15vw]" : ""}`}>
             <div>
               <Slots
                 isSidebarOpen={isSidebarOpen}
@@ -227,7 +227,9 @@ function HomeContent() {
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <div className="p-4">
-          <h2 className="text-lg font-bold mb-4">Your Builds</h2>
+          <div>
+            <h2 className="text-lg font-bold mb-5">Your Builds</h2>
+          </div>
           {buildsLoading ? (
             <div className="flex justify-center items-center h-20">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
@@ -235,28 +237,32 @@ function HomeContent() {
           ) : ownerBuilds.length === 0 ? (
             <p>No builds found.</p>
           ) : (
-            <ul className="space-y-2">
-              {ownerBuilds.map((build) => (
-                <li key={build.buildID} className="border p-2 rounded bg-neutral-800 flex justify-between items-center">
-                  <span>{build.buildName}</span>
-                  <div className="flex gap-2">
-                    <Button text="Delete" onClick={() => handlers.handleDeleteBuild(build.buildID)} />
-                    <div className="text-xl">|</div>
-                    <Button text="Load" onClick={() => {
-                      window.location.href = `?build=${build.buildID}`;
-                    }} />
+            <div>
+              <div className={`h-160 w-full px-2 overflow-y-auto scrollbar-custom`}>
+                <ul>
+                  {ownerBuilds.map((build, index) => (
+                    <li key={build.buildID} className={`border-b border-neutral-500 p-2 flex justify-between items-center ${index % 2 === 0 ? "bg-neutral-800" : "bg-neutral-900"}`}>
+                      <span>{build.buildName}</span>
+                      <div className="flex gap-1">
+                        <Button text="Delete" onClick={() => handlers.handleDeleteBuild(build.buildID)} />
+                        <div className="text-xl">|</div>
+                        <Button text="Load" onClick={() => {
+                          window.location.href = `?build=${build.buildID}`;
+                        }} />
 
-                    <div className="text-xl">|</div>
-                    <Button text="Copy Link" onClick={() => {
-                      const shareableUrl = `${window.location.origin}?build=${build.buildID}`;
-                      navigator.clipboard.writeText(shareableUrl);
-                      setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
-                      setShowToast(true);
-                    }} />
-                  </div>
-                </li>
-              ))}
-            </ul>
+                        <div className="text-xl">|</div>
+                        <Button text="Copy Link" onClick={() => {
+                          const shareableUrl = `${window.location.origin}?build=${build.buildID}`;
+                          navigator.clipboard.writeText(shareableUrl);
+                          setToastMessage(`Link copied to clipboard: ${shareableUrl}`);
+                          setShowToast(true);
+                        }} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           )}
         </div>
       </Modal>
