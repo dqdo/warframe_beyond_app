@@ -1,17 +1,17 @@
 export const DATA_HASHES = {
   mods: {
-    upgrades: 'ExportUpgrades_en.json!00_UQtpN5pyz3uXsR66Qe8uQg',
+    upgrades: 'ExportUpgrades_en.json!00_vD8yfEHxw+Rrt2ygCNgEOg',
   },
   arcanes: {
-    relicArcane: 'ExportRelicArcane_en.json!00_brhthG3bjw-4VYRKpx08-g',
+    relicArcane: 'ExportRelicArcane_en.json!00_plYnxSwr0eofzbeBn9F+gg',
   },
   warframes: {
-    warframes: 'ExportWarframes_en.json!00_NbRrhG4Y8jKMaUifYbY1Nw',
+    warframes: 'ExportWarframes_en.json!00_FGVjo6+GOBi6mK6VgO2S0A',
   },
   manifest: {
-    manifest: 'ExportManifest.json!00_s-kWcCg+fGfnaqEcLODQRA',
+    manifest: 'ExportManifest.json!00_L3yIpZRbx3O+gqhjKZYhYg',
   },
   weapons: {
-    weapons: 'ExportWeapons_en.json!00_ANNFevSHgcBTO0WIEpyj4A'
+    weapons: 'ExportWeapons_en.json!00_9O7HTKo9HXPi1aGVO+y04A'
   }
 };
