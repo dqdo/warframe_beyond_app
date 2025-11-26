@@ -1,4 +1,4 @@
-import { DATA_HASHES } from "../../src/app/constants/dataHashes";
+import { ExportAbilities, ExportWarframes, ExportImages, dict_en } from "warframe-public-export-plus";
 
 export type WarframeEntry = {
     uniqueName: string;
@@ -23,11 +23,6 @@ export type WarframeEntry = {
     productCategory: 'Suits' | 'SpaceSuits' | 'MechSuits';
 };
 
-type TextureEntry = {
-    uniqueName: string;
-    textureLocation: string;
-};
-
 type AbilityWithTexture = {
     name: string;
     description: string;
@@ -42,49 +37,82 @@ export type WarframeWithTexture = Omit<WarframeEntry, 'abilities'> & {
 };
 
 export async function fetchWarframesWithTextures(): Promise<WarframeWithTexture[]> {
-    const warframesHash = DATA_HASHES.warframes.warframes;
-    const manifestHash = DATA_HASHES.manifest.manifest;
+    // Use the imported data directly
+    const warframesData = ExportWarframes;
+    const abilitiesData = ExportAbilities;
+    const imagesData = ExportImages;
 
-    const [warframesRes, manifestRes] = await Promise.all([
-        fetch(`https://content.warframe.com/PublicExport/Manifest/${warframesHash}`),
-        fetch(`https://content.warframe.com/PublicExport/Manifest/${manifestHash}`)
-    ]);
+    // Helper function to resolve localized names
+    const getLocalizedName = (path: string | undefined): string => {
+        if (!path) return '';
+        return (dict_en as Record<string, string>)[path] || path;
+    };
 
-    if (!warframesRes.ok || !manifestRes.ok) {
-        throw new Error('Failed to fetch data');
+    // Build a map of uniqueName -> contentHash from ExportImages.json
+    const imageHashMap = new Map<string, string>();
+    for (const [imagePath, data] of Object.entries(imagesData)) {
+        if (data && typeof data === 'object' && 'contentHash' in data) {
+            imageHashMap.set(imagePath, (data as { contentHash: string }).contentHash);
+        }
     }
 
-    const warframesJson = await warframesRes.json();
-    const manifestJson = await manifestRes.json();
+    // Build a map of ability uniqueName -> ability data
+    const abilityMap = new Map<string, any>();
+    for (const [uniqueName, abilityData] of Object.entries(abilitiesData)) {
+        abilityMap.set(uniqueName, abilityData);
+    }
 
-    const warframes: WarframeEntry[] = warframesJson.ExportWarframes;
-    const manifest: TextureEntry[] = manifestJson.Manifest;
+    // Helper function to get texture URL from icon path
+    const getTextureUrl = (iconPath: string | undefined): string | null => {
+        if (!iconPath) return null;
+        const contentHash = imageHashMap.get(iconPath);
+        if (!contentHash) return null;
+        return `https://content.warframe.com/PublicExport${iconPath}!${contentHash}`;
+    };
 
-    const textureMap = new Map(
-        manifest.map((entry) => [entry.uniqueName, entry.textureLocation])
-    );
+    // Process warframes
+    const warframes: WarframeWithTexture[] = [];
 
-    return warframes.filter((warframe) => warframe.productCategory === 'Suits').map((warframe) => {
-        const warframeTexture = textureMap.has(warframe.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(warframe.uniqueName)}` : null;
+    for (const [uniqueName, warframeData] of Object.entries(warframesData)) {
+        const data = warframeData as any;
 
-        const abilitiesWithTextures: AbilityWithTexture[] = warframe.abilities.map((ability) => {
-            const uniqueName = ability.abilityUniqueName;
-            const abilityTexture = uniqueName && textureMap.has(uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(uniqueName)}` : null;
+        // Filter only Suits (not SpaceSuits or MechSuits)
+        if (data.productCategory !== 'Suits') continue;
+
+        // Process abilities
+        const abilitiesWithTextures: AbilityWithTexture[] = (data.abilities || []).map((ability: any) => {
+            const abilityUniqueName = ability.uniqueName;
+            const abilityDetails = abilityUniqueName ? abilityMap.get(abilityUniqueName) : null;
 
             return {
-                name: ability.abilityName,
-                description: ability.description,
-                uniqueName: uniqueName,
-                icon: undefined,
-                textureUrl: abilityTexture,
+                name: getLocalizedName(ability.name || abilityDetails?.name),
+                description: getLocalizedName(ability.description || abilityDetails?.description),
+                uniqueName: abilityUniqueName,
+                icon: ability.icon || abilityDetails?.icon,
+                textureUrl: getTextureUrl(ability.icon || abilityDetails?.icon),
             };
         });
 
-        return {
-            ...warframe,
-            textureUrl: warframeTexture,
+        warframes.push({
+            uniqueName,
+            name: getLocalizedName(data.name),
+            parentName: data.parentName || '',
+            description: getLocalizedName(data.description),
+            health: data.health || 0,
+            shield: data.shield || 0,
+            armor: data.armor || 0,
+            stamina: data.stamina || 0,
+            power: data.power || 0,
+            codexSecret: data.codexSecret || false,
+            masteryReq: data.masteryReq || 0,
+            sprintSpeed: data.sprintSpeed || 1.0,
+            passiveDescription: getLocalizedName(data.passiveDescription),
+            exalted: data.exalted || [],
             abilities: abilitiesWithTextures,
-        };
-    }).sort((a, b) => a.name.localeCompare(b.name));
+            productCategory: data.productCategory,
+            textureUrl: getTextureUrl(data.icon),
+        });
+    }
 
+    return warframes.sort((a, b) => a.name.localeCompare(b.name));
 }

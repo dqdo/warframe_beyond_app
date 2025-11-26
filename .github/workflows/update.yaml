@@ -1,0 +1,57 @@
+name: Update WFCD Mods Data
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on the first day of every month
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: |
+          npm install @wfcd/items@latest warframe-public-export-plus@latest
+          
+      - name: Run extraction script
+        run: node scripts/extract-wfcd-data.js
+        
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code public/data/ || echo "changes=true" >> $GITHUB_OUTPUT
+          
+      - name: Commit and push if changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/wfcd-mods.json public/data/wfcd-mods.min.json
+          git commit -m "chore: update WFCD mods data - $(date +'%Y-%m-%d')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Create summary
+        run: |
+          echo "### WFCD Data Update Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          if [ -f public/data/wfcd-mods.json ]; then
+            echo "**File Size:** $(du -h public/data/wfcd-mods.json | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ steps.git-check.outputs.changes }}" == "true" ]; then
+            echo "**Status:** Data updated and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Status:** No changes detected" >> $GITHUB_STEP_SUMMARY
+          fi
