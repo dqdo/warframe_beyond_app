@@ -1,4 +1,4 @@
-import { DATA_HASHES } from "../../src/app/constants/dataHashes";
+import { ExportArcanes, ExportImages, dict_en } from "warframe-public-export-plus";
 
 export type ArcaneLevelStat = {
     stats: string[];
@@ -9,44 +9,74 @@ export type RelicArcaneEntry = {
     name: string;
     codexSecret?: boolean;
     rarity?: string;
-    levelStats: ArcaneLevelStat[];
-};
-
-type TextureEntry = {
-    uniqueName: string;
-    textureLocation: string;
+    levelStats?: ArcaneLevelStat[];
+    fusionLimit?: number;
+    distillPointValue?: number;
 };
 
 export type ArcaneWithTexture = RelicArcaneEntry & { textureUrl: string | null };
 
+// Type for raw arcane data from the export
+type RawArcaneData = {
+    name?: string;
+    icon?: string;
+    codexSecret?: boolean;
+    rarity?: string;
+    levelStats?: ArcaneLevelStat[];
+    fusionLimit?: number;
+    distillPointValue?: number;
+    relicRewards?: unknown;
+    [key: string]: unknown;
+};
+
 export async function fetchArcanesWithTextures(): Promise<ArcaneWithTexture[]> {
-    const RelicArcaneHash = DATA_HASHES.arcanes.relicArcane;
-    const manifestHash = DATA_HASHES.manifest.manifest;
+    // Use the imported data directly
+    const relicArcaneData = ExportArcanes;
+    const imagesData = ExportImages;
 
-    const [relicArcaneRes, manifestRes] = await Promise.all([
-        fetch(`https://content.warframe.com/PublicExport/Manifest/${RelicArcaneHash}`),
-        fetch(`https://content.warframe.com/PublicExport/Manifest/${manifestHash}`)
-    ]);
+    // Helper function to resolve localized names
+    const getLocalizedName = (path: string | undefined): string => {
+        if (!path) return '';
+        return (dict_en as Record<string, string>)[path] || path;
+    };
 
-    if (!relicArcaneRes.ok || !manifestRes.ok) {
-        throw new Error('Failed to fetch data');
+    // Build a map of uniqueName -> contentHash from ExportImages.json
+    const imageHashMap = new Map<string, string>();
+    for (const [imagePath, data] of Object.entries(imagesData)) {
+        if (data && typeof data === 'object' && 'contentHash' in data) {
+            imageHashMap.set(imagePath, (data as { contentHash: string }).contentHash);
+        }
     }
 
-    const relicArcaneJson = await relicArcaneRes.json();
-    const manifestJson = await manifestRes.json();
+    // Helper function to get texture URL from icon path
+    const getTextureUrl = (iconPath: string | undefined): string | null => {
+        if (!iconPath) return null;
+        const contentHash = imageHashMap.get(iconPath);
+        if (!contentHash) return null;
+        return `https://content.warframe.com/PublicExport${iconPath}!${contentHash}`;
+    };
 
-    const arcanes: RelicArcaneEntry[] = relicArcaneJson.ExportRelicArcane.filter(
-        (entry: RelicArcaneEntry) =>
-            Array.isArray(entry.levelStats) && !("relicRewards" in entry)
-    );
+    // Process arcanes
+    const arcanes: ArcaneWithTexture[] = [];
 
-    const manifest: TextureEntry[] = manifestJson.Manifest;
+    for (const [uniqueName, arcaneData] of Object.entries(relicArcaneData)) {
+        const data = arcaneData as any;
 
-    const textureMap = new Map(
-        manifest.map((entry) => [entry.uniqueName, entry.textureLocation])
-    );
+        // Filter only arcanes (those without relicRewards property)
+        // Note: Some arcanes may not have levelStats in ExportRelicArcane
+        if ("relicRewards" in data) continue;
 
-    return arcanes.map((arcane) => ({
-        ...arcane, textureUrl: textureMap.has(arcane.uniqueName) ? `https://content.warframe.com/PublicExport${textureMap.get(arcane.uniqueName)}` : null,
-    })).sort((a, b) => a.name.localeCompare(b.name));
+        arcanes.push({
+            uniqueName,
+            name: getLocalizedName(data.name),
+            codexSecret: data.codexSecret,
+            rarity: data.rarity,
+            levelStats: data.levelStats,
+            fusionLimit: data.fusionLimit,
+            distillPointValue: data.distillPointValue,
+            textureUrl: getTextureUrl(data.icon),
+        });
+    }
+
+    return arcanes.sort((a, b) => a.name.localeCompare(b.name));
 }

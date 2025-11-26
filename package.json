@@ -8,18 +8,21 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:generate": "dotenv -e .env.development.local -- npx prisma generate",
-    "prisma:push": "dotenv -e .env.development.local -- npx prisma db push"
+    "prisma:push": "dotenv -e .env.development.local -- npx prisma db push",
+    "extract-mods": "node scripts/extract-wfcd-data.js"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.9.0",
     "@neondatabase/serverless": "^1.0.1",
     "@prisma/client": "^6.13.0",
+    "@wfcd/items": "^1.1270.887",
     "axios": "^1.11.0",
     "dotenv-cli": "^10.0.0",
     "nanoid": "^5.1.5",
     "next": "^15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "warframe-public-export-plus": "^0.5.94"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
