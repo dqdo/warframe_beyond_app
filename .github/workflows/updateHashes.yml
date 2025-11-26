@@ -3,7 +3,7 @@ name: Update Warframe Hashes Monthly
 on:
   schedule:
     - cron: "0 0 1 * *"   # Run monthly on the 1st at 00:00 UTC
-  workflow_dispatch:
+  workflow_dispatch:       # <-- Allows manual "Run workflow" button
 
 jobs:
   update:
@@ -30,11 +30,9 @@ jobs:
           node << 'EOF'
           const fs = require('fs');
 
-          // Read lines of form: ExportSomething_en.json!00_HASH
           const lines = fs.readFileSync('index_en.txt', 'utf8').trim().split('\n');
-
-          // Build a map: "ExportSomething_en.json" -> "!00_HASH"
           const hashMap = {};
+
           for (const line of lines) {
             const [file, hash] = line.split('!00_');
             hashMap[file] = `!00_${hash}`;
@@ -43,17 +41,13 @@ jobs:
           const targetPath = 'src/app/constants/DATA_HASHES.ts';
           let content = fs.readFileSync(targetPath, 'utf8');
 
-          // Update each hash inside DATA_HASHES.ts
           for (const file in hashMap) {
-            // Escape "." in filename for safe regex
             const escaped = file.replace(/\./g, '\\.');
             const regex = new RegExp(`${escaped}!00_[A-Za-z0-9+\/=\\-]+`, 'g');
-
             content = content.replace(regex, `${file}${hashMap[file]}`);
           }
 
           fs.writeFileSync(targetPath, content);
-
           console.log("Updated hashes:", hashMap);
           EOF
 
@@ -62,11 +56,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-
-          # If no changes, do not fail
           git commit -m "Monthly: Update DATA_HASHES.ts with latest Warframe hashes" || echo "No changes to commit"
-
-          # Authenticated push
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
