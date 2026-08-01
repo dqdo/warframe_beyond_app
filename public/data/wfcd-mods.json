@@ -739,7 +739,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Adaptation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/AdaptationMod.png?5f44a",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -826,7 +829,17 @@
         "changes": "",
         "fixes": "Fixed the Adaptation Mod sometimes making players completely invincible."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 23.10",
+      "url": "https://wiki.warframe.com/w/Update_23%23Update_23.10",
+      "aliases": [
+        "23.10",
+        "23.10.0"
+      ],
+      "parent": "23.10",
+      "date": "2018-10-12"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/AvatarResistanceOnDamageMod",
@@ -5563,7 +5576,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Ammo_Drum",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/AmmoDrumMod.png?905e5",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -6250,7 +6266,17 @@
         "changes": "•    Bursas will no longer drop Common Mods (Revenge, Ammo Drum).",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponAmmoMaxMod",
@@ -7800,7 +7826,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Anti-V",
-    "wikiaThumbnail": "https://wiki.warframe.com/images/AntiVMod.png?88da7",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Anti-VMod.png?88da7",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -8392,7 +8418,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Antitoxin",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/AntitoxinMod.png?96dd4",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -8467,7 +8496,18 @@
         "changes": "The VERMILLION Antitoxin formula has been added for Solo Players to achieve the required points for the event rewards, as well as to allow competitive clans to reach higher scores.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/PvPMods/Rifle/MarkTargetRifleMod",
@@ -8710,7 +8750,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Arch-Gun Riven Mod",
     "introduced": {
       "name": "Update 24.8",
@@ -8728,14 +8768,27 @@
     "name": "Archgun Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Archgun_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ArchgunRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
     "baseDrain": 0,
     "fusionLimit": 5,
     "compatName": "Archgun",
-    "type": "Arch-Gun Riven Mod"
+    "type": "Arch-Gun Riven Mod",
+    "introduced": {
+      "name": "Update 24.8",
+      "url": "https://wiki.warframe.com/w/Update_24%23Update_24.8",
+      "aliases": [
+        "24.8",
+        "24.8.0"
+      ],
+      "parent": "24.8",
+      "date": "2019-04-24"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Kahl/KahlAvatarAbilityDurationMod",
@@ -10097,7 +10150,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Arrow_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ArrowMutationMod.png?e49ae",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -10314,7 +10370,17 @@
         "changes": "Arrow Mutation\nArrow Mutation from 9 to 7",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Intermediate/WeaponBowConvertAmmoModIntermediate",
@@ -10353,7 +10419,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Arrow_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ArrowMutationMod.png?e49ae",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -10570,7 +10639,17 @@
         "changes": "Arrow Mutation\nArrow Mutation from 9 to 7",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponBowConvertAmmoMod",
@@ -10990,6 +11069,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Artillery Cheap Shot",
+        "chance": 0.15,
+        "rarity": "Rare"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Artillery Cheap Shot",
         "chance": 0.15,
         "rarity": "Rare"
@@ -13682,7 +13767,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Aviator",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/AviatorMod.png?c9b54",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -13817,7 +13905,17 @@
         "changes": "Aviator",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.9",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.9",
+      "aliases": [
+        "11.9.0",
+        "11.9"
+      ],
+      "parent": "11.9",
+      "date": "2014-01-29"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarDamageReductionInAirIntermediate",
@@ -13857,7 +13955,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Aviator",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/AviatorMod.png?c9b54",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -13992,7 +14093,17 @@
         "changes": "Aviator",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.9",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.9",
+      "aliases": [
+        "11.9.0",
+        "11.9"
+      ],
+      "parent": "11.9",
+      "date": "2014-01-29"
+    }
   },
   {
     "uniqueName": "/Lotus/Powersuits/Hoplite/HopliteImpaleAugmentCard",
@@ -16018,7 +16129,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Barrel_Diffusion",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/BarrelDiffusionMod.png?23904",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -16261,7 +16375,17 @@
         "changes": "Fixed issue with Gammacor caused by using the Barrel Diffusion, Lethal Torrent and Seeker Mods all at once.  ",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponFireIterationsMod",
@@ -17359,7 +17483,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Berserker_Fury",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/BerserkerFuryMod.png?9d9cb",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -17462,7 +17589,18 @@
         "changes": "Berserker Fury, cannot stack with Fury. \nRenamed to Berserker Fury to communicate that it can no longer be equipped with Fury / Primed Fury.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponCritFireRateBonusMod",
@@ -22175,6 +22313,12 @@
         "rarity": "Uncommon"
       },
       {
+        "location": "Bloodfrenzy Ramsled",
+        "type": "Breach Quanta",
+        "chance": 3.79,
+        "rarity": "Uncommon"
+      },
+      {
         "location": "Bloodfrenzy Raptor",
         "type": "Breach Quanta",
         "chance": 3.79,
@@ -23369,7 +23513,10 @@
     "description": "Rip and rend with this Assault Saw stance.",
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Butcher's_Revelry",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Butcher%27sRevelryMod.png?0e677",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -23390,7 +23537,16 @@
         "chance": 100,
         "rarity": "Common"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 30.7",
+      "url": "https://wiki.warframe.com/w/Update_30%23Update_30.7",
+      "aliases": [
+        "30.7"
+      ],
+      "parent": "30.7",
+      "date": "2021-09-08"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponEventSlashDamageMod",
@@ -25774,7 +25930,9 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Charged_Chamber",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -25849,7 +26007,18 @@
         "chance": 9.68,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/SniperReloadDamageMod",
@@ -27140,7 +27309,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Chilling_Grasp",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ChillingGraspMod.png?3f2b7",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -27391,7 +27563,17 @@
         "changes": "",
         "fixes": "Chilling Grasp"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponFreezeDamageMod",
@@ -27916,7 +28098,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Cleanse_Corpus",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/CleanseCorpusMod.png?8a925",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -28027,7 +28212,18 @@
         "chance": 3.76,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponShotgunFactionDamageCorpus",
@@ -28220,7 +28416,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Cleanse_Grineer",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/CleanseGrineerMod.png?0218c",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -28637,7 +28836,18 @@
         "chance": 3.76,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponShotgunFactionDamageGrineer",
@@ -29136,7 +29346,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Cleanse_Infested",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/CleanseInfestedMod.png?8aa87",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -29271,7 +29484,18 @@
         "chance": 4.42,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponShotgunFactionDamageInfested",
@@ -31304,7 +31528,10 @@
     "name": "Companion Weapon Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Companion_Weapon_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/CompanionWeaponRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -31345,7 +31572,17 @@
         "changes": "Veiled Sentinel weapon Riven Mods can now be equipped on any Sentinel weapon type instead of a specific type (e.g. shotgun).  All Veiled Sentinel Riven Mods are now \"Companion Weapon Riven Mod\".",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 25.7",
+      "url": "https://wiki.warframe.com/w/Update_25%23Update_25.7",
+      "aliases": [
+        "25.7",
+        "Saint of Altra"
+      ],
+      "parent": "25.7",
+      "date": "2019-08-29"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Immortal/AntivirusEightMod",
@@ -32209,7 +32446,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Concussion_Rounds",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ConcussionRoundsMod.png?235da",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -32620,7 +32860,18 @@
         "chance": 0.88,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponImpactDamageMod",
@@ -34236,7 +34487,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Contagious_Spread",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ContagiousSpreadMod.png?d5957",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -34315,7 +34569,18 @@
         "changes": "",
         "fixes": "Contagious Spread"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponToxinDamageMod",
@@ -35963,7 +36228,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Convulsion",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ConvulsionMod.png?a9fc5",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -36348,7 +36616,17 @@
         "changes": "",
         "fixes": "Convulsion"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponElectricityDamageMod",
@@ -42366,7 +42644,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Deep_Freeze",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/DeepFreezeMod.png?5173b",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -42573,7 +42854,17 @@
         "chance": 7.49,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponFreezeDamageMod",
@@ -44266,7 +44557,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Diamond_Skin",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/DiamondSkinMod.png?c1f10",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -44491,7 +44785,18 @@
         "changes": "Adjusted Conclave rating for resistance Mods.  The following Mods are now 15 Conclave points when fully ranked:  Lightning Rod, Flame Repellent, Insulation, Shock Absorbers, Diamond Skin, Antitoxin, and Resilient Focus. Sure Footed is now 10 Conclave points.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Types/Friendly/Pets/KubrowPetPrecepts/KubrowDigPrecept",
@@ -45754,7 +46059,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Disruptor",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/DisruptorMod.png?06aa9",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -45971,7 +46279,18 @@
         "changes": "Infested Disruptor color effects toned down.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponImpactDamageMod",
@@ -47356,7 +47675,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Drive-Duster",
-    "wikiaThumbnail": "https://wiki.warframe.com/images/DriveDusterMod.png?6f0cc",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Drive-DusterMod.png?6f0cc",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -47782,7 +48101,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Eagle_Eye",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/EagleEyeMod.png?9d387",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -47807,7 +48129,18 @@
         "changes": "Eagle Eye",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Intermediate/WeaponZoomFovModIntermediate",
@@ -47846,7 +48179,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Eagle_Eye",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/EagleEyeMod.png?9d387",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -47871,7 +48207,18 @@
         "changes": "Eagle Eye",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponZoomFovMod",
@@ -50599,7 +50946,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Enemy_Sense",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/EnemySenseMod.png?e6f3b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -50736,7 +51086,17 @@
         "changes": "Enemy Sense",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Event/ShootPickUpPistolMod",
@@ -50990,7 +51350,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Energy_Channel",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/EnergyChannelMod.png?e624b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -51129,7 +51492,18 @@
         "changes": "Melee Channel mod has had its name changed to Energy Channel.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Intermediate/WeaponPowerDamageModIntermediate",
@@ -51168,7 +51542,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Energy_Channel",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/EnergyChannelMod.png?e624b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -51307,7 +51684,18 @@
         "changes": "Melee Channel mod has had its name changed to Energy Channel.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponPowerDamageMod",
@@ -60441,7 +60829,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Finishing_Touch",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/FinishingTouchMod.png?6f512",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -60484,7 +60875,18 @@
         "changes": "Finishing Touch",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Intermediate/WeaponMeleeFinisherDamageModIntermediate",
@@ -60523,7 +60925,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Finishing_Touch",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/FinishingTouchMod.png?6f512",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -60566,7 +60971,18 @@
         "changes": "Finishing Touch",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponMeleeFinisherDamageMod",
@@ -60833,6 +61249,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Fire Suppression",
+        "chance": 3.79,
+        "rarity": "Uncommon"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Fire Suppression",
         "chance": 3.79,
         "rarity": "Uncommon"
@@ -62355,7 +62777,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Flame_Repellent",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/FlameRepellentMod.png?1759f",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -62448,7 +62873,18 @@
         "changes": "Adjusted Conclave rating for resistance Mods.  The following Mods are now 15 Conclave points when fully ranked:  Lightning Rod, Flame Repellent, Insulation, Shock Absorbers, Diamond Skin, Antitoxin, and Resilient Focus. Sure Footed is now 10 Conclave points.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/Beginner/WeaponArmorPiercingDamageModBeginner",
@@ -62644,7 +63080,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Flechette",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/FlechetteMod.png?57770",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -62733,7 +63172,17 @@
         "changes": "",
         "fixes": "Vauban’s Flechette Orb Damage multiplier now scales based on average enemy level in range."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponArmorPiercingDamageMod",
@@ -63278,6 +63727,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Flow Burn",
+        "chance": 1.66,
+        "rarity": "Uncommon"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Flow Burn",
         "chance": 1.66,
         "rarity": "Uncommon"
@@ -63991,6 +64446,12 @@
         "rarity": "Uncommon"
       },
       {
+        "location": "Bloodfrenzy Ramsled",
+        "type": "Flow Burn",
+        "chance": 1.66,
+        "rarity": "Uncommon"
+      },
+      {
         "location": "Bloodfrenzy Raptor",
         "type": "Flow Burn",
         "chance": 1.66,
@@ -64551,6 +65012,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Flow Burn",
+        "chance": 1.66,
+        "rarity": "Uncommon"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Flow Burn",
         "chance": 1.66,
         "rarity": "Uncommon"
@@ -77071,7 +77538,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Gunslinger",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/GunslingerMod.png?24f31",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -77174,7 +77644,17 @@
         "changes": "Update 15.5operation: Mutalist Incursionsstop The Infestation!A Message From Alad V:Mutalist Incursions:What You Should Knowrewardsmesa: The Gunslinger:",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponFireRateMod",
@@ -78183,7 +78663,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Handspring",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HandspringMod.png?7c75d",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -78572,7 +79055,16 @@
         "changes": "",
         "fixes": "Handspring [Warframe]: Quicker recovery after being knocked down."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarKnockdownRecoveryModIntermediate",
@@ -78612,7 +79104,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Handspring",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HandspringMod.png?7c75d",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -79001,7 +79496,16 @@
         "changes": "",
         "fixes": "Handspring [Warframe]: Quicker recovery after being knocked down."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Sentinel/Moa/MoaMeleeMod",
@@ -79728,7 +80232,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Hawk_Eye",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HawkEyeMod.png?eb4d5",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -79881,7 +80388,18 @@
         "chance": 0.74,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Intermediate/WeaponPistolZoomFovModIntermediate",
@@ -79920,7 +80438,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Hawk_Eye",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HawkEyeMod.png?eb4d5",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -80073,7 +80594,18 @@
         "chance": 0.74,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponPistolZoomFovMod",
@@ -80740,7 +81272,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Health_Conversion",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HealthConversionMod.png?be441",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "unairu",
@@ -80821,7 +81356,17 @@
         "changes": "",
         "fixes": "Health Conversion: Picking up Health Orbs grants up to 450 armor, stacking up to 3 times. Taking damage will consume a stack after 2 seconds."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 18.5",
+      "url": "https://wiki.warframe.com/w/Update_18%23Update_18.5",
+      "aliases": [
+        "18.5.0",
+        "18.5"
+      ],
+      "parent": "18.5",
+      "date": "2016-03-04"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/PvPMods/Melee/DaggerMeleeAutoTargetBonus",
@@ -82403,7 +82948,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Heavy_Impact",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HeavyImpactMod.png?be441",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -82580,7 +83128,18 @@
         "changes": "Improved the sound for the Heavy Impact mod",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Beginner/WeaponImpactDamageModBeginner",
@@ -83853,7 +84412,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Hell's_Chamber",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Hell%27sChamberMod.png?18c38",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -84336,7 +84898,17 @@
         "chance": 8.6,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponFireIterationsMod",
@@ -85135,7 +85707,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Hellfire",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HellfireMod.png?fdeac",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -85292,7 +85867,17 @@
         "changes": "",
         "fixes": "Hellfire"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponFireDamageMod",
@@ -87211,7 +87796,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Hornet_Strike",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HornetStrikeMod.png?37dcd",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -87840,7 +88428,17 @@
         "changes": "",
         "fixes": "Fixed Hornet Strike not affecting DOT from the Acrid"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponDamageAmountMod",
@@ -92662,7 +93260,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Incendiary_Coat",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/IncendiaryCoatMod.png?3f46e",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -93083,7 +93684,17 @@
         "changes": "",
         "fixes": "Incendiary Coat"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponFireDamageMod",
@@ -94767,7 +95378,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Infected_Clip",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/InfectedClipMod.png?60a48",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -95662,7 +96276,18 @@
         "changes": "",
         "fixes": "Infected Clip"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponToxinDamageMod",
@@ -97529,7 +98154,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Insulation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/InsulationMod.png?55377",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -97572,7 +98200,18 @@
         "changes": "Adjusted Conclave rating for resistance Mods.  The following Mods are now 15 Conclave points when fully ranked:  Lightning Rod, Flame Repellent, Insulation, Shock Absorbers, Diamond Skin, Antitoxin, and Resilient Focus. Sure Footed is now 10 Conclave points.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/AvatarAbilityStrengthMod",
@@ -98452,7 +99091,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Intensify",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/IntensifyMod.png?9a7bb",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -98811,7 +99453,17 @@
         "changes": "",
         "fixes": "Changed Focus mod name to \"Intensify\"Changes:"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponBleedOnImpactProcRifleMod",
@@ -99269,7 +99921,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Intruder",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/IntruderMod.png?66938",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "universal",
@@ -99390,7 +100045,18 @@
         "changes": "Intruder",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Railjack/Tactical/CrewShipStasisAbilityCard",
@@ -101176,7 +101842,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Jagged_Edge",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/JaggedEdgeMod.png?36b4c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -101647,7 +102316,18 @@
         "chance": 0.1,
         "rarity": "Legendary"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponSlashDamageMod",
@@ -103192,7 +103872,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Keep-Clean",
-    "wikiaThumbnail": "https://wiki.warframe.com/images/KeepCleanMod.png?cfc30",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Keep-CleanMod.png?cfc30",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -104094,7 +104774,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Kitgun Riven Mod",
     "drops": [
       {
@@ -104169,7 +104849,10 @@
     "name": "Kitgun Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Kitgun_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/KitgunRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -104232,7 +104915,18 @@
         "changes": "Upon login, those that received the unintended Shotgun Riven Mod for Kitguns via GOTL Alert will have their Riven corrected to a proper Pistol Kitgun Riven Mod. ",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 24.0",
+      "url": "https://wiki.warframe.com/w/Update_24%23Update_24.0",
+      "aliases": [
+        "24",
+        "24.0",
+        "Fortuna"
+      ],
+      "parent": "24.0",
+      "date": "2018-11-08"
+    }
   },
   {
     "uniqueName": "/Lotus/Powersuits/Koumei/KoumeiStringsAugmentCard",
@@ -104273,6 +104967,20 @@
     "fusionLimit": 3,
     "compatName": "Koumei",
     "type": "Warframe Mod",
+    "drops": [
+      {
+        "location": "Arbiters of Hexis, Maxim",
+        "type": "Kumihimo Loading (Koumei)",
+        "chance": 100,
+        "rarity": "Common"
+      },
+      {
+        "location": "New Loka, Flawless",
+        "type": "Kumihimo Loading (Koumei)",
+        "chance": 100,
+        "rarity": "Common"
+      }
+    ],
     "introduced": {
       "name": "Update 43.0",
       "url": "https://wiki.warframe.com/w/Update_43%3A_Jade_Shadows%3A_Constellations",
@@ -105892,7 +106600,10 @@
     ],
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Lightning_Dash",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/LightningDashMod.png?b530b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "zenurik",
@@ -105954,7 +106665,18 @@
         "changes": "Lightning Dash",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 17.0",
+      "url": "https://wiki.warframe.com/w/Update_17%23Update_17.0",
+      "aliases": [
+        "Update 17",
+        "17.0",
+        "17"
+      ],
+      "parent": "17.0",
+      "date": "2015-07-31"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/ElectricalParkourTwoMod",
@@ -106443,7 +107165,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Lightning_Rod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/LightningRodMod.png?2e1b9",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -106524,7 +107249,18 @@
         "changes": "Adjusted Conclave rating for resistance Mods.  The following Mods are now 15 Conclave points when fully ranked:  Lightning Rod, Flame Repellent, Insulation, Shock Absorbers, Diamond Skin, Antitoxin, and Resilient Focus. Sure Footed is now 10 Conclave points.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponProcTimeMod",
@@ -111054,7 +111790,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Magnetic_Rush",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MagneticRushMod.png?b1076",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -111075,7 +111814,18 @@
         "chance": 0.13,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 38.0",
+      "url": "https://wiki.warframe.com/w/Update_38%23Update_38.0",
+      "aliases": [
+        "38",
+        "38.0",
+        "Warframe: 1999"
+      ],
+      "parent": "38.0",
+      "date": "2024-12-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/DualStat/MagneticFireRateShotgunMod",
@@ -111108,7 +111858,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Magnetic_Strafe",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MagneticStrafeMod.png?a42be",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -111135,7 +111888,18 @@
         "chance": 0.11,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 38.0",
+      "url": "https://wiki.warframe.com/w/Update_38%23Update_38.0",
+      "aliases": [
+        "38",
+        "38.0",
+        "Warframe: 1999"
+      ],
+      "parent": "38.0",
+      "date": "2024-12-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Sentinel/Kubrow/BeastWeapon/BeastMagneticImpactMod",
@@ -113091,7 +113855,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Master_Thief",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MasterThiefMod.png?35cd9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -113456,7 +114223,18 @@
         "changes": "Master Thief",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarChanceToLootIntermediate",
@@ -113496,7 +114274,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Master_Thief",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MasterThiefMod.png?35cd9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -113861,7 +114642,18 @@
         "changes": "Master Thief",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/EmpoweredHeavyMelee/HeavyAgression",
@@ -115796,7 +116588,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Melee_Prowess",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MeleeProwessMod.png?6889e",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -116433,7 +117228,18 @@
         "changes": "Melee Prowess increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Intermediate/WeaponStunChanceModIntermediate",
@@ -116472,7 +117278,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Melee_Prowess",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MeleeProwessMod.png?6889e",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -117109,7 +117918,18 @@
         "changes": "Melee Prowess increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponStunChanceMod",
@@ -117814,7 +118634,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Melee Riven Mod",
     "drops": [
       {
@@ -117891,7 +118711,10 @@
     "name": "Melee Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Melee_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MeleeRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -117954,7 +118777,20 @@
         "changes": "Melee Riven Mod",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 21.0",
+      "url": "https://wiki.warframe.com/w/Update_21%23Update_21.0",
+      "aliases": [
+        "Update 21",
+        "21.0",
+        "21",
+        "CH",
+        "Chains of Harrow"
+      ],
+      "parent": "21.0",
+      "date": "2017-06-29"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Event/Arbitration/ShootPickUpRifleMod",
@@ -119124,7 +119960,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Metal_Auger",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MetalAugerMod.png?a8f4c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -119593,7 +120432,17 @@
         "changes": "",
         "fixes": "Fixed the Amalgam Argonak Metal Auger Mod not removing Armor with Dagger attacks."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponPunctureDepthMod",
@@ -122311,7 +123160,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Molten_Impact",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/MoltenImpactMod.png?74e14",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -122834,7 +123686,17 @@
         "changes": "",
         "fixes": "Molten Impact"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponFireDamageMod",
@@ -130708,7 +131570,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/No_Return",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/NoReturnMod.png?54db1",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -131581,7 +132446,17 @@
         "chance": 8.43,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponArmorPiercingDamageMod",
@@ -132594,6 +133469,20 @@
     "fusionLimit": 3,
     "compatName": "Dante",
     "type": "Warframe Mod",
+    "drops": [
+      {
+        "location": "Arbiters of Hexis, Maxim",
+        "type": "Noctua Swarm (Dante)",
+        "chance": 100,
+        "rarity": "Common"
+      },
+      {
+        "location": "Cephalon Suda, Genius",
+        "type": "Noctua Swarm (Dante)",
+        "chance": 100,
+        "rarity": "Common"
+      }
+    ],
     "introduced": {
       "name": "Update 43.0",
       "url": "https://wiki.warframe.com/w/Update_43%3A_Jade_Shadows%3A_Constellations",
@@ -133494,7 +134383,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/North_Wind",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/NorthWindMod.png?35552",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -134277,7 +135169,17 @@
         "changes": "Updated the North Wind and Shocking Touch Mods to give up to 90% damage to match other elemental Mods.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponFreezeDamageMod",
@@ -136568,7 +137470,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Organ_Shatter",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/OrganShatterMod.png?ffc15",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "madurai",
@@ -136915,7 +137820,17 @@
         "changes": "",
         "fixes": "Fixed ability to equip Amalgam Organ Shatter on Arch-Melee weapons."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponCritDamageMod",
@@ -137516,6 +138431,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Orgone Tuning Matrix",
+        "chance": 1.66,
+        "rarity": "Uncommon"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Orgone Tuning Matrix",
         "chance": 1.66,
         "rarity": "Uncommon"
@@ -139492,7 +140413,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Parry",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ParryMod.png?d27cf",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -139815,7 +140739,18 @@
         "changes": "",
         "fixes": "-Gamepad: Jump moved back to A (need Wallrun Toggle controls for this to work) / Crouch moved back to R3 (may move back to B later) / Parry moved to LB so you can hold it while keeping full move & look controls / Use moved to X & reload moved to B (until I can move it on X, shared with Use)\n-Fixe Power Use back to LB / Parry moved to Dpad Up (until I get a free face button) / Weapon Swap moved back to Y"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Expert/AvatarParryMeleeModExpert",
@@ -139880,7 +140815,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Parry",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ParryMod.png?d27cf",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -140203,7 +141141,18 @@
         "changes": "",
         "fixes": "-Gamepad: Jump moved back to A (need Wallrun Toggle controls for this to work) / Crouch moved back to R3 (may move back to B later) / Parry moved to LB so you can hold it while keeping full move & look controls / Use moved to X & reload moved to B (until I can move it on X, shared with Use)\n-Fixe Power Use back to LB / Parry moved to Dpad Up (until I get a free face button) / Weapon Swap moved back to Y"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarParryMeleeModIntermediate",
@@ -140243,7 +141192,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Parry",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ParryMod.png?d27cf",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -140566,7 +141518,18 @@
         "changes": "",
         "fixes": "-Gamepad: Jump moved back to A (need Wallrun Toggle controls for this to work) / Crouch moved back to R3 (may move back to B later) / Parry moved to LB so you can hold it while keeping full move & look controls / Use moved to X & reload moved to B (until I can move it on X, shared with Use)\n-Fixe Power Use back to LB / Parry moved to Dpad Up (until I get a free face button) / Weapon Swap moved back to Y"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Railjack/Abilities/CrewShipRamAbilityCard",
@@ -140694,6 +141657,12 @@
       },
       {
         "location": "Bloodfrenzy Orm Gox",
+        "type": "Particle Ram",
+        "chance": 0.15,
+        "rarity": "Rare"
+      },
+      {
+        "location": "Bloodfrenzy Ramsled",
         "type": "Particle Ram",
         "chance": 0.15,
         "rarity": "Rare"
@@ -141439,7 +142408,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Pathogen_Rounds",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PathogenRoundsMod.png?dc526",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -141572,7 +142544,18 @@
         "changes": "",
         "fixes": "Pathogen Rounds"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponToxinDamageMod",
@@ -143497,7 +144480,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Piercing_Hit",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PiercingHitMod.png?38d09",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -143722,7 +144708,17 @@
         "chance": 9.09,
         "rarity": "Rare"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponArmorPiercingDamageMod",
@@ -144635,7 +145631,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Pistol_Ammo_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PistolAmmoMutationMod.png?0dc4c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -144854,7 +145853,17 @@
         "changes": "Pistol Ammo Mutation\nPrimed Pistol Ammo Mutation\nPistol Ammo Mutation from 9 to 7\nPrimed Pistol Ammo Mutation from 14 to 10",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponPistolConvertAmmoMod",
@@ -146398,7 +147407,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Pistol Riven Mod",
     "drops": [
       {
@@ -146464,7 +147473,10 @@
     "name": "Pistol Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Pistol_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PistolRivenMod.png?d0f91",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -146519,7 +147531,17 @@
         "changes": "Pistol Riven Mod",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 19.5",
+      "url": "https://wiki.warframe.com/w/Update_19%23Update_19.5",
+      "aliases": [
+        "19.5.0",
+        "19.5"
+      ],
+      "parent": "19.5",
+      "date": "2016-12-22"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Aura/PlayerPistolAmmoAuraMod",
@@ -148004,7 +149026,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Point_Strike",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PointStrikeMod.png?a7647",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "madurai",
@@ -148577,7 +149602,17 @@
         "changes": "Fixed Relics Packs awarding a Point Strike Mod.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponCritChanceMod",
@@ -150592,7 +151627,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Power_Throw",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PowerThrowMod.png?54195",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -150749,7 +151787,18 @@
         "changes": "The Power Throw Mod now gives additional speed to the projectile for each enemy hit.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponGlaivePowerthrowMod",
@@ -153652,7 +154701,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Pressure_Point",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PressurePointMod.png?d9969",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "madurai",
@@ -154567,7 +155619,17 @@
         "changes": "",
         "fixes": "Pressure Point mod buff (20% base)."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Event/FireRateWhileAimingPistolMod",
@@ -156883,14 +157945,26 @@
     ],
     "isPrime": true,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Primed_Deadly_Efficiency",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PrimedDeadlyEfficiencyMod.png?c8e7b",
     "category": "Mods",
     "rarity": "Legendary",
     "polarity": "madurai",
     "baseDrain": 4,
     "fusionLimit": 10,
     "compatName": "Archgun",
-    "type": "Arch-Gun Mod"
+    "type": "Arch-Gun Mod",
+    "introduced": {
+      "name": "Hotfix 36.0.4",
+      "url": "https://wiki.warframe.com/w/Update_36%23Hotfix_36.0.4",
+      "aliases": [
+        "36.0.4"
+      ],
+      "parent": "36.0",
+      "date": "2024-06-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Archwing/Rifle/PrimedArchwingRifleFireIterationsMod",
@@ -157037,14 +158111,28 @@
     ],
     "isPrime": true,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Primed_Electrified_Barrel",
     "category": "Mods",
     "rarity": "Legendary",
     "polarity": "naramon",
     "baseDrain": 4,
     "fusionLimit": 10,
     "compatName": "Archgun",
-    "type": "Arch-Gun Mod"
+    "type": "Arch-Gun Mod",
+    "introduced": {
+      "name": "TBA",
+      "url": "https://wiki.warframe.com/w/Upcoming_Features",
+      "aliases": [
+        "TBA",
+        "999",
+        "999.0",
+        "999.0.0"
+      ],
+      "parent": "0.0",
+      "date": "0000-00-00"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Expert/WeaponPistolFactionDamageCorpusExpert",
@@ -159276,14 +160364,28 @@
     "isAugment": true,
     "isPrime": true,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Primed_Redirection",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PrimedRedirectionMod.png?05aa6",
     "category": "Mods",
     "rarity": "Legendary",
     "polarity": "vazarin",
     "baseDrain": 6,
     "fusionLimit": 10,
     "compatName": "WARFRAME",
-    "type": "Warframe Mod"
+    "type": "Warframe Mod",
+    "introduced": {
+      "name": "Update 35.0",
+      "url": "https://wiki.warframe.com/w/Update_35%23Update_35.0",
+      "aliases": [
+        "35",
+        "35.0",
+        "Whispers in the Wall"
+      ],
+      "parent": "35.0",
+      "date": "2023-12-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Types/Sentinels/SentinelPrecepts/PrimedRegen",
@@ -160486,14 +161588,26 @@
     ],
     "isPrime": true,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Primed_Steady_Hands",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PrimedSteadyHandsMod.png?35d54",
     "category": "Mods",
     "rarity": "Legendary",
     "polarity": "naramon",
     "baseDrain": 2,
     "fusionLimit": 10,
     "compatName": "Pistol",
-    "type": "Secondary Mod"
+    "type": "Secondary Mod",
+    "introduced": {
+      "name": "Hotfix 38.5.7",
+      "url": "https://wiki.warframe.com/w/Update_38%23Hotfix_38.5.7",
+      "aliases": [
+        "38.5.7"
+      ],
+      "parent": "38.0",
+      "date": "2025-04-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Expert/AvatarAbilityEfficiencyModExpert",
@@ -163054,7 +164168,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Provoked",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ProvokedMod.png?4be45",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -163163,7 +164280,18 @@
         "changes": "•    The Provoked Mod now affects Inaros's bleed out damage.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponEventPistolImpactDamageMod",
@@ -166050,7 +167178,9 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rage",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -166457,7 +167587,18 @@
         "changes": "",
         "fixes": "639 French updates from ap0k41yp5, Flamby, Jupiter87a, Kolo, Ln_Fridfromedisailleur and RageSeeker."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarDamageToEnergyModIntermediate",
@@ -166497,7 +167638,9 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rage",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -166904,7 +168047,18 @@
         "changes": "",
         "fixes": "639 French updates from ap0k41yp5, Flamby, Jupiter87a, Kolo, Ln_Fridfromedisailleur and RageSeeker."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Railjack/Piloting/LavanHijackMatrixAura",
@@ -168762,6 +169916,7 @@
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Razor_Mortar",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RazorMortarMod.png?bc6e9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "zenurik",
@@ -169069,7 +170224,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Razor_Shot",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RazorShotMod.png?0ceca",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -169180,7 +170338,18 @@
         "chance": 0.67,
         "rarity": "Legendary"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponSlashDamageMod",
@@ -169447,7 +170616,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Reach",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ReachMod.png?3bb77",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "madurai",
@@ -170182,7 +171354,18 @@
         "changes": "",
         "fixes": "Fix cases where Reach, Focus, and Continuity Mods were not affecting many Warframe abilities"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponMeleeRangeIncMod",
@@ -173041,7 +174224,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Redirection",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RedirectionMod.png?e62e9",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -173426,7 +174612,17 @@
         "changes": "",
         "fixes": "Fixed mod card sorting so that like-named cards are grouped properly (Sentinel Redirection separate from Warframe Redirection)."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Types/Friendly/Pets/CatbrowPetPrecepts/CatbrowReflectPrecept",
@@ -174306,7 +175502,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Reflection",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ReflectionMod.png?01c07",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -174551,7 +175750,18 @@
         "changes": "",
         "fixes": "Fixed Brightness, Contrast, Local Reflections and Tutorials Enabled not taking effect"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Beginner/WeaponMeleeChannelingEfficiencyModBeginner",
@@ -174580,7 +175790,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Reflex_Coil",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ReflexCoilMod.png?17f7e",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -175315,7 +176528,17 @@
         "changes": "",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Expert/WeaponMeleeChannelingEfficiencyModExpert",
@@ -175379,7 +176602,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Reflex_Coil",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ReflexCoilMod.png?17f7e",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -176114,7 +177340,17 @@
         "changes": "",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Intermediate/WeaponMeleeChannelingEfficiencyeModIntermediate",
@@ -176153,7 +177389,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Reflex_Coil",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ReflexCoilMod.png?17f7e",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -176888,7 +178127,17 @@
         "changes": "",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponMeleeChargeRateMod",
@@ -179679,6 +180928,20 @@
     "fusionLimit": 3,
     "compatName": "Nokko",
     "type": "Warframe Mod",
+    "drops": [
+      {
+        "location": "Red Veil, Exalted",
+        "type": "Reroot Rampage (Nokko)",
+        "chance": 100,
+        "rarity": "Common"
+      },
+      {
+        "location": "The Perrin Sequence, Partner",
+        "type": "Reroot Rampage (Nokko)",
+        "chance": 100,
+        "rarity": "Common"
+      }
+    ],
     "introduced": {
       "name": "Update 43.0",
       "url": "https://wiki.warframe.com/w/Update_43%3A_Jade_Shadows%3A_Constellations",
@@ -180758,7 +182021,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Retribution",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RetributionMod.png?4e6a9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -181141,7 +182407,16 @@
         "changes": "",
         "fixes": "Retribution [Warframe]: Chance to do electrical damage when shield struck by melee enemies."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarRevengeDamageMeleeIntermediate",
@@ -181187,7 +182462,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Retribution",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RetributionMod.png?4e6a9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -181570,7 +182848,16 @@
         "changes": "",
         "fixes": "Retribution [Warframe]: Chance to do electrical damage when shield struck by melee enemies."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Types/Friendly/Pets/KubrowPetPrecepts/KubrowLootPrecept",
@@ -182332,6 +183619,20 @@
     "fusionLimit": 3,
     "compatName": "Temple",
     "type": "Warframe Mod",
+    "drops": [
+      {
+        "location": "New Loka, Flawless",
+        "type": "Rhythm Guard (Temple)",
+        "chance": 100,
+        "rarity": "Common"
+      },
+      {
+        "location": "Steel Meridian, General",
+        "type": "Rhythm Guard (Temple)",
+        "chance": 100,
+        "rarity": "Common"
+      }
+    ],
     "introduced": {
       "name": "Update 43.0",
       "url": "https://wiki.warframe.com/w/Update_43%3A_Jade_Shadows%3A_Constellations",
@@ -182381,7 +183682,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rifle_Ammo_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RifleAmmoMutationMod.png?8ffa9",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -182632,7 +183936,17 @@
         "changes": "Fixed Rifle Ammo Mutation mod not being compatible with Boltor Prime.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponRifleConvertAmmoMod",
@@ -183065,7 +184379,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rifle_Aptitude",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RifleAptitudeMod.png?5be43",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -183144,7 +184461,18 @@
         "changes": "Rifle Aptitude increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Expert/WeaponStatusChanceModExpert",
@@ -183208,7 +184536,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rifle_Aptitude",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RifleAptitudeMod.png?5be43",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -183287,7 +184618,18 @@
         "changes": "Rifle Aptitude increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Intermediate/WeaponStatusChanceModIntermediate",
@@ -183326,7 +184668,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rifle_Aptitude",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RifleAptitudeMod.png?5be43",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -183405,7 +184750,18 @@
         "changes": "Rifle Aptitude increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponStunChanceMod",
@@ -183626,7 +184982,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Rifle Riven Mod",
     "drops": [
       {
@@ -183700,7 +185056,10 @@
     "name": "Rifle Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rifle_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RifleRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -183763,7 +185122,19 @@
         "changes": "",
         "fixes": "Fixed ability to obtain the Verglas Sentinel Riven from a Rifle Riven Mod as opposed to the intended Companion Weapon Riven Mod."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 19.0",
+      "url": "https://wiki.warframe.com/w/Update_19%23Update_19.0",
+      "aliases": [
+        "Update 19",
+        "19",
+        "19.0",
+        "The War Within"
+      ],
+      "parent": "19.0",
+      "date": "2016-11-11"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Aura/PlayerRifleAmmoAuraMod",
@@ -186082,7 +187453,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rupture",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RuptureMod.png?a98e2",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -186227,7 +187601,18 @@
         "changes": "",
         "fixes": "Fixed issue with German version of game that affected players who received certain mod (Rupture) causing all mission rewards to not be received."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponImpactDamageMod",
@@ -188177,7 +189562,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Rush",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RushMod.png?12b7b",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -188972,7 +190360,17 @@
         "changes": "Rush",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Archwing/Rifle/ArchwingRiflePunchthroughMod",
@@ -191478,7 +192876,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sawtooth_Clip",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SawtoothClipMod.png?8b878",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -191547,7 +192948,18 @@
         "chance": 2.28,
         "rarity": "Common"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponSlashDamageMod",
@@ -193764,7 +195176,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Seeker",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SeekerMod.png?fb041",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -194083,7 +195498,17 @@
         "changes": "",
         "fixes": "639 French updates from ap0k41yp5, Flamby, Jupiter87a, Kolo, Ln_Fridfromedisailleur and RageSeeker."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponPunctureDepthMod",
@@ -194829,7 +196254,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Seeking_Force",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SeekingForceMod.png?f7d73",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -194878,7 +196306,17 @@
         "changes": "",
         "fixes": "Fixed the Seeker and Seeking Force mods so that their puncture amount increases with each level, instead of every other level."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponPunctureDepthMod",
@@ -197075,7 +198513,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Serration",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SerrationMod.png?0b8ff",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -197678,7 +199119,17 @@
         "changes": "",
         "fixes": "Fixed Serration mod not affecting Torid damage"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponDamageAmountMod",
@@ -199036,6 +200487,12 @@
         "rarity": "Uncommon"
       },
       {
+        "location": "Bloodfrenzy Ramsled",
+        "type": "Shatter Burst",
+        "chance": 3.79,
+        "rarity": "Uncommon"
+      },
+      {
         "location": "Bloodfrenzy Raptor",
         "type": "Shatter Burst",
         "chance": 3.79,
@@ -199813,7 +201270,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shell_Compression",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShellCompressionMod.png?60d69",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -199904,7 +201364,17 @@
         "changes": "Shell Compression\nShell Compression increased to +90% Ammo ",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponAmmoMaxMod",
@@ -201363,7 +202833,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shock_Absorbers",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShockAbsorbersMod.png?4f22f",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -201558,7 +203031,18 @@
         "changes": "Adjusted Conclave rating for resistance Mods.  The following Mods are now 15 Conclave points when fully ranked:  Lightning Rod, Flame Repellent, Insulation, Shock Absorbers, Diamond Skin, Antitoxin, and Resilient Focus. Sure Footed is now 10 Conclave points.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Sentinel/Kubrow/DualStat/KubrowElectEventMeleeMod",
@@ -202753,7 +204237,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shocking_Touch",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShockingTouchMod.png?79483",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -203464,7 +204951,17 @@
         "changes": "Updated the North Wind and Shocking Touch Mods to give up to 90% damage to match other elemental Mods.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponElectricityDamageMod",
@@ -204334,7 +205831,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shotgun_Ammo_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShotgunAmmoMutationMod.png?ef449",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -204559,7 +206059,17 @@
         "changes": "Shotgun Ammo Mutation\nPrimed Shotgun Ammo Mutation\nShotgun Ammo Mutation from 9 to 7\nPrimed Shotgun Ammo Mutation from 14 to 10",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponShotgunConvertAmmoMod",
@@ -205222,7 +206732,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shotgun_Barrage",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShotgunBarrageMod.png?0d69e",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -205403,7 +206916,17 @@
         "changes": "Adjusted the name of Shotgun Spazz (including Amalgam version) to Shotgun Barrage. ",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponFireRateMod",
@@ -205725,7 +207248,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Shotgun Riven Mod",
     "drops": [
       {
@@ -205799,7 +207322,10 @@
     "name": "Shotgun Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shotgun_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShotgunRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -205862,7 +207388,17 @@
         "changes": "",
         "fixes": "Teshin’s Steel Path Honors will now have a Weekly item for you to purchase! There are 8 items total, meaning that every 8 weeks the store will reset and allow you purchase anew. Look forward to things like an Umbra Forma Blueprint, Shotgun Riven Mod, and more!"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 19.5",
+      "url": "https://wiki.warframe.com/w/Update_19%23Update_19.5",
+      "aliases": [
+        "19.5.0",
+        "19.5"
+      ],
+      "parent": "19.5",
+      "date": "2016-12-22"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/Beginner/WeaponStunChanceModBeginner",
@@ -206252,7 +207788,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shotgun_Savvy",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShotgunSavvyMod.png?10dc0",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -206535,7 +208074,18 @@
         "changes": "Shotgun Savvy increased from 30% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponStunChanceMod",
@@ -207866,7 +209416,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Shredder",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ShredderMod.png?26626",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -208259,7 +209812,18 @@
         "chance": 5.06,
         "rarity": "Uncommon"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Shotgun/WeaponSlashDamageMod",
@@ -211882,7 +213446,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sniper_Ammo_Mutation",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SniperAmmoMutationMod.png?b16f6",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -212139,7 +213706,17 @@
         "changes": "Players can now upgrade Rifle, Arrow, Shotgun and Sniper Ammo Mutation Mods from max Rank 3 to max Rank 5 with increased effectiveness.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.3",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.3",
+      "aliases": [
+        "9.3",
+        "9.3.0"
+      ],
+      "parent": "9.3",
+      "date": "2013-07-26"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponSnipersConvertAmmoMod",
@@ -214078,7 +215655,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Speed_Trigger",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SpeedTriggerMod.png?a9c65",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -214355,7 +215935,17 @@
         "changes": "",
         "fixes": "•    Fixed Panthera’s alt fire consuming less ammo when equipped with a fire rate increase mod. (Speed Trigger, etc.)"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponFireRateMod",
@@ -215479,7 +217069,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Split_Chamber",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SplitChamberMod.png?32e76",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -216002,7 +217595,17 @@
         "changes": "",
         "fixes": "Fixed an issue with Split Chamber and the Quanta resulting in a face explosion when fired, projectiles from the same ‘shot’ will no longer collide with each other."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponFireIterationsMod",
@@ -217472,7 +219075,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Stabilizer",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/StabilizerMod.png?614fe",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -217717,7 +219323,18 @@
         "changes": "",
         "fixes": "Unlisted 14.0.7 fix: Fixed Kubrow Starter Packs not giving 6 DNA Stabilizers, but only giving 1. Anyone who purchased a Kubrow Starter Pack before this hotfix is being retroactively compensated in a script. This Script will add 5 DNA Stabilizers for every 1 Kubrow Starter Pack purchased."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponRecoilReductionMod",
@@ -219682,7 +221299,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Steady_Hands",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SteadyHandsMod.png?87a93",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -219775,7 +221395,18 @@
         "changes": "The following mods have been disabled in PvP: Magazine Warp, Slip Magazine, Burdened Magazine, Stabilizer, Steady Hands, Fast Hands, Quick Draw, Tactical Pump and Terminal Velocity. They have been replaced with PvP specific versions that have been added to the Mission Rewards of all PvP game types.",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponRecoilReductionMod",
@@ -220887,7 +222518,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Steel_Fiber",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SteelFiberMod.png?c6055",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -221206,7 +222840,17 @@
         "changes": "•    The ‘Steel Fiber’ Sentinel Mod had been renamed to ‘Metal Fiber’",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Weapons/Tenno/Melee/MeleeTrees/DaggerCmbThreeMeleeTree",
@@ -221802,7 +223446,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Stormbringer",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/StormbringerMod.png?7215d",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -222021,7 +223668,17 @@
         "changes": "",
         "fixes": "Update 7: \"Stormbringer\""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponElectricityDamageMod",
@@ -226247,7 +227904,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Stretch",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/StretchMod.png?a3428",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -227238,7 +228898,17 @@
         "changes": "",
         "fixes": "These 16 Necramech Mods are a mix of familiar Warframe Mods (Necramech Stretch, Necramech Intensify, Necramech Vitality, etc) as well as new Mod types specifically for the Necramech (Necramech Thrusters, Necramech Blitz, Necramech Refuel, etc)."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/DualStat/StunningSpeedMod",
@@ -227748,7 +229418,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sundering_Strike",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SunderingStrikeMod.png?5ae8b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -227793,7 +229466,17 @@
         "chance": 0.67,
         "rarity": "Legendary"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Expert/WeaponArmorPiercingDamageModExpert",
@@ -227857,7 +229540,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sundering_Strike",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SunderingStrikeMod.png?5ae8b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "naramon",
@@ -227902,7 +229588,17 @@
         "chance": 0.67,
         "rarity": "Legendary"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponArmorPiercingDamageMod",
@@ -228670,7 +230366,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sure_Footed",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SureFootedMod.png?7b780",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -228785,7 +230484,18 @@
         "changes": "",
         "fixes": "Fixed Sure Footed mod that was not working on clients."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 9.0",
+      "url": "https://wiki.warframe.com/w/Update_9%23Update_9.0",
+      "aliases": [
+        "Update 9",
+        "9",
+        "9.0"
+      ],
+      "parent": "9.0",
+      "date": "2013-07-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Beginner/WeaponStatusChanceModBeginner",
@@ -228814,7 +230524,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sure_Shot",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SureShotMod.png?d1631",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -228875,7 +230588,18 @@
         "changes": "Sure Shot increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Expert/WeaponStatusChanceModExpert",
@@ -228939,7 +230663,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sure_Shot",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SureShotMod.png?d1631",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -229000,7 +230727,18 @@
         "changes": "Sure Shot increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Intermediate/WeaponStatusChanceModIntermediate",
@@ -229039,7 +230777,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Sure_Shot",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SureShotMod.png?d1631",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "vazarin",
@@ -229100,7 +230841,18 @@
         "changes": "Sure Shot increased from 15% Status Chance to 90% Status Chance",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 11.0",
+      "url": "https://wiki.warframe.com/w/Update_11%23Update_11.0",
+      "aliases": [
+        "11",
+        "11.0",
+        "Update 11"
+      ],
+      "parent": "11.0",
+      "date": "2013-11-20"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponStunChanceMod",
@@ -229409,7 +231161,10 @@
     ],
     "isPrime": false,
     "tradable": false,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Surging_Dash",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SurgingDashMod.png?886ea",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "naramon",
@@ -229439,7 +231194,17 @@
         "changes": "",
         "fixes": "Fixed not being able to progress in The War Within quest due to Void Dash not hitting certain enemies if you had Surging Dash equipped on your Warframe as per: https://forums.warframe.com/topic/901382-not-able-to-finish-war-within-finally-boss-missions-with-focus-naramon/\nFixed overlapping Radius values displaying on the Surging Dash description. "
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 15.6",
+      "url": "https://wiki.warframe.com/w/Update_15%23Update_15.6",
+      "aliases": [
+        "15.6.0",
+        "15.6"
+      ],
+      "parent": "15.6",
+      "date": "2014-12-11"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Focus/Attack/Ultimate/AttackUltimateRadiusUpgrade",
@@ -229794,7 +231559,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Swift_Bite",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/SwiftBiteMod.png?376d7",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "zenurik",
@@ -229815,7 +231583,16 @@
         "chance": 100,
         "rarity": "Common"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 30.9",
+      "url": "https://wiki.warframe.com/w/Update_30%23Update_30.9",
+      "aliases": [
+        "30.9"
+      ],
+      "parent": "30.9",
+      "date": "2021-11-11"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/DataSpike/Assassin/SwiftExecuteMod",
@@ -232783,7 +234560,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Target_Cracker",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/TargetCrackerMod.png?5e9ec",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "madurai",
@@ -233042,7 +234822,17 @@
         "changes": "",
         "fixes": "Target Cracker"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponCritDamageMod",
@@ -236008,7 +237798,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/The_Relentless_Lost",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/TheRelentlessLostMod.png?88df7",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "zenurik",
@@ -236039,7 +237832,16 @@
         "changes": "Added a pulsing glow FX to Xaku’s unused The Lost abilities while The Relentless Lost Augment Mod is equipped. ",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 30.9",
+      "url": "https://wiki.warframe.com/w/Update_30%23Update_30.9",
+      "aliases": [
+        "30.9"
+      ],
+      "parent": "30.9",
+      "date": "2021-11-11"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Event/CorpusArena/SupraCorpusArenaMod",
@@ -236932,7 +238734,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Thief's_Wit",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/Thief%27sWitMod.png?ffe7d",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -237127,7 +238932,17 @@
         "chance": 38.72,
         "rarity": "Common"
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Powersuits/Revenant/RevenantMarkAugmentCard",
@@ -237807,7 +239622,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Thunderbolt",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ThunderboltMod.png?c7ff8",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -237984,7 +239802,16 @@
         "changes": "",
         "fixes": "Thunderbolt [Paris]: Chance for arrows to explode."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Intermediate/BowExplosionChanceModIntermediate",
@@ -238023,7 +239850,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Thunderbolt",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ThunderboltMod.png?c7ff8",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -238200,7 +240030,16 @@
         "changes": "",
         "fixes": "Thunderbolt [Paris]: Chance for arrows to explode."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 7.10",
+      "url": "https://wiki.warframe.com/w/Update_7%23Update_7.10",
+      "aliases": [
+        "7.10"
+      ],
+      "parent": "7.10",
+      "date": "2013-05-03"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/PvPMods/Rifle/ExplodingMiterBlades",
@@ -240649,7 +242488,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Trick_Mag",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/TrickMagMod.png?3a586",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "naramon",
@@ -241392,7 +243234,17 @@
         "changes": "",
         "fixes": "Fixed an issue where weapons that had a max ammo override would not be affected by ammo max mods, like the AkZani not being affected by Trick Mag."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/WeaponAmmoMaxMod",
@@ -242901,7 +244753,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/True_Steel",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/TrueSteelMod.png?ef2ba",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "madurai",
@@ -243084,7 +244939,17 @@
         "changes": "",
         "fixes": "True Steel mod buff (doubled)."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponCritChanceMod",
@@ -245244,7 +247109,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245257,7 +247122,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245270,7 +247135,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245283,7 +247148,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245296,7 +247161,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245309,7 +247174,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245322,7 +247187,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245335,7 +247200,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245348,7 +247213,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -245361,7 +247226,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Railjack Mod"
   },
   {
@@ -246106,7 +247971,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": false,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Vampiric_Grasp",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/VampiricGraspMod.png?d674d",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "zenurik",
@@ -246137,7 +248005,16 @@
         "changes": "",
         "fixes": "Fixed crash with Xaku’s Grasp of Lohk while using the Vampiric Grasp Augment Mod. "
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 30.9",
+      "url": "https://wiki.warframe.com/w/Update_30%23Update_30.9",
+      "aliases": [
+        "30.9"
+      ],
+      "parent": "30.9",
+      "date": "2021-11-11"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/PvPMods/Rifle/RestoreShieldsOnKillMod",
@@ -249933,7 +251810,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Vital_Sense",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/VitalSenseMod.png?b8493",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -250426,7 +252306,17 @@
         "changes": "Vital Sense Mod",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Rifle/WeaponCritDamageMod",
@@ -253325,7 +255215,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Vitality",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/VitalityMod.png?ac1e5",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -254364,7 +256257,17 @@
         "changes": "",
         "fixes": "Fixed an issue with Defense rewards giving Maxed Vitality mods."
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Vanilla",
+      "url": "https://wiki.warframe.com/w/Closed_Beta_Updates%23Vanilla",
+      "aliases": [
+        "0",
+        "0.0"
+      ],
+      "parent": "0.0",
+      "date": "2012-10-25"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Focus/Defense/Active/CloakShieldFocusUpgrade",
@@ -257664,7 +259567,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Warm_Coat",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/WarmCoatMod.png?1fb10",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -257755,7 +259661,18 @@
         "changes": "Warm Coat",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/Intermediate/AvatarMissionSpecificResistanceIceIntermediate",
@@ -257795,7 +259712,10 @@
     "isAugment": true,
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Warm_Coat",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/WarmCoatMod.png?1fb10",
     "category": "Mods",
     "rarity": "Common",
     "polarity": "vazarin",
@@ -257886,7 +259806,18 @@
         "changes": "Warm Coat",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 8.0",
+      "url": "https://wiki.warframe.com/w/Update_8%23Update_8.0",
+      "aliases": [
+        "8",
+        "8.0",
+        "Update 8"
+      ],
+      "parent": "8.0",
+      "date": "2013-05-23"
+    }
   },
   {
     "uniqueName": "/Lotus/Powersuits/Excalibur/ExcaliburUmbraPassiveAugmentCard",
@@ -258563,7 +260494,10 @@
     ],
     "isPrime": false,
     "tradable": true,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Whirlwind",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/WhirlwindMod.png?7e03b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -258682,7 +260616,18 @@
         "changes": "",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 10.0",
+      "url": "https://wiki.warframe.com/w/Update_10%23Update_10.0",
+      "aliases": [
+        "Update 10",
+        "10",
+        "10.0"
+      ],
+      "parent": "10.0",
+      "date": "2013-09-13"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/WeaponGlaiveSpeedMod",
@@ -259788,7 +261733,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 384,
+    "fusionLimit": 515,
     "type": "Zaw Riven Mod",
     "drops": [
       {
@@ -259857,7 +261802,10 @@
     "name": "Zaw Riven Mod",
     "isPrime": false,
     "tradable": false,
+    "transmutable": true,
     "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Zaw_Riven_Mod",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/ZawRivenMod.png?c488c",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "universal",
@@ -259912,7 +261860,20 @@
         "changes": "Zaw Riven Mod",
         "fixes": ""
       }
-    ]
+    ],
+    "introduced": {
+      "name": "Update 21.0",
+      "url": "https://wiki.warframe.com/w/Update_21%23Update_21.0",
+      "aliases": [
+        "Update 21",
+        "21.0",
+        "21",
+        "CH",
+        "Chains of Harrow"
+      ],
+      "parent": "21.0",
+      "date": "2017-06-29"
+    }
   },
   {
     "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Event/AkstilettoEfficiencyWhileAirborneMod",
