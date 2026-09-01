@@ -4709,7 +4709,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Ammo_Chain",
@@ -8684,7 +8684,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Archgun_Ace",
@@ -8750,7 +8750,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Arch-Gun Riven Mod",
     "introduced": {
       "name": "Update 24.8",
@@ -13157,7 +13157,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Automatic_Trigger",
@@ -14318,7 +14318,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Ballista_Measure",
@@ -25850,7 +25850,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Charged_Bullets",
@@ -31256,7 +31256,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Combustion_Rounds",
@@ -31385,7 +31385,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Comet_Blast",
@@ -34744,7 +34744,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Containment_Breach",
@@ -34806,7 +34806,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Contamination_Casing",
@@ -39170,7 +39170,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Critical_Focus",
@@ -41698,7 +41698,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Deadly_Efficiency",
@@ -47737,7 +47737,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Dual_Rounds",
@@ -48626,7 +48626,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Electrified_Barrel",
@@ -86627,7 +86627,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Hit_And_Run",
-    "wikiaThumbnail": "https://wiki.warframe.com/images/HitAndRunMod.png?160af",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/HitAndRunMod.png?70c2a",
     "category": "Mods",
     "rarity": "Uncommon",
     "polarity": "universal",
@@ -86852,7 +86852,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Hollowed_Bullets",
@@ -91731,7 +91731,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Hypothermic_Shell",
@@ -104774,7 +104774,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Kitgun Riven Mod",
     "drops": [
       {
@@ -109610,7 +109610,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Magazine_Extension",
@@ -111367,7 +111367,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Magma_Chamber",
@@ -112129,7 +112129,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Magnetized_Cycle",
@@ -113017,7 +113017,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Marked_Target",
@@ -118634,7 +118634,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Melee Riven Mod",
     "drops": [
       {
@@ -122309,7 +122309,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Modified_Munitions",
@@ -139100,6 +139100,64 @@
     }
   },
   {
+    "uniqueName": "/Lotus/Upgrades/Mods/Rifle/Event/Nightwave/NightwaveLasGooAKAugmentMod",
+    "name": "Overpressured Rounds",
+    "levelStats": [
+      {
+        "stats": [
+          "Rifle kills add 20% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 25% of the current Magazine."
+        ]
+      },
+      {
+        "stats": [
+          "Rifle kills add 40% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 30% of the current Magazine."
+        ]
+      },
+      {
+        "stats": [
+          "Rifle kills add 60% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 35% of the current Magazine."
+        ]
+      },
+      {
+        "stats": [
+          "Rifle kills add 80% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 40% of the current Magazine."
+        ]
+      },
+      {
+        "stats": [
+          "Rifle kills add 100% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 45% of the current Magazine."
+        ]
+      },
+      {
+        "stats": [
+          "Rifle kills add 120% Falloff Distance and decrease Spread for next attack with Buckshot. Buckshot kills restore 50% of the current Magazine."
+        ]
+      }
+    ],
+    "isPrime": false,
+    "tradable": true,
+    "transmutable": false,
+    "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Overpressured_Rounds",
+    "category": "Mods",
+    "rarity": "Rare",
+    "polarity": "madurai",
+    "baseDrain": 2,
+    "fusionLimit": 5,
+    "compatName": "EFV-5 Jupiter",
+    "type": "Primary Mod",
+    "introduced": {
+      "name": "Update 43.5",
+      "url": "https://wiki.warframe.com/w/Update_43%23Update_43.5",
+      "aliases": [
+        "43.5",
+        "Amir's Shockwave"
+      ],
+      "parent": "43.0",
+      "date": "2026-08-12"
+    }
+  },
+  {
     "uniqueName": "/Lotus/Upgrades/Mods/PvPMods/Rifle/HigherAirAimFoVRifleMod",
     "name": "Overview",
     "levelStats": [
@@ -139768,7 +139826,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Parallax_Scope",
@@ -147407,7 +147465,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Pistol Riven Mod",
     "drops": [
       {
@@ -150588,7 +150646,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Polar_Magazine",
@@ -159931,6 +159989,89 @@
     }
   },
   {
+    "uniqueName": "/Lotus/Upgrades/Mods/Archwing/Rifle/Expert/ArchwingWeaponFreezeDamageModExpert",
+    "name": "Primed Polar Magazine",
+    "levelStats": [
+      {
+        "stats": [
+          "+17% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+34% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+51% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+68% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+85% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+102% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+119% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+136% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+153% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+170% <DT_FREEZE_COLOR>Cold"
+        ]
+      },
+      {
+        "stats": [
+          "+187% <DT_FREEZE_COLOR>Cold"
+        ]
+      }
+    ],
+    "isPrime": true,
+    "tradable": true,
+    "transmutable": false,
+    "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Primed_Polar_Magazine",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/PrimedPolarMagazineMod.png?effdf",
+    "category": "Mods",
+    "rarity": "Legendary",
+    "polarity": "vazarin",
+    "baseDrain": 4,
+    "fusionLimit": 10,
+    "compatName": "Archgun",
+    "type": "Arch-Gun Mod",
+    "introduced": {
+      "name": "Hotfix 43.5.4",
+      "url": "https://wiki.warframe.com/w/Update_43%23Hotfix_43.5.4",
+      "aliases": [
+        "43.5.4"
+      ],
+      "parent": "43.0",
+      "date": "2026-08-19"
+    }
+  },
+  {
     "uniqueName": "/Lotus/Upgrades/Mods/Melee/Expert/WeaponMeleeDamageModExpert",
     "name": "Primed Pressure Point",
     "levelStats": [
@@ -163790,6 +163931,64 @@
     }
   },
   {
+    "uniqueName": "/Lotus/Upgrades/Mods/Pistol/Event/Nightwave/NightwaveLasGooPistolAugmentMod",
+    "name": "Prototype Shock Coils",
+    "levelStats": [
+      {
+        "stats": [
+          "Adds +15% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      },
+      {
+        "stats": [
+          "Adds +30% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      },
+      {
+        "stats": [
+          "Adds +45% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      },
+      {
+        "stats": [
+          "Adds +60% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      },
+      {
+        "stats": [
+          "Adds +75% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      },
+      {
+        "stats": [
+          "Adds +90% <DT_ELECTRICITY_COLOR>Electric damage, and shots have a 20% base chance to apply extra Electric status independent of modded damage types."
+        ]
+      }
+    ],
+    "isPrime": false,
+    "tradable": true,
+    "transmutable": false,
+    "masterable": false,
+    "wikiaUrl": "https://wiki.warframe.com/w/Prototype_Shock_Coils",
+    "category": "Mods",
+    "rarity": "Rare",
+    "polarity": "madurai",
+    "baseDrain": 2,
+    "fusionLimit": 5,
+    "compatName": "EFV-8 Mars",
+    "type": "Secondary Mod",
+    "introduced": {
+      "name": "Update 43.5",
+      "url": "https://wiki.warframe.com/w/Update_43%23Update_43.5",
+      "aliases": [
+        "43.5",
+        "Amir's Shockwave"
+      ],
+      "parent": "43.0",
+      "date": "2026-08-12"
+    }
+  },
+  {
     "uniqueName": "/Lotus/Upgrades/Mods/Warframe/AvatarGroundFireDmgMod",
     "name": "Provoked",
     "levelStats": [
@@ -164734,7 +164933,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Quasar_Drill",
@@ -165055,7 +165254,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Quick_Reload",
@@ -168392,6 +168591,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Rapid_Resilience",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RapidResilienceMod.png?fdc9b",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "vazarin",
@@ -169303,6 +169503,7 @@
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Ravage",
+    "wikiaThumbnail": "https://wiki.warframe.com/images/RavageMod.png?9d2e2",
     "category": "Mods",
     "rarity": "Rare",
     "polarity": "madurai",
@@ -181045,7 +181246,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Resolute_Focus",
@@ -184982,7 +185183,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Rifle Riven Mod",
     "drops": [
       {
@@ -186790,7 +186991,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Rubedo-Lined_Barrel",
@@ -190414,7 +190615,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Sabot_Rounds",
@@ -201545,7 +201746,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Shell_Rush",
@@ -207248,7 +207449,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Shotgun Riven Mod",
     "drops": [
       {
@@ -247109,7 +247310,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247122,7 +247323,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247135,7 +247336,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247148,7 +247349,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247161,7 +247362,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247174,7 +247375,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247187,7 +247388,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247200,7 +247401,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247213,7 +247414,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -247226,7 +247427,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Railjack Mod"
   },
   {
@@ -248947,7 +249148,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": true,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Venomous_Clip",
@@ -261733,7 +261934,7 @@
     "rarity": "Common",
     "polarity": "universal",
     "baseDrain": 2,
-    "fusionLimit": 515,
+    "fusionLimit": 434,
     "type": "Zaw Riven Mod",
     "drops": [
       {
@@ -261989,7 +262190,7 @@
       }
     ],
     "isPrime": false,
-    "tradable": false,
+    "tradable": true,
     "transmutable": false,
     "masterable": false,
     "wikiaUrl": "https://wiki.warframe.com/w/Zodiac_Shred",
